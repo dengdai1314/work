@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="按键测试"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/volume_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="音量+键"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/volume_down"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="音量-键"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/mute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mute键"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/wifi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WiFi键"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/button_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="按键测试已完成。\n测试通过请通过音量+键进入LCD测试。\n测试失败请通过音量-键进入LCD测试。"
+            android:visibility="gone"
+            android:textSize="18dp"
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:layout_marginTop="50dp"/>
+    </LinearLayout>
+
+    <include layout="@layout/activity_base" ></include>
+
+</LinearLayout>

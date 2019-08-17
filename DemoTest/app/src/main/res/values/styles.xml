@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //修改app背景颜色
+    //android:Theme.Holo.Light.NoActionBar.Fullscreen：不显示标题栏中的 android:icon="@drawable/ic_launcher"中的值和android:label="@string/app_name"
+    //android:windowBackground：设置activity 启动时背景图
+    //android:windowIsTranslucent:为Theme设置透明属性，避免黑色闪屏
+    <style name="UnityThemeSelector" parent="BaseUnityTheme">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+    <style name="BaseUnityTheme" parent="android:Theme.Holo.Light.NoActionBar.Fullscreen">
+    </style>
+    <style name="UnityThemeSelector.Translucent" parent="@style/UnityThemeSelector">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+</resources>

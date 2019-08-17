@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center">
+
+        <!--gravity 修改文字对齐方式-->
+        <!--<TextView-->
+          <!--android:id="@+id/text_view"-->
+          <!--android:text="This is a TextView"-->
+          <!--android:gravity="center"-->
+          <!--android:layout_width="match_parent"-->
+          <!--android:layout_height="match_parent"-->
+          <!--android:textSize="20dp"-->
+          <!--android:textColor="#123456"-->
+          <!--android:layout_marginTop="30dp"-->
+          <!--/>-->
+
+        <!--textallcaps=false禁用系统对Button中所有英文字母自动进行大小写转换-->
+        <!--<Button-->
+          <!--android:layout_width="100dp"-->
+          <!--android:layout_height="50dp"-->
+          <!--android:id="@+id/button_1"-->
+          <!--android:text="button 1"-->
+          <!--android:layout_marginTop="100dp"-->
+          <!--android:textAllCaps="false"-->
+          <!--/>-->
+
+        <!--<Button-->
+          <!--android:layout_width="100dp"-->
+          <!--android:layout_height="50dp"-->
+          <!--android:id="@+id/button_2"-->
+          <!--android:text="button 2"-->
+          <!--android:layout_marginTop="100dp"-->
+          <!--android:textAllCaps="false"-->
+          <!--/>-->
+
+        <!--
+        hint:提示性文本
+        maxlines:指定能够显示的最大行数为两行，输入超过后文本向上滚动
+        -->
+        <!--<EditText-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/edit_text"-->
+            <!--android:hint="请输入..."-->
+            <!--android:maxLines="2"-->
+            <!--/>-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/image_view"-->
+            <!--android:src="@drawable/img_1"-->
+            <!--/>-->
+
+        <!--style:改为水平进度条-->
+        <!--<ProgressBar-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/progress_bar"-->
+            <!--style="?android:attr/progressBarStyleHorizontal"-->
+            <!--android:max="10"-->
+            <!--/>-->
+
+</LinearLayout>

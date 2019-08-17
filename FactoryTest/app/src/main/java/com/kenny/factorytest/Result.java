@@ -12,7 +12,10 @@ package com.kenny.factorytest;
  */
 
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Result extends BaseActivity {
 //    String result_button;
@@ -37,26 +40,17 @@ public class Result extends BaseActivity {
     }
 
     public void initData(){
-//        result_button = sharedPreferences.getString("ButtonTest", "按键测试结果：失败");
-//        result_lcd = sharedPreferences.getString("LcdTest", "lCD测试结果：失败");
-//        result_camera = sharedPreferences.getString("CameraTest", "摄像头测试结果：失败");
-//        result_wifi = sharedPreferences.getString("WifiTest", "Wifi测试结果：失败");
-//        result_trumpet = sharedPreferences.getString("TrumpetTest","喇叭测试结果：失败");
-//        result_micro = "麦克风测试结果：";
-//        result_micro0 = sharedPreferences.getString("麦克风0","麦克风0：测试失败");
-//        result_micro1 = sharedPreferences.getString("麦克风1","麦克风1：测试失败");
-//        result_micro2 = sharedPreferences.getString("麦克风2","麦克风2：测试失败");
-//        result_micro3 = sharedPreferences.getString("麦克风3","麦克风3：测试失败");
-//        result_micro4 = sharedPreferences.getString("麦克风4","麦克风4：测试失败");
-//        result_micro5 = sharedPreferences.getString("麦克风5","麦克风5：测试失败");
-//        String[] data ={result_button,result_lcd,result_camera,result_wifi,result_trumpet,
-//                result_micro,result_micro0,result_micro1,result_micro2,result_micro3,result_micro4,result_micro5};
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Result.this,android.R.layout.simple_list_item_1,data);
-//        ListView listView = findViewById(R.id.resultList);
-//        listView.setAdapter(adapter);
-        Log.e(TAG,products.toString());
-        saveFile();
-
+        saveFile();//保存文件
+        List<ResultJson> result = readJson();//读取json文件
+        List<ResultJson> showResult = new ArrayList<ResultJson>();
+        for(ResultJson show : result){
+            if(!show.getResult().contains("测试")){
+                showResult.add(show);
+            }
+        }
+        ListView list = findViewById(R.id.resultList);
+        ResultAdapter adapter = new ResultAdapter((ArrayList<ResultJson>) showResult,Result.this);
+        list.setAdapter(adapter);
     }
 
 //    @Override

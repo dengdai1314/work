@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-            saveJson();
+//            saveJson();
         }else {
             Toast.makeText(this,"拒绝权限，将无法使用程序。", Toast.LENGTH_SHORT).show();
             finish();
@@ -93,19 +93,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //json数据
             ArrayList<Product> products = new ArrayList<Product>();
             products.add(new Product("1", "2"));
-            //创建JsonWrite对象
-//            JsonWriter writer = new JsonWriter(new OutputStreamWriter(fos, "utf-8"));
-//            writer.setIndent("    ");
-//            writer.beginArray();
-//            for (Product product : products) {
-//                writer.beginObject();
-//                writer.name("name").value(product.getName());
-//                writer.name("result").value(product.getResult());
-//                writer.endObject();
-//            }
-//            writer.endArray();
-//            Log.e(String.valueOf(MainActivity.this),"保存成功");
-//            writer.close();
+//            创建JsonWrite对象
+            JsonWriter writer = new JsonWriter(new OutputStreamWriter(fos, "utf-8"));
+            writer.setIndent("    ");
+            writer.beginArray();
+            for (Product product : products) {
+                writer.beginObject();
+                writer.name("name").value(product.getName());
+                writer.name("result").value(product.getResult());
+                writer.endObject();
+            }
+            writer.endArray();
+            Log.e(String.valueOf(MainActivity.this),"保存成功");
+            writer.close();
         }catch (IOException e) {
             e.printStackTrace();
         }

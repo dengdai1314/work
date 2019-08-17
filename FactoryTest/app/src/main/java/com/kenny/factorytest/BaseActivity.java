@@ -17,16 +17,20 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.JsonReader;
 import android.util.JsonWriter;
 import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,12 +38,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 public class BaseActivity extends AppCompatActivity {
-//  SharedPreferences sharedPreferences;
+
     File jsonFile;
     File sdCardDir;
-    private int PERMISSION_REQUEST_CODE=0;
-    FileOutputStream fos;
-    public static ArrayList<ResultJson> products = new ArrayList<ResultJson>();
+    private int PERMISSION_REQUEST_CODE=0;//请求权限码
+    public static List<ResultJson> saveProducts = new ArrayList<ResultJson>();//设置为静态，用于其余activity使用
+    List<ResultJson> readProduct;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -48,14 +53,16 @@ public class BaseActivity extends AppCompatActivity {
             if (getSupportActionBar() != null) {
                 getSupportActionBar().hide();
             }
-//   sharedPreferences = getSharedPreferences("result", MODE_PRIVATE);
-           check();
+
+            onCheckPermission();
+            sdCardDir= Environment.getExternalStorageDirectory();//获取sdcard目录路径
+            jsonFile=new File(sdCardDir+"/result.json");//设置json文件路径
         }
 
         /**
          * 请求权限
          */
-        public void check(){
+        public void onCheckPermission(){
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
             } else {
@@ -91,10 +98,11 @@ public class BaseActivity extends AppCompatActivity {
 
         /**
          * 保存测试结果为json数据
+         * activity调用，最后ResultActivity时写入json数据到文件中，后读取文件，输出到页面中
          */
         public void saveJson(String name, String result) {
             //json数据
-            products.add(new ResultJson(name, result));
+            saveProducts.add(new ResultJson(name, result));//存储json数据到list中
         }
 
         /**
@@ -103,13 +111,11 @@ public class BaseActivity extends AppCompatActivity {
         public void saveFile(){
             //创建JsonWrite对象
             try{
-                sdCardDir= Environment.getExternalStorageDirectory();
-                jsonFile=new File(sdCardDir+"/result.json");
-                fos = new FileOutputStream(jsonFile);
+                FileOutputStream fos = new FileOutputStream(jsonFile);
                 JsonWriter writer = new JsonWriter(new OutputStreamWriter(fos, "utf-8"));
                 writer.setIndent("    ");
                 writer.beginArray();
-                for (ResultJson product : products) {
+                for (ResultJson product : saveProducts) {
                     writer.beginObject();
                     writer.name("name").value(product.getName());
                     writer.name("result").value(product.getResult());
@@ -123,6 +129,44 @@ public class BaseActivity extends AppCompatActivity {
             }
         }
 
+        /**
+         * json文件读取
+         */
+        public List<ResultJson> readJson(){
+            try {
+                readProduct = new ArrayList<ResultJson>();
+                FileInputStream fis = new FileInputStream(jsonFile);
+                JsonReader reader = new JsonReader(new InputStreamReader(fis, "utf-8"));
+                reader.beginArray();
+                while (reader.hasNext()){
+                    String name = "";
+                    String result = "";
+                    reader.beginObject();
+                    while (reader.hasNext()){
+                        String field = reader.nextName();
+                        if(field.equals("name")){
+                            name = reader.nextString();
+                        }else if (field.equals("result")){
+                            result = reader.nextString();
+                        }else {
+                            reader.skipValue();
+                        }
+                    }
+                    reader.endObject();
+                    readProduct.add(new ResultJson(name,result));
+                }
+                reader.endArray();
+                reader.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Toast.makeText(BaseActivity.this,readProduct.toString(),Toast.LENGTH_SHORT).show();
+            return readProduct;
+        }
+
+//        SharedPreferences sharedPreferences;
+//        sharedPreferences = getSharedPreferences("result", MODE_PRIVATE);
 //        /**
 //         * 保存测试结果(sharedpreferences)
 //         * @param key
@@ -136,7 +180,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
 //        /**
-//         * 保存测试结果
+//         * 文件保存结果
 //         * @param key
 //         * @param value
 //         */

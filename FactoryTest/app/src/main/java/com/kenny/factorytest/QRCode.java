@@ -75,13 +75,13 @@ public class QRCode extends BaseActivity implements View.OnClickListener {
             case R.id.key_volume_up:
                 if(flag!=0){
                     skip(QRCode.this,WifiScan.class);
-                    saveJson("Camera测试","成功");
+                    saveJson("摄像头测试","成功");
                 }
                 break;
             case R.id.key_volume_down:
                 if(flag!=0){
                     skip(QRCode.this,WifiScan.class);
-                    saveJson("Camera测试","失败");
+                    saveJson("摄像头测试","失败");
                 }
                 break;
             default:

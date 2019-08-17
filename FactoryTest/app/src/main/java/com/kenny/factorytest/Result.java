@@ -53,15 +53,4 @@ public class Result extends BaseActivity {
         list.setAdapter(adapter);
     }
 
-//    @Override
-//    protected void onDestroy() {
-//        super.onDestroy();
-//        活动完成后，清空数据
-//        File sdcardRoot=Environment.getExternalStorageDirectory();//获取sdcard目录路径
-//        SharedPreferences settings = this.getSharedPreferences("result", 0);
-//        SharedPreferences.Editor localEditor =settings.edit();
-//        localEditor.clear().commit();
-//        Log.e(TAG,"测试结果已清空");
-//        Toast.makeText(Result.this,"数据已清空",Toast.LENGTH_SHORT).show();
-//    }
 }

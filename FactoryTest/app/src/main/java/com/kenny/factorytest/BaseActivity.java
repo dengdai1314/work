@@ -38,9 +38,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 public class BaseActivity extends AppCompatActivity {
-
-    File jsonFile;
     File sdCardDir;
+    File jsonFile;
     private int PERMISSION_REQUEST_CODE=0;//请求权限码
     public static List<ResultJson> saveProducts = new ArrayList<ResultJson>();//设置为静态，用于其余activity使用
     List<ResultJson> readProduct;
@@ -161,7 +160,7 @@ public class BaseActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Toast.makeText(BaseActivity.this,readProduct.toString(),Toast.LENGTH_SHORT).show();
+//            Toast.makeText(BaseActivity.this,readProduct.toString(),Toast.LENGTH_SHORT).show();
             return readProduct;
         }
 

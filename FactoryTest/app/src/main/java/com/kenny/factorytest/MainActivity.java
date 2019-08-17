@@ -155,7 +155,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     break;
             }
             //跳转活动
-            skip(MainActivity.this,Result.class);
+            skip(MainActivity.this,LcdTestFirst.class);
         }
     }
 }

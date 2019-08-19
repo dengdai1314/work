@@ -41,8 +41,8 @@ public class BaseActivity extends AppCompatActivity {
     File sdCardDir;
     File jsonFile;
     private int PERMISSION_REQUEST_CODE=0;//请求权限码
-    public static List<ResultJson> saveProducts = new ArrayList<ResultJson>();//设置为静态，用于其余activity使用
-    List<ResultJson> readProduct;
+    public static List<ResultJson> saveProducts = new ArrayList<ResultJson>();//设置为静态，用于其余activity保存json数据使用
+    List<ResultJson> readProducts;//读取数据存储到list
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +53,13 @@ public class BaseActivity extends AppCompatActivity {
                 getSupportActionBar().hide();
             }
 
-            onCheckPermission();
+            onCheckPermission();//请求权限
             sdCardDir= Environment.getExternalStorageDirectory();//获取sdcard目录路径
-            jsonFile=new File(sdCardDir+"/result.json");//设置json文件路径
+            jsonFile=new File(sdCardDir+"/result.json");//设置json文件路径，存储json数据
         }
 
         /**
-         * 请求权限
+         * 请求内存卡读写权限
          */
         public void onCheckPermission(){
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -107,7 +107,7 @@ public class BaseActivity extends AppCompatActivity {
         /**
          * 写入json数据到文件中
          */
-        public void saveFile(){
+        public void saveJsonFile(){
             //创建JsonWrite对象
             try{
                 FileOutputStream fos = new FileOutputStream(jsonFile);
@@ -133,7 +133,7 @@ public class BaseActivity extends AppCompatActivity {
          */
         public List<ResultJson> readJson(){
             try {
-                readProduct = new ArrayList<ResultJson>();
+                readProducts = new ArrayList<ResultJson>();
                 FileInputStream fis = new FileInputStream(jsonFile);
                 JsonReader reader = new JsonReader(new InputStreamReader(fis, "utf-8"));
                 reader.beginArray();
@@ -152,7 +152,7 @@ public class BaseActivity extends AppCompatActivity {
                         }
                     }
                     reader.endObject();
-                    readProduct.add(new ResultJson(name,result));
+                    readProducts.add(new ResultJson(name,result));
                 }
                 reader.endArray();
                 reader.close();
@@ -161,7 +161,7 @@ public class BaseActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 //            Toast.makeText(BaseActivity.this,readProduct.toString(),Toast.LENGTH_SHORT).show();
-            return readProduct;
+            return readProducts;
         }
 
 //        SharedPreferences sharedPreferences;

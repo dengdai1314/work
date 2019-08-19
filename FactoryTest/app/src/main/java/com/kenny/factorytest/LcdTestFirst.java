@@ -25,7 +25,7 @@ import androidx.annotation.NonNull;
 
 public class LcdTestFirst extends BaseActivity implements View.OnClickListener{
 
-    String TAG = LcdTestFirst.class.getSimpleName();
+    private static String TAG = LcdTestFirst.class.getSimpleName();
     LinearLayout lcdHome;
     LinearLayout lcdTest;
     LinearLayout lcdResult;

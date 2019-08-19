@@ -30,7 +30,7 @@ public class Result extends BaseActivity {
     }
 
     public void initData(){
-        saveFile();//保存文件
+        saveJsonFile();//保存文件
         List<ResultJson> result = readJson();//读取json文件
         List<ResultJson> showResult = new ArrayList<ResultJson>();
         for(ResultJson show : result){

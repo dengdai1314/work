@@ -38,26 +38,26 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
+//IWakeListenter 讯飞接入使用
 public class MicroPhone extends BaseActivity implements View.OnClickListener,IWakeListener {
-    TextView micro_result;
-    Button micro_up;
-    Button micro_down;
-    String resPath = "xiaoouxiaoou.jet";//原assets文件夹文件
-    String targetDir = getSDPath() + "/AIUI/ivw60/";//迁移文件到对应的目标文件夹
-    String mResPath = getSDPath() + "/AIUI/ivw60/xiaoouxiaoou.jet";
-    private IflytekEngineManager iflytekEngineManager;
     public static final String TAG = MicroPhone.class.getSimpleName();
+    TextView micro_result;                                              //麦克风结果项
+    Button micro_up;                                                    //按钮+
+    Button micro_down;                                                  //按钮-
+    String resPath = "xiaoouxiaoou.jet";                                //原文件
+    String targetDir = getSDPath() + "/AIUI/ivw60/";                    //迁移原文件到对应的目标文件夹
+    String mResPath = getSDPath() + "/AIUI/ivw60/xiaoouxiaoou.jet";     //目标文件
+    private IflytekEngineManager iflytekEngineManager;                  //实例化
 
-    private int currentPosition =1;//当前位置
-    private String angle ;//麦克风监听角度
-    private String beam ;//当前麦克风
+    private int currentPosition =1;                                     //当前item position
+    private String angle ;                                              //麦克风监听角度
+    private String beam ;                                               //当前麦克风
 
     //请求权限
-    private int PERMISSION_REQUEST_CODE=0;
-    private String[] NEEDED_PERMISSIONS = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
+    private int PERMISSION_REQUEST_CODE=0;                              //请求权限码
+    private String[] NEEDED_PERMISSIONS = {Manifest.permission.WRITE_EXTERNAL_STORAGE,  //权限组
             Manifest.permission.RECORD_AUDIO};
-    Boolean mHasPermission = false;
+    Boolean mHasPermission = false;                                     //是否请求权限
     //adapter
     List<Micro> microdata;
     private Context microContext;
@@ -132,7 +132,7 @@ public class MicroPhone extends BaseActivity implements View.OnClickListener,IWa
      */
     private boolean checkPermission() {
         for(String permission:NEEDED_PERMISSIONS){
-            if (ContextCompat.checkSelfPermission(MicroPhone.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(MicroPhone.this, permission) != PackageManager.PERMISSION_GRANTED) {
                 return false;
             }
         }

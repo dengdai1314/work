@@ -1,5 +1,15 @@
 package com.kenny.factorytest;
-
+/*
+ *
+ * File: MicroAdapter.java
+ * Author: 29003
+ * Create: 2019/8/19 11:05
+ * Changes (from 2019/8/19)
+ * -----------------------------------------------------------------
+ * 2019/8/19 : Create MicroAdapter.java (29003);
+ * -----------------------------------------------------------------
+ * description:Micro Listview Adapter
+ */
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;

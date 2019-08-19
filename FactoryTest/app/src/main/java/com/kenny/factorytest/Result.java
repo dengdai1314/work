@@ -12,24 +12,14 @@ package com.kenny.factorytest;
  */
 
 import android.os.Bundle;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 public class Result extends BaseActivity {
-//    String result_button;
-//    String result_lcd;
-//    String result_camera;
-//    String result_wifi;
-//    String result_trumpet;
-//    String result_micro;
-//    String result_micro0;
-//    String result_micro1;
-//    String result_micro2;
-//    String result_micro3;
-//    String result_micro4;
-//    String result_micro5;
     private static final String TAG = Result.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +38,13 @@ public class Result extends BaseActivity {
                 showResult.add(show);
             }
         }
-        ListView list = findViewById(R.id.resultList);
-        ResultAdapter adapter = new ResultAdapter((ArrayList<ResultJson>) showResult,Result.this);
-        list.setAdapter(adapter);
+        //listview
+//    ListView list = findViewById(R.id.resultList);
+//    ResultAdapter adapter = new ResultAdapter((ArrayList<ResultJson>) showResult,Result.this);
+//    list.setAdapter(adapter);
+        //recycleview
+    RecyclerView rv = findViewById(R.id.recycler_view);
+    rv.setLayoutManager(new LinearLayoutManager(this));
+    rv.setAdapter(new resultRecyclerAdapter(showResult));
     }
-
 }

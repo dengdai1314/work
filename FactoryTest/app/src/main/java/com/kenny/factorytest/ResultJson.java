@@ -1,5 +1,15 @@
 package com.kenny.factorytest;
-
+/*
+ *
+ * File: ResultJson.java
+ * Author: 29003
+ * Create: 2019/8/19 11:06
+ * Changes (from 2019/8/19)
+ * -----------------------------------------------------------------
+ * 2019/8/19 : Create ResultJson.java (29003);
+ * -----------------------------------------------------------------
+ * description:ResultJson 实例
+ */
 /**
  * @author 29003
  * @description

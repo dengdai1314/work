@@ -1,5 +1,15 @@
 package com.kenny.factorytest;
-
+/*
+ *
+ * File: ResultAdapter.java
+ * Author: 29003
+ * Create: 2019/8/19 11:01
+ * Changes (from 2019/8/19)
+ * -----------------------------------------------------------------
+ * 2019/8/19 : Create ResultAdapter.java (29003);
+ * -----------------------------------------------------------------
+ * description:Result Listview Adapter
+ */
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;

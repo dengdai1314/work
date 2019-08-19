@@ -1,5 +1,15 @@
 package com.kenny.factorytest;
-
+/*
+ *
+ * File: Micro.java
+ * Author: 29003
+ * Create: 2019/8/19 11:04
+ * Changes (from 2019/8/19)
+ * -----------------------------------------------------------------
+ * 2019/8/19 : Create Micro.java (29003);
+ * -----------------------------------------------------------------
+ * description:Micro实例
+ */
 /**
  * @author 29003
  * @description

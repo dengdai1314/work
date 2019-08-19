@@ -1,5 +1,16 @@
 package com.kenny.factorytest;
-
+/*
+ *
+ * File: resultRecyclerAdapter.java
+ * Author: 29003
+ * Create: 2019/8/19 11:02
+ * Changes (from 2019/8/19)
+ * -----------------------------------------------------------------
+ * 2019/8/19 : Create resultRecyclerAdapter.java (29003);
+ * -----------------------------------------------------------------
+ * description:Recyclerview Adapter
+ */
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +45,7 @@ public class resultRecyclerAdapter extends RecyclerView.Adapter<resultRecyclerAd
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.result_list,parent,false);
+                .inflate(R.layout.result_list,null,false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -42,7 +53,12 @@ public class resultRecyclerAdapter extends RecyclerView.Adapter<resultRecyclerAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ResultJson adapter = mResultJson.get(position);
-        holder.name.setText(adapter.getName());
+        holder.name.setText(adapter.getName()+":  ");
+        if (mResultJson.get(position).getResult().contains("成功")){
+            holder.name.setTextColor(Color.RED);
+        } else{
+            holder.name.setTextColor(Color.GREEN);
+        }
         holder.result.setText(adapter.getResult());
     }
 

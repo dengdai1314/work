@@ -1,19 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="按键测试"
+            android:textSize="25dp"
+            android:gravity="center"
+            android:layout_marginBottom="30dp"
+            android:textColor="#000"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/main_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="音量+键"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/main_down"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="音量-键"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/main_mute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mute键"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/main_wifi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WiFi键"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/main_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="按键测试已完成。\n测试通过请通过音量+键进入LCD测试。\n测试失败请通过音量-键进入LCD测试。"
+            android:visibility="gone"
+            android:textSize="18dp"
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:layout_marginTop="50dp"/>
+    </LinearLayout>
+    <include layout="@layout/activity_base" ></include>
+
+</LinearLayout>

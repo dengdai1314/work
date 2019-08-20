@@ -1,5 +1,15 @@
 package com.kenny.rewritefactorytest;
-
+/*
+ *
+ * File: MainActivity.java
+ * Author: 29003
+ * Create: 2019/8/20 15:02
+ * Changes (from 2019/8/20)
+ * -----------------------------------------------------------------
+ * 2019/8/20 : Create MainActivity.java (29003);
+ * -----------------------------------------------------------------
+ * description:按键测试
+ */
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,10 +38,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //实例化只能在oncreate里，请记住了
-        ButtonMute = (Button) findViewById(R.id.key_mute);
-        ButtonUp = (Button) findViewById(R.id.key_up);
-        ButtonDown = (Button) findViewById(R.id.key_down);
-        ButtonWifi = (Button) findViewById(R.id.key_wifi);
+        ButtonMute = findViewById(R.id.key_mute);
+        ButtonUp = findViewById(R.id.key_up);
+        ButtonDown = findViewById(R.id.key_down);
+        ButtonWifi = findViewById(R.id.key_wifi);
         MuteText = findViewById(R.id.main_mute);
         UpText = findViewById(R.id.main_up);
         DownText = findViewById(R.id.main_down);
@@ -42,6 +52,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         ButtonUp.setOnClickListener(this);
         ButtonDown.setOnClickListener(this);
         ButtonWifi.setOnClickListener(this);
+        initPermission();       //调用BaseActivity初始化权限
     }
 
     /**
@@ -103,7 +114,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * 判断按键是否全部按下，如果按下，显示测试提示
      * @return
      */
-    public boolean isalldown(){
+    private boolean isalldown(){
         if(isMute == true&&isDown == true&&isUp == true&&isWifi == true){
             MainHint.setVisibility(View.VISIBLE);            //显示测试完成提示
             isDown=false;
@@ -121,7 +132,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * 根据按键+/-判断测试结果并保存，随后跳转lcd测试
      * @param key
      */
-    public void skip(String key){
+    private void skip(String key){
         if (isalldown()){
             switch (key){
                 case "+":
@@ -132,7 +143,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     break;
             }
             //跳转活动
-//            skip(MainActivity.this,LcdTestFirst.class);
+            skip(MainActivity.this,LcdActivity.class);
         }
     }
 }

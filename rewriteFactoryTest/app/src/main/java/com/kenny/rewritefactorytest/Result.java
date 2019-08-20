@@ -16,8 +16,8 @@ package com.kenny.rewritefactorytest;
  * @date 2019/8/19
  */
 public class Result {
-    private String name;
-    private String result;
+    private String name;                              //结果名
+    private String result;                            //结果：成功/失败
     public  Result(String name,String result){
         this.name = name;
         this.result = result;

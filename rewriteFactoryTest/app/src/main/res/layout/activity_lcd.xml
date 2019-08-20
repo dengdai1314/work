@@ -8,15 +8,14 @@
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:orientation="vertical"
-                  android:gravity="center"
-                  android:visibility="visible">
+                  android:visibility="visible"
+                  android:gravity="center">
         <TextView
             android:text="进入LCD 测试项"
             android:textSize="20dp"
             android:textColor="#000"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout android:id="@+id/lcd_test"
@@ -34,20 +33,13 @@
     <LinearLayout android:id="@+id/lcd_result"
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
-                  android:visibility="gone"
-                  android:orientation="vertical">
+                  android:orientation="vertical"
+                  android:visibility="gone">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/result_lcd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:textSize="25dp"
-                android:gravity="center"/>
             <TextView
                 android:id="@+id/lcd_hint"
                 android:layout_width="match_parent"

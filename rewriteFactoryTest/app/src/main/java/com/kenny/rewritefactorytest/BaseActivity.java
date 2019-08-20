@@ -57,7 +57,7 @@ public class BaseActivity extends AppCompatActivity {
     boolean mHasPermission = true;                                      //是否请求权限
     boolean hasAllPermission = true;                                    //是否已申请全部权限
     private int PERMISSION_REQUEST_CODE=0;                              //请求权限码
-    public static List<Result> saveData = new ArrayList<Result>();      //设置为静态，用于其余activity保存json数据使用
+    public static List<Result> saveData = new ArrayList<Result>();           //设置为静态，用于其余activity保存json数据使用
     public static List<Result> readData = new ArrayList<Result>();
 
     @Override
@@ -69,7 +69,7 @@ public class BaseActivity extends AppCompatActivity {
             getSupportActionBar().hide();
         }
         sdCardDir= Environment.getExternalStorageDirectory();           //获取sdcard目录路径
-        jsonFile = new File(sdCardDir+"/result.json");          //设置json文件路径，存储json数据
+        jsonFile = new File(sdCardDir+"/result.json");        //设置json文件路径，存储json数据
         initPermission();                                               //初始化权限
     }
 
@@ -155,7 +155,7 @@ public class BaseActivity extends AppCompatActivity {
             JsonWriter writer = new JsonWriter(new OutputStreamWriter(fos, "utf-8"));
             writer.setIndent("    ");
             writer.beginArray();
-            for (Result product : saveData) {    //遍历json数据
+            for (Result product : saveData) {     //遍历json数据
                 writer.beginObject();
                 writer.name("name").value(product.getName());
                 writer.name("result").value(product.getResult());

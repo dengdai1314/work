@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+
 public class WifiActivity extends BaseActivity implements View.OnClickListener {
     private WifiManager wifiManager;
     List<ScanResult> wifilist;                          //存储wifi扫描结果

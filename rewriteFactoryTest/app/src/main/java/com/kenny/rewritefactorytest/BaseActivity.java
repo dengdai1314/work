@@ -21,6 +21,7 @@ import android.util.JsonReader;
 import android.util.JsonWriter;
 import android.util.Log;
 import android.view.Window;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -68,9 +69,13 @@ public class BaseActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        sdCardDir= Environment.getExternalStorageDirectory();           //获取sdcard目录路径
-        jsonFile = new File(sdCardDir+"/result.json");        //设置json文件路径，存储json数据
-        initPermission();                                               //初始化权限
+        if (Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)){
+            sdCardDir= Environment.getExternalStorageDirectory();           //获取sdcard目录路径
+            jsonFile = new File(sdCardDir+"/result.json");        //设置json文件路径，存储json数据
+            initPermission();                                               //初始化权限
+        }else{
+            Toast.makeText(BaseActivity.this,"无SDCard,无法进行后续操作",Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
@@ -90,7 +95,7 @@ public class BaseActivity extends AppCompatActivity {
      * @return
      */
     public boolean checkPermission(){
-        for(String permission : NEEDED_PERMISSIONS){
+        for(String permission : NEEDED_PERMISSIONS){                             //遍历权限组，查看当前权限是否已赋予
             if(ContextCompat.checkSelfPermission(this,permission) != PackageManager.PERMISSION_GRANTED) {
                 return false;
             }

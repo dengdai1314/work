@@ -113,7 +113,7 @@ public class TrumpetActivity extends BaseActivity implements View.OnClickListene
      * 跳转活动
      */
     private void skip(){
-        Intent intent_result = new Intent(TrumpetActivity.this,LcdActivity.class);
+        Intent intent_result = new Intent(TrumpetActivity.this,MicroActivity.class);
         startActivity(intent_result);
         finish();
     }

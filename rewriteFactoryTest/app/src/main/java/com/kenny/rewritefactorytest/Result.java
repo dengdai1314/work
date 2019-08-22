@@ -16,14 +16,14 @@ package com.kenny.rewritefactorytest;
  * @date 2019/8/19
  */
 public class Result {
-    private String name;                              //结果名
-    private String result;                            //结果：成功/失败
-    public  Result(String name,String result){
-        this.name = name;
+    private String result_name;                              //结果名
+    private String result;                                   //结果：成功/失败
+    public  Result(String resultname,String result){
+        this.result_name = resultname;
         this.result = result;
     }
-    public String getName(){return name;}
+    public String getName(){return result_name;}
     public String getResult(){return result;}
-    public void setName(String name){this.name=name;}
+    public void setName(String resultname){this.result_name=resultname;}
     public void setResult(String result){this.result=result;}
 }

@@ -41,7 +41,7 @@ public class ResultAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int postion) {
-        return null;
+        return postion;
     }
 
     @Override
@@ -51,7 +51,6 @@ public class ResultAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ArrayList<ResultJson> showResult = new ArrayList<ResultJson>();
         ViewHolder holder = null;
         if(convertView == null){
             convertView = LayoutInflater.from(mContext).inflate(R.layout.result_list,parent,false);

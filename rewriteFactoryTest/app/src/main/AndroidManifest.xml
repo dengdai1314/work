@@ -19,6 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ResultRecycleActivity">
+        </activity>
+        <activity android:name=".ResultActivity">
+        </activity>
+        <activity android:name=".MicroActivity">
+        </activity>
         <activity android:name=".TrumpetActivity">
         </activity>
         <activity android:name=".WifiActivity">

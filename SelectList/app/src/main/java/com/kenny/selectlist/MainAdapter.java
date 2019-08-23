@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -21,15 +22,12 @@ import androidx.appcompat.widget.AppCompatCheckBox;
  * @date 2019/8/22
  */
 public class MainAdapter extends BaseAdapter {
-    private static final int type_singul = 1;
-    private static final int type_even = 2;
-    HashMap<Integer,View> lmap = new HashMap<Integer, View>();
+    HashMap<Integer,View> lmap = new HashMap<Integer, View>();//用于解决列表重复选中
     List<Main> data;
-    ViewHolder1 holder1 ;
-    ViewHolder2 holder2;
+    ViewHolder holder ;
     Context mContext;
     LayoutInflater resultinflater;
-    private boolean isShowCheckBox = false;//表示当前是否是多选状态。
+    private boolean isShowCheckBox = false;                   //表示当前是否是多选状态。
     private SparseBooleanArray stateCheckedMap = new SparseBooleanArray();//用来存放CheckBox的选中状态，true为选中,false为没有选中
 
     public MainAdapter(List<Main> resultList, Context mContext, SparseBooleanArray stateCheckedMap){
@@ -54,97 +52,59 @@ public class MainAdapter extends BaseAdapter {
         return position;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if(position%2 == 0){
-            return type_even;
-        }else if(position%2 != 0){
-            return type_singul;
-        }else{
-            return super.getItemViewType(position);
-        }
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return 2;
-    }
-
     @SuppressLint("WrongViewCast")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View viewItem1 = null;
-        View viewItem2 = null;
-        int type = getItemViewType(position);
         if(lmap.get(position) == null){
-            switch (type){
-                case type_singul:
-                    viewItem1 = resultinflater.inflate(R.layout.result_list,parent,false);
-                    holder1 = new ViewHolder1();
-                    holder1.mTvData = convertView.findViewById(R.id.result_name);
-                    lmap.put(position,convertView);
-                    convertView.setTag(holder1);
-                    break;
-                case  type_even:
-                    viewItem2 = resultinflater.inflate(R.layout.image_list,parent,false);
-                    holder2 = new ViewHolder2();
-                    holder2.image = convertView.findViewById(R.id.image_2);
-                    holder2.title = convertView.findViewById(R.id.title_2);
-                    holder2.describe = convertView.findViewById(R.id.describe);
-                    lmap.put(position,convertView);
-                    convertView.setTag(holder1);
-                    break;
-            }
+            convertView = resultinflater.inflate(R.layout.main_list,parent,false);
+            holder = new ViewHolder();
+            holder.checkBox =  convertView.findViewById(R.id.chb_select_way_point);
+            holder.result_image = convertView.findViewById(R.id.result_image);
+            holder.mTvData = convertView.findViewById(R.id.result_name);
+            holder.result_describe = convertView.findViewById(R.id.result_discribe);
+            holder.result_name2 = convertView.findViewById(R.id.result_name2);
+            holder.line1 = convertView.findViewById(R.id.line1);
+            holder.line2 = convertView.findViewById(R.id.line2);
+            lmap.put(position,convertView);
+            convertView.setTag(holder);
         }else {
-            switch (type){
-                case type_singul:
-                    convertView = lmap.get(position);
-                    holder1 = (ViewHolder1) convertView.getTag();
-                    break;
-                case type_even:
-                    convertView = lmap.get(position);
-                    holder2 = (ViewHolder2) convertView.getTag();
-            }
-        }
-        Object obj = data.get(position);
-        switch (type){
-            case type_singul:
-                Main main = (Main) obj;
-                if (main != null){
-                    holder1.checkBox.setChecked(stateCheckedMap.get(position));
-                    holder1.mTvData.setText(main.getName());
-                }
-                break;
-            case type_even:
-                Even even = (Even) obj;
-                if(even != null){
-                    holder2.checkBox.setChecked(stateCheckedMap.get(position));
-                    holder2.image.setImageResource(even.getImage());
-                    holder2.title.setText(even.getImage());
-                    holder2.describe.setText(even.getDescribe());
-                }
-                break;
+            convertView = lmap.get(position);
+            holder = (ViewHolder) convertView.getTag();
         }
         showAndHideCheckBox();//控制CheckBox的那个的框显示与隐藏
+        if(position%2 ==0){
+            holder.line1.setVisibility(View.VISIBLE);
+            holder.line2.setVisibility(View.GONE);
+            holder.mTvData.setText(data.get(position).getName());
+            holder.result_image.setImageResource(data.get(position).getImage());
+            holder.result_describe.setText(data.get(position).getResult_describe());
+        }else {
+            holder.line1.setVisibility(View.GONE);
+            holder.line2.setVisibility(View.VISIBLE);
+            holder.result_name2.setText(data.get(position).getName());
+        }
+//        holder.mTvData.setText(data.get(position).getName());
+//        holder.result_image.setImageResource(data.get(position).getImage());
+//        holder.result_describe.setText(data.get(position).getResult_describe());
+        holder.checkBox.setChecked(stateCheckedMap.get(position));//设置CheckBox是否选中//如未设置，取消后复选框保持选中状态
         return convertView;
     }
 
-    public class ViewHolder1{
+    public class ViewHolder{
         AppCompatCheckBox checkBox;
+        ImageView result_image;
         TextView mTvData;
-    }
-    public class ViewHolder2{
-        AppCompatCheckBox checkBox;
-        ImageView image;
-        TextView title;
-        TextView describe;
+        TextView result_describe;
+        TextView result_name2;
+        LinearLayout line1;
+        LinearLayout line2;
     }
 
     private void showAndHideCheckBox() {
         if (isShowCheckBox) {
-            holder1.checkBox.setVisibility(View.VISIBLE);
+            holder.checkBox.setVisibility(View.VISIBLE);
         } else {
-            holder1.checkBox.setVisibility(View.GONE);
+            holder.checkBox.setVisibility(View.GONE);
         }
     }
 

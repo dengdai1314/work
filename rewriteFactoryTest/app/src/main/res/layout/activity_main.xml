@@ -20,6 +20,15 @@
             android:textColor="#000"/>
 
         <TextView
+            android:id="@+id/main_mute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mute键"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#000"/>
+
+        <TextView
             android:id="@+id/main_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,15 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="音量-键"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:textColor="#000"/>
-
-        <TextView
-            android:id="@+id/main_mute"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mute键"
             android:textSize="20dp"
             android:gravity="center"
             android:textColor="#000"/>

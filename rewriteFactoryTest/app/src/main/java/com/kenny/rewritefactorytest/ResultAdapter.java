@@ -58,8 +58,8 @@ public class ResultAdapter extends BaseAdapter {
         if(convertView == null){
             view = resultinflater.inflate(R.layout.result_list,parent,false);
             viewHolder = new ViewHolder();
-            viewHolder.result_name = convertView.findViewById(R.id.result_name);
-            viewHolder.result = convertView.findViewById(R.id.result);
+            viewHolder.result_name = view.findViewById(R.id.result_name);
+            viewHolder.result = view.findViewById(R.id.result);
             view.setTag(viewHolder);
         }else {
             view = convertView;

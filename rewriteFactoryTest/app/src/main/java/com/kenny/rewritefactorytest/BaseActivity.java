@@ -46,6 +46,8 @@ import androidx.core.content.ContextCompat;
 public class BaseActivity extends AppCompatActivity {
     File sdCardDir;
     File jsonFile;
+
+    //权限组
     public String[] NEEDED_PERMISSIONS = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,   //允许程序写入外部存储
             Manifest.permission.RECORD_AUDIO,             //允许程序录制声音通过手机或耳机的麦克
@@ -59,7 +61,7 @@ public class BaseActivity extends AppCompatActivity {
     boolean hasAllPermission = true;                                    //是否已申请全部权限
     private int PERMISSION_REQUEST_CODE=0;                              //请求权限码
     public static List<Result> saveData = new ArrayList<Result>();           //设置为静态，用于其余activity保存json数据使用
-    public static List<Result> readData = new ArrayList<Result>();
+    public static List<Result> readData = new ArrayList<Result>();           //读取文件的数据
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,7 +71,7 @@ public class BaseActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
-        if (Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)){
+        if (Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)){//判断是否存在内存卡
             sdCardDir= Environment.getExternalStorageDirectory();           //获取sdcard目录路径
             jsonFile = new File(sdCardDir+"/result.json");        //设置json文件路径，存储json数据
             initPermission();                                               //初始化权限
@@ -139,7 +141,7 @@ public class BaseActivity extends AppCompatActivity {
     public void skip(Context oldactivity, Class newactivity) {
         Intent intent = new Intent(oldactivity, newactivity);
         startActivity(intent);
-        finish();
+        finish();//跳转后关闭原活动
     }
 
     /**
@@ -155,18 +157,18 @@ public class BaseActivity extends AppCompatActivity {
      */
     public void saveJsonFile(){
         try{
-            FileOutputStream fos = new FileOutputStream(jsonFile);
+            FileOutputStream fos = new FileOutputStream(jsonFile);    //创建文件流
             //创建JsonWrite对象
             JsonWriter writer = new JsonWriter(new OutputStreamWriter(fos, "utf-8"));
             writer.setIndent("    ");
-            writer.beginArray();
+            writer.beginArray();                  //写数组，用适当的value()方法或嵌套其他数组和对象为每个元素赋值
             for (Result product : saveData) {     //遍历json数据
-                writer.beginObject();
+                writer.beginObject();             //写对象，通过交替调用name(String)方法循环写入对象属性值。用适当的value()方法或嵌套其他数组和对象写入熟悉值
                 writer.name("name").value(product.getName());
                 writer.name("result").value(product.getResult());
-                writer.endObject();
+                writer.endObject();               //关闭对象
             }
-            writer.endArray();
+            writer.endArray();                    //关闭数组
             Log.e(String.valueOf(BaseActivity.this),"保存成功");
             writer.close();
         }catch (IOException e){

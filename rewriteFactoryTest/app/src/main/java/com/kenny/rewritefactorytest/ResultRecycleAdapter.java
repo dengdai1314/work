@@ -1,5 +1,7 @@
 package com.kenny.rewritefactorytest;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * @date 2019/8/22
  */
 public class ResultRecycleAdapter extends RecyclerView.Adapter<ResultRecycleAdapter.ViewHolder> {
-
     private List<Result> resultList;
-
     static class ViewHolder extends RecyclerView.ViewHolder{
         TextView result_name;
         TextView result;
@@ -29,8 +29,8 @@ public class ResultRecycleAdapter extends RecyclerView.Adapter<ResultRecycleAdap
         }
     }
 
-    public ResultRecycleAdapter(List<Result> resultList){
-        resultList = resultList;
+    public ResultRecycleAdapter(List<Result> resultJsonList){
+        resultList = resultJsonList;
     }
     @NonNull
     @Override
@@ -40,13 +40,21 @@ public class ResultRecycleAdapter extends RecyclerView.Adapter<ResultRecycleAdap
         return holder;
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public void onBindViewHolder(@NonNull ResultRecycleAdapter.ViewHolder holder, int position) {
-        Result adapter =
+        Result adapter = resultList.get(position);
+        holder.result_name.setText(adapter.getName()+":   ");
+        if(resultList.get(position).getResult().contains("成功")){
+            holder.result_name.setTextColor(Color.RED);
+        }else{
+            holder.result_name.setTextColor(Color.GREEN);
+        }
+        holder.result.setText(adapter.getResult());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return resultList.size();
     }
 }

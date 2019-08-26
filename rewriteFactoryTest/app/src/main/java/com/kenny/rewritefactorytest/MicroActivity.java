@@ -166,7 +166,7 @@ public class MicroActivity extends BaseActivity implements View.OnClickListener,
         }
         else if (currentPosition == 7) {
 //            Toast.makeText(MicroActivity.this,"跳转",Toast.LENGTH_SHORT).show();
-            skip(MicroActivity.this,ResultActivity.class);
+            skip(MicroActivity.this,ResultRecycleActivity.class);
         }
     }
 }

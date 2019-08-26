@@ -72,6 +72,7 @@ public class MainAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         showAndHideCheckBox();//控制CheckBox的那个的框显示与隐藏
+        //根据当前位置显示不同布局
         if(position%2 ==0){
             holder.line1.setVisibility(View.VISIBLE);
             holder.line2.setVisibility(View.GONE);
@@ -83,9 +84,6 @@ public class MainAdapter extends BaseAdapter {
             holder.line2.setVisibility(View.VISIBLE);
             holder.result_name2.setText(data.get(position).getName());
         }
-//        holder.mTvData.setText(data.get(position).getName());
-//        holder.result_image.setImageResource(data.get(position).getImage());
-//        holder.result_describe.setText(data.get(position).getResult_describe());
         holder.checkBox.setChecked(stateCheckedMap.get(position));//设置CheckBox是否选中//如未设置，取消后复选框保持选中状态
         return convertView;
     }

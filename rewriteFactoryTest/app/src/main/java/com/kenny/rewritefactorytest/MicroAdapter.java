@@ -38,6 +38,7 @@ public class MicroAdapter extends BaseAdapter {
     public MicroAdapter(List<Micro> microList,Context mContext){
         this.microList = microList;
         this.microContext = mContext;
+        microinflater = LayoutInflater.from(microContext);
     }
     @Override
     public int getCount() {
@@ -61,9 +62,9 @@ public class MicroAdapter extends BaseAdapter {
         if (convertView == null){
             view = microinflater.inflate(R.layout.micro_list,parent,false);
             viewHolder = new ViewHolder();
-            viewHolder.micro_name = convertView.findViewById(R.id.micro_name);
-            viewHolder.micro_angel = convertView.findViewById(R.id.micro_angle);
-            viewHolder.micro_beam = convertView.findViewById(R.id.micro_beam);
+            viewHolder.micro_name = view.findViewById(R.id.micro_name);
+            viewHolder.micro_angel = view.findViewById(R.id.micro_angle);
+            viewHolder.micro_beam = view.findViewById(R.id.micro_beam);
             view.setTag(viewHolder);
         }else {
             view = convertView;

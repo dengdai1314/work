@@ -28,5 +28,6 @@ public class ResultRecycleActivity extends BaseActivity  {
         }
         RecyclerView rv = findViewById(R.id.recycler_view);
         rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(new ResultRecycleAdapter(showResult));
     }
 }

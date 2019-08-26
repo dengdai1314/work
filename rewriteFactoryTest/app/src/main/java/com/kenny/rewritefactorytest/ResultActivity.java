@@ -33,7 +33,7 @@ public class ResultActivity extends BaseActivity {
                 showResult.add(show);
             }
         }
-        ListView list = findViewById(R.id.resultList);
+        ListView list = findViewById(R.id.recycler_view);
         ResultAdapter adapter = new ResultAdapter((ArrayList<Result>) showResult,ResultActivity.this);
         list.setAdapter(adapter);
     }

@@ -24,11 +24,11 @@ import androidx.annotation.NonNull;
 
 public class LcdActivity extends BaseActivity implements View.OnClickListener {
     private static String TAG = LcdActivity.class.getSimpleName();
-    private static final int HANDLE_RED =1;
-    private static final int HANDLE_BLUE =2;
-    private static final int HANDLE_GREEN =3;
-    private static final int HANDLE_WHITE =4;
-    private static final int HANDLE_RESULT =5;
+    private static final int HANDLE_RED = 1;
+    private static final int HANDLE_BLUE = 2;
+    private static final int HANDLE_GREEN = 3;
+    private static final int HANDLE_WHITE = 4;
+    private static final int HANDLE_RESULT = 5;
     ImageView background_image;
     Button LcdUp;
     Button LcdDown;
@@ -64,11 +64,11 @@ public class LcdActivity extends BaseActivity implements View.OnClickListener {
         //减少了每次获取Message时去申请空间的时间。
         msgred = Message.obtain();
         //设置信息发送内容
-        msgred.what = HANDLE_RED;
-        msgred.obj = "RED";
+        msgred.what = HANDLE_RED;  //信息头
+        msgred.obj = "RED";        //信息内容
         Log.e(TAG,"信息发送：1，切换红色");
         //延迟发送信息
-        mHandler.sendMessageDelayed(msgred,2000);
+        mHandler.sendMessageDelayed(msgred,2000);//延迟两秒发送
 
         msgblue = Message.obtain();
         msgblue.what = HANDLE_BLUE;
@@ -142,11 +142,11 @@ public class LcdActivity extends BaseActivity implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.key_up:
                 saveJson("LCD测试","成功");
-                skip(LcdActivity.this,WifiActivity.class);
+                skip(LcdActivity.this,CameraActivity.class);
                 break;
             case R.id.key_down:
                 saveJson("LCD测试","失败");
-                skip(LcdActivity.this,WifiActivity.class);
+                skip(LcdActivity.this,CameraActivity.class);
                 break;
         }
     }

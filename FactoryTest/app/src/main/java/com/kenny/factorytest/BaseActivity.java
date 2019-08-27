@@ -3,12 +3,12 @@ package com.kenny.factorytest;
  *
  * File: BaseActivity.java
  * Author: 29003
- * Create: 2019/8/3 11:51
- * Changes (from 2019/8/3)
+ * Create: 2019/8/19 14:45
+ * Changes (from 2019/8/19)
  * -----------------------------------------------------------------
- * 2019/8/3 : Create BaseActivity.java (29003);
+ * 2019/8/19 : Create BaseActivity.java (29003);
  * -----------------------------------------------------------------
- * description:基类活动
+ * description:基类活动，用于其他活动公用方法或数据
  */
 
 import android.Manifest;
@@ -33,208 +33,194 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+/**
+ * @author 29003
+ * @description
+ * @date 2019/8/19
+ */
 public class BaseActivity extends AppCompatActivity {
     File sdCardDir;
     File jsonFile;
-    private int PERMISSION_REQUEST_CODE=0;//请求权限码
-    public static List<ResultJson> saveProducts = new ArrayList<ResultJson>();//设置为静态，用于其余activity保存json数据使用
-    List<ResultJson> readProducts;//读取数据存储到list
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            //去除标题
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
-            if (getSupportActionBar() != null) {
-                getSupportActionBar().hide();
-            }
+    //权限组
+    public String[] NEEDED_PERMISSIONS = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,   //允许程序写入外部存储
+            Manifest.permission.RECORD_AUDIO,             //允许程序录制声音通过手机或耳机的麦克
+            Manifest.permission.CAMERA,                   //允许程序访问摄像头进行拍照
+            Manifest.permission.ACCESS_COARSE_LOCATION,   //允许程序通过WiFi或移动基站的方式获取用户错略的经纬度信息
+            Manifest.permission.ACCESS_FINE_LOCATION,     //允许程序通过GPS芯片接收卫星的定位信息
+            Manifest.permission.ACCESS_WIFI_STATE,        //允许程序获取当前WiFi接入的状态以及WLAN热点的信息
+            Manifest.permission.CHANGE_WIFI_STATE,        //允许程序改变WiFi状态
+    };
+    boolean mHasPermission = true;                                      //是否请求权限
+    boolean hasAllPermission = true;                                    //是否已申请全部权限
+    private int PERMISSION_REQUEST_CODE=0;                              //请求权限码
+    public static List<Result> saveData = new ArrayList<Result>();           //设置为静态，用于其余activity保存json数据使用
+    public static List<Result> readData = new ArrayList<Result>();           //读取文件的数据
 
-            onCheckPermission();//请求权限
-            sdCardDir= Environment.getExternalStorageDirectory();//获取sdcard目录路径
-            jsonFile=new File(sdCardDir+"/result.json");//设置json文件路径，存储json数据
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //去除标题
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
         }
+        if (Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED)){//判断是否存在内存卡
+            sdCardDir= Environment.getExternalStorageDirectory();           //获取sdcard目录路径
+            jsonFile = new File(sdCardDir+"/result.json");        //设置json文件路径，存储json数据
+            initPermission();                                               //初始化权限
+        }else{
+            Toast.makeText(BaseActivity.this,"无SDCard,无法进行后续操作",Toast.LENGTH_SHORT).show();
+        }
+    }
 
-        /**
-         * 请求内存卡读写权限
-         */
-        public void onCheckPermission(){
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
-            } else {
+    /**
+     * 初始化权限
+     */
+    public void initPermission(){
+        mHasPermission = checkPermission();
+        if(mHasPermission){
+
+        }else {
+            requestPermission();
+        }
+    }
+
+    /**
+     * 检查权限
+     * @return
+     */
+    public boolean checkPermission(){
+        for(String permission : NEEDED_PERMISSIONS){                             //遍历权限组，查看当前权限是否已赋予
+            if(ContextCompat.checkSelfPermission(this,permission) != PackageManager.PERMISSION_GRANTED) {
+                return false;
             }
         }
+        return true;
+    }
 
-        /**
-         * 权限回调
-         * @param requestCode
-         * @param permissions
-         * @param grantResults
-         */
-        @Override
-        public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-            if (requestCode == PERMISSION_REQUEST_CODE){
+    /**
+     * 请求权限
+     */
+    public void requestPermission(){
+        ActivityCompat.requestPermissions(this,NEEDED_PERMISSIONS,PERMISSION_REQUEST_CODE);
+    }
+
+    /**
+     * 请求权限回调
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == PERMISSION_REQUEST_CODE){
+            for (int x:grantResults){                       //grantResults 请求权限结果
+                if (x!=PackageManager.PERMISSION_GRANTED){  //PERMISSION_GRANTED=0,代表该权限已申请
+                    hasAllPermission = false;
+                }
+            }
+            if(hasAllPermission){
+                mHasPermission = true;
             }else {
-                Toast.makeText(this,"拒绝权限，将无法使用程序。", Toast.LENGTH_SHORT).show();
-                finish();
+                mHasPermission = false;
+                Log.e(BaseActivity.class.getSimpleName(),"拒绝权限，将影响功能实现");
             }
         }
+    }
 
-        /**
-         * 跳转活动
-         * @param oldactivity
-         * @param newactivity
-         */
-        public void skip(Context oldactivity, Class newactivity) {
-            Intent intent = new Intent(oldactivity, newactivity);
-            startActivity(intent);
-            finish();
-        }
+    /**
+     * 跳转活动
+     * @param oldactivity
+     * @param newactivity
+     */
+    public void skip(Context oldactivity, Class newactivity) {
+        Intent intent = new Intent(oldactivity, newactivity);
+        startActivity(intent);
+        finish();//跳转后关闭原活动
+    }
 
-        /**
-         * 保存测试结果为json数据
-         * activity调用，最后ResultActivity时写入json数据到文件中，后读取文件，输出到页面中
-         */
-        public void saveJson(String name, String result) {
-            //json数据
-            saveProducts.add(new ResultJson(name, result));//存储json数据到list中
-        }
+    /**
+     * 保存测试结果为json数据
+     * activity调用，最后ResultActivity时写入json数据到文件中，后读取文件，输出到页面中
+     */
+    public void saveJson(String name, String result) {
+        saveData.add(new Result(name, result));    //存储json数据到list中
+    }
 
-        /**
-         * 写入json数据到文件中
-         */
-        public void saveJsonFile(){
+    /**
+     * 写入json数据到文件中
+     */
+    public void saveJsonFile(){
+        try{
+            FileOutputStream fos = new FileOutputStream(jsonFile);    //创建文件流
             //创建JsonWrite对象
-            try{
-                FileOutputStream fos = new FileOutputStream(jsonFile);
-                JsonWriter writer = new JsonWriter(new OutputStreamWriter(fos, "utf-8"));
-                writer.setIndent("    ");
-                writer.beginArray();
-                for (ResultJson product : saveProducts) {
-                    writer.beginObject();
-                    writer.name("name").value(product.getName());
-                    writer.name("result").value(product.getResult());
-                    writer.endObject();
-                }
-                writer.endArray();
-                Log.e(String.valueOf(BaseActivity.this),"保存成功");
-                writer.close();
-            }catch (IOException e){
-                e.printStackTrace();
+            JsonWriter writer = new JsonWriter(new OutputStreamWriter(fos, "utf-8"));
+            writer.setIndent("    ");
+            writer.beginArray();                  //写数组，用适当的value()方法或嵌套其他数组和对象为每个元素赋值
+            for (Result product : saveData) {     //遍历json数据
+                writer.beginObject();             //写对象，通过交替调用name(String)方法循环写入对象属性值。用适当的value()方法或嵌套其他数组和对象写入熟悉值
+                writer.name("name").value(product.getName());
+                writer.name("result").value(product.getResult());
+                writer.endObject();               //关闭对象
             }
+            writer.endArray();                    //关闭数组
+            Log.e(String.valueOf(BaseActivity.this),"保存成功");
+            writer.close();
+        }catch (IOException e){
+            e.printStackTrace();
         }
+    }
 
-        /**
-         * json文件读取
-         */
-        public List<ResultJson> readJson(){
-            try {
-                readProducts = new ArrayList<ResultJson>();
-                FileInputStream fis = new FileInputStream(jsonFile);
-                JsonReader reader = new JsonReader(new InputStreamReader(fis, "utf-8"));
-                reader.beginArray();
+    /**
+     * json文件读取
+     * @return
+     */
+    public List<Result> readJson(){
+        try{
+            FileInputStream fileInputStream = new FileInputStream(jsonFile);
+            //创建JsonReader对象
+            JsonReader reader = new JsonReader(new InputStreamReader(fileInputStream,"utf-8"));
+            reader.beginArray();
+            while (reader.hasNext()){
+                String name = "";
+                String result = "";
+                reader.beginObject();
                 while (reader.hasNext()){
-                    String name = "";
-                    String result = "";
-                    reader.beginObject();
-                    while (reader.hasNext()){
-                        String field = reader.nextName();
-                        if(field.equals("name")){
-                            name = reader.nextString();
-                        }else if (field.equals("result")){
-                            result = reader.nextString();
-                        }else {
-                            reader.skipValue();
-                        }
+                    String field = reader.nextName();
+                    if(field.equals("name")){
+                        name = reader.nextString();
+                    }else if (field.equals("result")){
+                        result = reader.nextString();
+                    }else {
+                        reader.skipValue();
                     }
-                    reader.endObject();
-                    readProducts.add(new ResultJson(name,result));
                 }
-                reader.endArray();
-                reader.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
+                reader.endObject();
+                readData.add(new Result(name,result));
             }
-//            Toast.makeText(BaseActivity.this,readProduct.toString(),Toast.LENGTH_SHORT).show();
-            return readProducts;
+            reader.endArray();
+            reader.close();
+        }catch (IOException e){
+            e.printStackTrace();
         }
+        return readData;
+    }
 
-//        SharedPreferences sharedPreferences;
-//        sharedPreferences = getSharedPreferences("result", MODE_PRIVATE);
-//        /**
-//         * 保存测试结果(sharedpreferences)
-//         * @param key
-//         * @param value
-//         */
-//        public void save (String key,String value){
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//            editor.putString(key,value);
-//            editor.apply();
-//        }
-
-
-//        /**
-//         * 文件保存结果
-//         * @param key
-//         * @param value
-//         */
-//        public void save (String key,String value){
-//            FileOutputStream out = null;
-//            BufferedWriter writer = null;
-//            try{
-//                out = openFileOutput("data", Context.MODE_PRIVATE);
-//                writer = new BufferedWriter(new OutputStreamWriter(out));
-//                writer.write(key:value);
-//            }catch (IOException e){
-//                e.printStackTrace();
-//            }finally {
-//                try{
-//                    if(writer!=null){
-//                        writer.close();
-//                    }
-//                }catch (IOException E){
-//                    E.printStackTrace();
-//                }
-//            }
-//        }
-
-//        /**
-//         * 读取文件
-//         */
-//        public String load(){
-//            FileInputStream in = null;
-//            BufferedReader reader = null;
-//            StringBuilder content = new StringBuilder();
-//            try{
-//                in = openFileInput("data");
-//                reader = new BufferedReader(new InputStreamReader(in));
-//                String line = "";
-//                while ((line = reader.readLine())!=null){
-//                    content.append(line);
-//                }
-//            }catch (IOException e){
-//                e.printStackTrace();
-//            }finally {
-//                if(reader != null){
-//                    try{
-//                        reader.close();
-//                    }catch (IOException e){
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-//            return content.toString();
-//        }
-
+    /**
+     * 获取当前sdcard目录
+     * @return
+     */
+    public String getSDPath() {
+        File sdDir = null;
+        boolean sdCardExist = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED); //判断sd卡是否存在
+        if (sdCardExist) {
+            sdDir = Environment.getExternalStorageDirectory();                                         //获取根目录
+        }
+        return sdDir.toString();
+    }
 }
-
-
-
-
-
-

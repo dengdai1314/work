@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "com.kenny.factorytest"
+        applicationId "com.kenny.rewritefactorytest"
         minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
@@ -18,8 +18,8 @@ android {
         }
     }
     repositories {
-        flatDir{
-            dirs'libs' //this way we can find the .aar file in libs folder
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
         }
     }
 }
@@ -31,8 +31,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation files('libs/core-3.0.0.jar')
-    implementation(name:'iflytekenginelib33260516',ext:"aar")
-    implementation 'com.google.code.gson:gson:2.8.5'            //引入gson,解析json
+    implementation(name: 'iflytekenginelib33260516', ext: "aar")
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation files('libs/core-3.0.0.jar')
 }

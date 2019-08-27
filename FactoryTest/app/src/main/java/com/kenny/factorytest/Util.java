@@ -18,7 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Util{
+public class Util {
         /**
          * 从assets目录下拷贝整个文件夹，不管是文件夹还是文件都能拷贝
          *
@@ -29,15 +29,15 @@ public class Util{
         public static void copyFolderFromAssets(Context context, String rootDirFullPath, String targetDirFullPath) {
             Log.d("Tag", "copyFolderFromAssets " + "rootDirFullPath-" + rootDirFullPath + " targetDirFullPath-" + targetDirFullPath);
             try {
-                String[] listFiles = context.getAssets().list(rootDirFullPath);// 遍历该目录下的文件和文件夹
-                for (String string : listFiles) {// 判断目录是文件还是文件夹，这里只好用.做区分了
+                String[] listFiles = context.getAssets().list(rootDirFullPath);// 遍历assets文件夹下目标目录下的文件和文件夹
+                for (String string : listFiles) {                              // 判断目录是文件还是文件夹，这里只好用.做区分了
                     Log.d("Tag", "name-" + rootDirFullPath + "/" + string);
-                    if (isFileByName(string)) {// 文件
+                    if (isFileByName(string)) {                                // 文件
                         copyFileFromAssets(context, rootDirFullPath + "/" + string, targetDirFullPath + "/" + string);
-                    } else {// 文件夹
-                        String childRootDirFullPath = rootDirFullPath + "/" + string;
+                    } else {                                                   // 文件夹
+                        String childRootDirFullPath = rootDirFullPath + "/" + string;//拼接
                         String childTargetDirFullPath = targetDirFullPath + "/" + string;
-                        new File(childTargetDirFullPath).mkdirs();
+                        new File(childTargetDirFullPath).mkdirs();             //创建文件夹
                         copyFolderFromAssets(context, childRootDirFullPath, childTargetDirFullPath);
                     }
                 }

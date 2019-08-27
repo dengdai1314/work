@@ -129,7 +129,7 @@ public final class DecodeHandler extends Handler {
 	}
 
 	private static void bundleThumbnail(PlanarYUVLuminanceSource source,
-			Bundle bundle) {
+                                        Bundle bundle) {
 		int[] pixels = source.renderThumbnail();
 		int width = source.getThumbnailWidth();
 		int height = source.getThumbnailHeight();

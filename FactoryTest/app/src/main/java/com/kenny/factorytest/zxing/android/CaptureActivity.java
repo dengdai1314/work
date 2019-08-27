@@ -12,7 +12,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageButton;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
@@ -30,26 +29,22 @@ import java.util.Map;
  * 这个activity打开相机，在后台线程做常规的扫描；它绘制了一个结果view来帮助正确地显示条形码，在扫描的时候显示反馈信息，
  * 然后在扫描成功的时候覆盖扫描结果
  */
-public final class CaptureActivity extends Activity implements
-        SurfaceHolder.Callback {
+public final class CaptureActivity extends Activity implements SurfaceHolder.Callback {
 
     private static final String TAG = CaptureActivity.class.getSimpleName();
-
     // 相机控制
     private CameraManager cameraManager;
     private CaptureActivityHandler handler;
     private ViewfinderView viewfinderView;
-    private boolean hasSurface;
     private IntentSource source;
     private Collection<BarcodeFormat> decodeFormats;
     private Map<DecodeHintType, ?> decodeHints;
     private String characterSet;
+    private Boolean hasSurface;
     // 电量控制
     private InactivityTimer inactivityTimer;
     // 声音、震动控制
     private BeepManager beepManager;
-
-    private ImageButton imageButton_back;
 
     public ViewfinderView getViewfinderView() {
         return viewfinderView;
@@ -68,7 +63,7 @@ public final class CaptureActivity extends Activity implements
     }
 
     /**
-     * OnCreate中初始化一些辅助类，如InactivityTimer（休眠）、Beep（声音）以及AmbientLight（闪光灯）
+     * OnCreate中初始化一些辅助类，如InactivityTimer（休眠）、Beep（声音）
      */
     @Override
     public void onCreate(Bundle icicle) {
@@ -223,5 +218,4 @@ public final class CaptureActivity extends Activity implements
         builder.setOnCancelListener(new FinishListener(this));
         builder.show();
     }
-
 }

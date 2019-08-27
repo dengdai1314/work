@@ -3,12 +3,12 @@ package com.kenny.factorytest;
  *
  * File: ResultAdapter.java
  * Author: 29003
- * Create: 2019/8/19 11:01
- * Changes (from 2019/8/19)
+ * Create: 2019/8/22 9:50
+ * Changes (from 2019/8/22)
  * -----------------------------------------------------------------
- * 2019/8/19 : Create ResultAdapter.java (29003);
+ * 2019/8/22 : Create ResultAdapter.java (29003);
  * -----------------------------------------------------------------
- * description:Result Listview Adapter
+ * description:结果页listview适配器
  */
 import android.content.Context;
 import android.graphics.Color;
@@ -18,30 +18,33 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author 29003
  * @description
- * @date 2019/8/17
+ * @date 2019/8/21
  */
 public class ResultAdapter extends BaseAdapter {
-    ArrayList<ResultJson> resultlist;
+    LayoutInflater resultinflater;
+    List<Result> resultList;
     Context mContext;
-
-    public ResultAdapter(ArrayList<ResultJson> resultlist, Context mContext){
-        this.resultlist = resultlist;
+    View view;
+    ViewHolder viewHolder ;
+    public ResultAdapter(List<Result> resultList,Context mContext){
+        this.resultinflater = LayoutInflater.from(mContext);
+        this.resultList = resultList;
         this.mContext = mContext;
-    }
+}
 
     @Override
     public int getCount() {
-        return resultlist.size();
+        return resultList.size();
     }
 
     @Override
-    public Object getItem(int postion) {
-        return postion;
+    public Object getItem(int position) {
+        return position;
     }
 
     @Override
@@ -51,28 +54,28 @@ public class ResultAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
         if(convertView == null){
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.result_list,parent,false);
-            holder = new ViewHolder();
-            holder.name = convertView.findViewById(R.id.result_name);
-            holder.result = convertView.findViewById(R.id.result);
-            convertView.setTag(holder);
+            view = resultinflater.inflate(R.layout.result_list,parent,false);
+            viewHolder = new ViewHolder();
+            viewHolder.result_name = view.findViewById(R.id.result_name);
+            viewHolder.result = view.findViewById(R.id.result);
+            view.setTag(viewHolder);
         }else {
-            holder = (ViewHolder) convertView.getTag();
+            view = convertView;
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        holder.name.setText(resultlist.get(position).getName()+":");
-        if (resultlist.get(position).getResult().contains("成功")){
-            holder.name.setTextColor(Color.RED);
+        viewHolder.result_name.setText(resultList.get(position).getName()+":");
+        if (resultList.get(position).getResult().contains("成功")){
+            viewHolder.result_name.setTextColor(Color.RED);
         } else{
-            holder.name.setTextColor(Color.GREEN);
+            viewHolder.result_name.setTextColor(Color.GREEN);
         }
-        holder.result.setText(resultlist.get(position).getResult());
-        return convertView;
+        viewHolder.result.setText(resultList.get(position).getResult());
+        return view;
     }
 
     private class ViewHolder{
-        TextView name;
+        TextView result_name;
         TextView result;
     }
 }

@@ -3,17 +3,17 @@ package com.kenny.factorytest;
  *
  * File: Micro.java
  * Author: 29003
- * Create: 2019/8/19 11:04
- * Changes (from 2019/8/19)
+ * Create: 2019/8/20 16:45
+ * Changes (from 2019/8/20)
  * -----------------------------------------------------------------
- * 2019/8/19 : Create Micro.java (29003);
+ * 2019/8/20 : Create Micro.java (29003);
  * -----------------------------------------------------------------
- * description:Micro实例
+ * description:麦克风实例
  */
 /**
  * @author 29003
  * @description
- * @date 2019/8/14
+ * @date 2019/8/20
  */
 public class Micro {
     private String micro_name;

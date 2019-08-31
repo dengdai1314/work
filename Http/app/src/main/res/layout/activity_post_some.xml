@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/post_string"
+        android:text="提交string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"/>
+
+    <Button
+        android:id="@+id/post_flow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提交流"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/post_file"
+        android:text="提交文件"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/post_form"
+        android:text="提交表单"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/post_request"
+        android:text="提交分块请求"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:id="@+id/response_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+
+</LinearLayout>

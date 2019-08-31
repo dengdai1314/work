@@ -62,7 +62,7 @@ class MainActivity : UnityPlayerActivity(), UnityCallbackListener {
         addOrRemoveViewClick() //点击或者添加View事件
         UnityManager.getInstance().setLogLevel(4);//设置Log等级
         UnityManager.getInstance().addCallBackListener(this)
-        initData()
+
     }
 
     /**

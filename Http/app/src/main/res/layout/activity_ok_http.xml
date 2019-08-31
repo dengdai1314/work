@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/send_getrequest"
+        android:text="send_getrequest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"/>
+
+    <Button
+        android:id="@+id/send_postrequest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="send_postrequest"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/asynchronous_request"
+        android:text="asynchronous_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/synchronization_request"
+        android:text="synchronization_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp">
+        <TextView
+            android:id="@+id/response_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+
+</LinearLayout>

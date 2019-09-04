@@ -1,5 +1,15 @@
 package com.kenny.activitytest;
-
+/*
+ *
+ * File: FirstActivity.java
+ * Author: luohuojin
+ * Create: 2019/9/4 14:03
+ * Changes (from 2019/9/4)
+ * -----------------------------------------------------------------
+ * 2019/9/4 : Create FirstActivity.java (29003);
+ * -----------------------------------------------------------------
+ * description:监听按钮点击事件，跳转活动。菜单menu项
+ */
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,8 +20,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-
 
 public class FirstActivity extends AppCompatActivity {
 //    /**

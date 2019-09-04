@@ -1,5 +1,15 @@
 package com.kenny.slideshow;
-
+/*
+ *
+ * File: MainActivity.java
+ * Author: luohuojin
+ * Create: 2019/9/4 14:56
+ * Changes (from 2019/9/4)
+ * -----------------------------------------------------------------
+ * 2019/9/4 : Create MainActivity.java (29003);
+ * -----------------------------------------------------------------
+ * description:轮播图
+ */
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;

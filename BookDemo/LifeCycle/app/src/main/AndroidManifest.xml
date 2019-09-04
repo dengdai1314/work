@@ -12,6 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".NormalActivity"></activity>
+        <!--android:theme:给当前活动指定主题-->
         <activity
             android:name=".DialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog"></activity>

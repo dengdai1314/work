@@ -122,8 +122,10 @@ public class OkHttp extends BaseActivity implements View.OnClickListener {
             public void run() {
                 try {
                     Response response = call.execute();//发送请求并获取服务器返回的数据
-                    String responseData = response.body().string();
-                    showResponse(responseData);
+                    if(response.isSuccessful()){
+                        String responseData = response.body().string();
+                        showResponse(responseData);
+                    }
                 }catch (Exception e){
                     e.printStackTrace();
                 }

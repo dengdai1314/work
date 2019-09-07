@@ -6,16 +6,16 @@
               android:gravity="center">
 
         <!--gravity 修改文字对齐方式-->
-        <!--<TextView-->
-          <!--android:id="@+id/text_view"-->
-          <!--android:text="This is a TextView"-->
-          <!--android:gravity="center"-->
-          <!--android:layout_width="match_parent"-->
-          <!--android:layout_height="match_parent"-->
-          <!--android:textSize="20dp"-->
-          <!--android:textColor="#123456"-->
-          <!--android:layout_marginTop="30dp"-->
-          <!--/>-->
+<!--        <TextView-->
+<!--          android:id="@+id/text_view"-->
+<!--          android:text="This is a TextView"-->
+<!--          android:gravity="center"-->
+<!--          android:layout_width="match_parent"-->
+<!--          android:layout_height="match_parent"-->
+<!--          android:textSize="20dp"-->
+<!--          android:textColor="#123456"-->
+<!--          android:layout_marginTop="30dp"-->
+<!--          />-->
 
         <!--textallcaps=false禁用系统对Button中所有英文字母自动进行大小写转换-->
         <!--<Button-->

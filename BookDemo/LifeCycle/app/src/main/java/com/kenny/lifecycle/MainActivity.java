@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"onCreate");
         setContentView(R.layout.activity_main);
+        if(savedInstanceState != null){
+            String tempData = savedInstanceState.getString("data_key");
+            Log.e(TAG,tempData);
+        }
         Button startNormalActivity = (Button) findViewById(R.id.start_normal_activity);
         final Button startDialogActivity = (Button) findViewById(R.id.start_dialog_activity);
         startNormalActivity.setOnClickListener(new View.OnClickListener() {

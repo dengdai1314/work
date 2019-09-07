@@ -21,7 +21,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 public class BaseActivity extends AppCompatActivity {
-    public String[] NEEDED_PERMISSIONS = {Manifest.permission.INTERNET};
+    public String[] NEEDED_PERMISSIONS = {Manifest.permission.INTERNET,
+                                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                            Manifest.permission.READ_EXTERNAL_STORAGE};
     boolean mHasPermission = true;                                      //是否请求权限
     boolean hasAllPermission = true;                                    //是否已申请全部权限
     private int PERMISSION_REQUEST_CODE=0;                              //请求权限码

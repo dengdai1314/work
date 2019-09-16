@@ -32,16 +32,22 @@ public class MainActivity extends AppCompatActivity implements OnRefreshListener
         recyclerView.setLayoutManager(layoutManager);
         adapter = new FruitAdapter(fruitList);
         recyclerView.setAdapter(adapter);
-
+        //刷新
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
+                //刷新两秒
                 refreshlayout.finishRefresh(2000);
             }
         });
+        //加载更多
         refreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
             @Override
             public void onLoadmore(RefreshLayout refreshlayout) {
+                for (int i=0;i<30;i++){
+                    fruitList.add(new Fruit(getRandomLengthName("tedt"),R.drawable.ic_launcher_background));
+                }
+                adapter.notifyDataSetChanged();
                 refreshlayout.finishLoadmore(2000);
             }
         });

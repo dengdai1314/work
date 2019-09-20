@@ -19,20 +19,9 @@ import android.widget.TextView;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static String TAG = MainActivity.class.getSimpleName();
-    Button ButtonMute;
-    Button ButtonUp;
-    Button ButtonDown;
-    Button ButtonWifi;
-    TextView MuteText;
-    TextView UpText;
-    TextView DownText;
-    TextView WifiText;
-    TextView MainHint;
-    Boolean isMute = false;
-    Boolean isUp = false;
-    Boolean isDown = false;
-    Boolean isWifi = false;
-    Boolean isalldown = false;
+    Button ButtonMute, ButtonUp,ButtonDown,ButtonWifi;
+    TextView MuteText, UpText,DownText,WifiText,MainHint;
+    Boolean isMute, isUp,isDown,isWifi,isalldown= false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

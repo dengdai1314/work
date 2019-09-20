@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.kenny.api"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.BannerWebViewActivity"></activity>
+        <activity android:name=".activity.HomeSearchActivity"></activity>
+        <activity android:name="com.kenny.base.WebViewActivity" />
         <activity android:name="com.kenny.login.activity.LoginActivity" />
         <activity android:name="com.kenny.base.BaseActivity" />
         <activity android:name=".activity.HomeActivity">
@@ -20,8 +21,8 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

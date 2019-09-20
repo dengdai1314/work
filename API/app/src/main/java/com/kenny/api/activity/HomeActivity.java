@@ -4,21 +4,34 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.kenny.api.model.ArticleBean;
-import com.kenny.api.model.ImageBannerBean;
-import com.kenny.api.LoadMoreWrapper;
 import com.kenny.api.R;
 import com.kenny.api.adapter.HomeAdapter;
+import com.kenny.api.model.ArticleBean;
+import com.kenny.api.model.ImageBannerBean;
 import com.kenny.base.BaseActivity;
+import com.kenny.base.WebViewActivity;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.listener.OnBannerListener;
 import com.youth.banner.loader.ImageLoader;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 /*
  *
  * File: HomeActivity.java
@@ -30,34 +43,60 @@ import com.youth.banner.loader.ImageLoader;
  * -----------------------------------------------------------------
  * description:首页
  */
-import java.util.ArrayList;
-import java.util.List;
-
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class HomeActivity extends BaseActivity implements OnBannerListener {
-    private final String TAG = HomeActivity.class.getSimpleName();
-    Banner image_banner;
-    OkHttpClient imageBannerclient;
-    OkHttpClient articleClient;
+    private static final String TAG = HomeActivity.class.getSimpleName();
+    Banner image_banner;                     //轮播图
     ImageBannerBean imageBannerBean;
+    OkHttpClient imageBannerclient;          //轮播图OkHttpClient
     ArticleBean articles;
-    int articlePage = 0;
+    OkHttpClient articleClient;              //文章OkHttpClient
+    int articlePage = 0;                     //文章页码
+    HomeAdapter homeAdapter;                 //RecyclerView适配器
+    RecyclerView homesRecyclerView;
+    List<ArticleBean.DataBean.DatasBean> articleBeans = new ArrayList<>();
+    ImageButton search;
+    View headerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         image_banner = findViewById(R.id.image_banner);
+        homesRecyclerView = findViewById(R.id.rc_home);
+
+        search = findViewById(R.id.ib_search);
+
+        initlist();
         getImage_banner();
         getArticleJson(articlePage);
-
+        homeAdapter.setOnItemClickListener(new HomeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                String url;
+                url = articleBeans.get(position).getLink();
+                actionStart(HomeActivity.this,url);
+            }
+        });
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this,HomeSearchActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
+    public void initlist(){
+        LinearLayoutManager homeslayoutManager = new LinearLayoutManager(HomeActivity.this);
+        headerView = LayoutInflater.from(this).inflate(R.layout.activity_home_banner,null,false);
+
+//        image_banner = headerView.findViewById(R.id.image_banner);
+//        homesRecyclerView.setLayoutManager(homeslayoutManager);
+
+        homesRecyclerView.addItemDecoration(new DividerItemDecoration(HomeActivity.this,DividerItemDecoration.VERTICAL));//分割线
+        homeAdapter = new HomeAdapter(articleBeans);
+        homesRecyclerView.setAdapter(homeAdapter);
+    }
     /**
      * 获取首页文章json数据
      */
@@ -87,23 +126,12 @@ public class HomeActivity extends BaseActivity implements OnBannerListener {
      */
     private void parseArticleJson(String jsonData){
         articles = gson.fromJson(jsonData, ArticleBean.class);
-        this.runOnUiThread(new Runnable() {
+        Log.e(TAG+"parseArticleJson",articles.getData().toString());
+        runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Log.e(TAG+"parseArticleJson",articles.getData().toString());
-                List<ArticleBean> articlelist = new ArrayList<>();
-                for (int i=0;i<articles.getData().getSize();i++){
-                    articlelist.add(articles);
-                }
-                RecyclerView homesRecyclerView = findViewById(R.id.rc_home);
-
-
-                LinearLayoutManager homeslayoutManager = new LinearLayoutManager(HomeActivity.this);
-                HomeAdapter homeAdapter = new HomeAdapter(articlelist);
-                LoadMoreWrapper loadMoreWrapper = new LoadMoreWrapper(homeAdapter);
-                homesRecyclerView.setLayoutManager(homeslayoutManager);
-                homesRecyclerView.addItemDecoration(new DividerItemDecoration(HomeActivity.this,DividerItemDecoration.VERTICAL));//分割线
-                homesRecyclerView.setAdapter(homeAdapter);
+                articleBeans.addAll(articles.getData().getDatas());
+                homeAdapter.notifyDataSetChanged();
             }
         });
     }
@@ -119,14 +147,14 @@ public class HomeActivity extends BaseActivity implements OnBannerListener {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Response response = imageBannerclient.newCall(image_request).execute();
-                    String responseData = response.body().string();
-                    parseImageJsom(responseData);
-                    Log.e(TAG,responseData);
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
+            try {
+                Response response = imageBannerclient.newCall(image_request).execute();
+                String responseData = response.body().string();
+                parseImageJsom(responseData);
+                Log.e(TAG,responseData);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             }
         }).start();
     }
@@ -140,18 +168,18 @@ public class HomeActivity extends BaseActivity implements OnBannerListener {
         this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                image_banner.setBannerStyle(BannerConfig.NOT_INDICATOR);
-                image_banner.setImageLoader(new MyLoader());
-                image_banner.setBannerAnimation(Transformer.Default);
-                image_banner.setDelayTime(3000);
-                image_banner.isAutoPlay(true);
-                List<String> imagebanners = new ArrayList<>();
-                for (int i = 0; i< imageBannerBean.getData().size(); i++){
-                    imagebanners.add(imageBannerBean.getData().get(i).getImagePath());
-                }
-                image_banner.setImages(imagebanners)
-                        .setOnBannerListener(HomeActivity.this)
-                        .start();
+            image_banner.setBannerStyle(BannerConfig.NOT_INDICATOR);
+            image_banner.setImageLoader(new MyLoader());
+            image_banner.setBannerAnimation(Transformer.Default);
+            image_banner.setDelayTime(3000);
+            image_banner.isAutoPlay(true);
+            List<String> imagebanners = new ArrayList<>();
+            for (int i = 0; i< imageBannerBean.getData().size(); i++){
+                imagebanners.add(imageBannerBean.getData().get(i).getImagePath());
+            }
+            image_banner.setImages(imagebanners)
+                    .setOnBannerListener(HomeActivity.this)
+                    .start();
             }
         });
     }
@@ -162,7 +190,7 @@ public class HomeActivity extends BaseActivity implements OnBannerListener {
      */
     @Override
     public void OnBannerClick(int position) {
-        Toast.makeText(this, "你点了第" + (position + 1) + "张轮播图", Toast.LENGTH_SHORT).show();
+        Log.e(TAG,"你点击了第"+position+"张banner");
         String urls;
         urls= imageBannerBean.getData().get(position).getUrl();
         actionStart(HomeActivity.this,urls);
@@ -187,7 +215,7 @@ public class HomeActivity extends BaseActivity implements OnBannerListener {
      * @param url
      */
     public void actionStart(Context context, String url){
-        Intent intent = new Intent(context, BannerWebViewActivity.class);
+        Intent intent = new Intent(context, WebViewActivity.class);
         intent.putExtra("url",url);
         context.startActivity(intent);
     }

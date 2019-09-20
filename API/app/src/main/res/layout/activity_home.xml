@@ -3,43 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark">
+        <TextView
+            android:text="首页"
+            android:textSize="25dp"
+            android:textColor="#fff"
+            android:layout_width="390dp"
+            android:layout_height="match_parent"
+            android:gravity="center"/>
+        <ImageButton
+            android:id="@+id/ib_search"
+            android:src="@drawable/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"/>
+    </androidx.appcompat.widget.Toolbar>
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_home"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.3">
-
-            <com.youth.banner.Banner
-                android:id="@+id/image_banner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.7"
+            android:layout_weight="1"
             android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rc_home"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" />
-            <View
-                android:background="#000"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"/>
-        </LinearLayout>
-
-    </LinearLayout>
+        </androidx.recyclerview.widget.RecyclerView>
 
     <include layout="@layout/activity_base" />
 </LinearLayout>

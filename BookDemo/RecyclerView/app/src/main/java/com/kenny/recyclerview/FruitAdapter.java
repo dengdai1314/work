@@ -11,6 +11,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 /**
  * @author 29003
@@ -19,7 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 //新建FruitAdapter类，继承RecyclerView.Adapter，并将泛型指定为FruitAdapter.ViewHolder
 public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.MyHolder> {
-
+    private final int type_zero = 0;
+    private final int type_one = 1;
     private List<Fruit> mFruitList;//定义全局变量
 
     //内部类，继承自RecyclerView.ViewHolder
@@ -45,6 +47,10 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.MyHolder> {
     @Override
     //创建ViewHolder实例，并把加载出来的布局传入到构造函数当中，最后将ViewHolder的实例返回
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType){
+        if(viewType == 0){
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_main_header,parent,false);
+            return new ZeroViewHolder(view);
+        }
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fruit_item,parent,false);
         final MyHolder holder = new MyHolder(view);
         holder.fruitView.setOnClickListener(new View.OnClickListener(){
@@ -61,15 +67,22 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.MyHolder> {
                 Toast.makeText(v.getContext(),"you clicked image"+fruit.getName(),Toast.LENGTH_SHORT).show();
             }
         });
+
 //        ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        Fruit fruit = mFruitList.get(position);
-        holder.fruitName.setText(fruit.getName());
-        holder.fruitImage.setImageResource(fruit.getImageId());
+        switch (holder.getItemViewType()){
+            case type_zero:
+                break;
+            default:
+                Fruit fruit = mFruitList.get(position);
+                holder.fruitName.setText(fruit.getName());
+                holder.fruitImage.setImageResource(fruit.getImageId());
+                break;
+        }
     }
 
 //    @Override
@@ -83,5 +96,29 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.MyHolder> {
     //用于告诉RecyclerView一共有多少子项，直接返回数据源的长度
     public int getItemCount(){
         return mFruitList.size();
+    }
+
+    @Override
+    public void onViewAttachedToWindow(@NonNull MyHolder holder) {
+        super.onViewAttachedToWindow(holder);
+        ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
+        if (lp != null && lp instanceof StaggeredGridLayoutManager.LayoutParams) {
+            StaggeredGridLayoutManager.LayoutParams p = (StaggeredGridLayoutManager.LayoutParams) lp;
+            p.setFullSpan(holder.getLayoutPosition() == 0);
+        }
+    }
+
+    class ZeroViewHolder extends MyHolder {
+        public ZeroViewHolder(View itemView) {
+            super(itemView);
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if(position ==0){
+            return type_zero;
+        }
+        else return type_one;
     }
 }

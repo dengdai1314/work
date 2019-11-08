@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/obexstatemachine/src/main/java/com/obex/machine/state/StateMachine.java" line="217" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7ce4081a-27b0-48a3-86d6-2b746b1d60bf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/obex/mainservice/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/obex/mainservice/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/obex/mainservice/ObexInitManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/obex/mainservice/ObexInitManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obexIflymodule/src/main/java/com/obex/mainservice/speech/IFlySpeechCaeStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/obexIflymodule/src/main/java/com/obex/mainservice/speech/IFlySpeechCaeStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obexstatemachine/src/main/java/com/obex/machine/state/ListeningState.java" beforeDir="false" afterPath="$PROJECT_DIR$/obexstatemachine/src/main/java/com/obex/machine/state/ListeningState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obexstatemachine/src/main/java/com/obex/machine/state/StateMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/obexstatemachine/src/main/java/com/obex/machine/state/StateMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obexstatemachine/src/main/java/com/obex/machine/state/audio/MusicTask1.java" beforeDir="false" afterPath="$PROJECT_DIR$/obexstatemachine/src/main/java/com/obex/machine/state/audio/MusicTask1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obexstatemachine/src/main/java/com/obex/machine/state/chat/BackPublicChatTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/obexstatemachine/src/main/java/com/obex/machine/state/chat/BackPublicChatTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitymanagerlib/src/main/java/com/obex/lib/UnityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitymanagerlib/src/main/java/com/obex/lib/UnityManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unitymanagerlib/src/main/java/com/obex/lib/scene/AnimalDataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/unitymanagerlib/src/main/java/com/obex/lib/scene/AnimalDataManager.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="0193443VVK" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="obexMainService" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="obexMainService" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/unitymanagerlib/src/main/java/com/obex/lib/UnityManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="180" column="45" lean-forward="true" selection-start-line="180" selection-start-column="45" selection-end-line="180" selection-end-column="45" />
+              <folding>
+                <element signature="e#5103#5104#0" expanded="true" />
+                <element signature="e#5158#5159#0" expanded="true" />
+              </folding>
+            </state>
+     

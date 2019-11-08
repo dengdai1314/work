@@ -7,6 +7,9 @@ import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 /**
  * @author 29003
  * @description
@@ -18,6 +21,11 @@ public class MainAdapter extends BaseQuickAdapter<AsyncTask.Status> {
     }
 
     @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
+    }
+
+    @Override
     protected void convert(BaseViewHolder helper, Status item) {
         helper.setText(R.id.tweetName, item.getUserName())
                 .setText(R.id.tweetText, item.getText())
@@ -25,5 +33,10 @@ public class MainAdapter extends BaseQuickAdapter<AsyncTask.Status> {
                 .setVisible(R.id.tweetRT, item.isRetweet())
                 .linkify(R.id.tweetText);
         Glide.with(mContext).load(item.getUserAvatar()).crossFade().into((ImageView) helper.getView(R.id.iv));
+    }
+
+    @Override
+    protected void convert(@NonNull BaseViewHolder helper, Object item) {
+
     }
 }

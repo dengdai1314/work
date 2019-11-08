@@ -43,6 +43,10 @@ import okhttp3.Response;
  * -----------------------------------------------------------------
  * description:首页
  */
+/**
+ * 玩安卓api接入练手
+ */
+
 
 public class HomeActivity extends BaseActivity implements OnBannerListener {
     private static final String TAG = HomeActivity.class.getSimpleName();

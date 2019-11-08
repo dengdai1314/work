@@ -21,6 +21,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+/**
+ * 玩安卓api接入练手
+ */
+
 public class HomeActivity extends BaseActivity implements OnBannerListener {
     private final String TAG = HomeActivity.class.getSimpleName();
     HomeBanner homeBanner;

@@ -12,9 +12,8 @@ import java.util.List;
  * @date 2019/7/23
  */
 public class AnimalManager {
-    List<State> allAnimalList = null;   //动作列表
+    List<State> allAnimalList = null;
 
-    //单例模式：https://www.runoob.com/design-pattern/singleton-pattern.html
     private static AnimalManager instance;
     private AnimalManager (){
 
@@ -34,7 +33,6 @@ public class AnimalManager {
         int id = 0;
         String nextState = null;
         String[] next = null;
-        //遍历列表，修改样式
         if (allAnimalList!=null){
             for(int x=0;x<allAnimalList.size();x++){
                 if(allAnimalList.get(x).getWdID() == animalId){
@@ -90,7 +88,7 @@ public class AnimalManager {
             for(int i =0;i<weightArrays.length;i++){
                 stepWeightSum += weightArrays[i];
                 if (Math.random() <= stepWeightSum / weightSum) {
-                    Log.d("随机", "随机下一个动作"+i);
+                    Log.d("随机", "随机下一个动作 i===$i");
                     return actionIds[i];
                 }
             }

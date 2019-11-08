@@ -17,6 +17,9 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * wifi列表扫描
+ */
 public class MainActivity extends AppCompatActivity {
 
     private WifiManager wifiManager;

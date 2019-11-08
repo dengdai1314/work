@@ -1,2 +1,0 @@
-include ':app'//, ':app-design'
-include ':refresh-layout', ':refresh-header', ':refresh-footer'

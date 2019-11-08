@@ -29,7 +29,7 @@ public class ObexAudioPlayer  {
     SimpleExoPlayer mplayer = null;
     //播放控制器
     ControlDispatcher mDispatcher = null;
-    public OnMediaListener onAudioListener = null;   //public 与kotlin 中的internal作用相似
+    public OnMediaListener onAudioListener = null;
 
     private static ObexAudioPlayer instance;
     //构造方法，让构造函数为private，则该类不会被实例化
@@ -89,7 +89,6 @@ public class ObexAudioPlayer  {
         DynamicConcatenatingMediaSource source = new DynamicConcatenatingMediaSource();
         DefaultBandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         try{
-            //将字符串解析为其URI组件。返回包含找到的组件的对象
             Uri uri = Uri.parse(audioId);
             DefaultDataSourceFactory dataSourceFactory = new DefaultDataSourceFactory(
                     ObexApp.getOBexApp(),

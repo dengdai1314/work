@@ -31,15 +31,17 @@ import java.util.List;
 
 import androidx.core.content.ContextCompat;
 
+/**
+ * 仿sdk_demo
+ */
 public class MainActivity extends UnityPlayerActivity implements UnityCallbackListener {
 
     String TAG = "MainActivity_Unity";
 
-    List<Role> roleList = new ArrayList();  //角色列表
+    List<Role> roleList = new ArrayList();//角色列表
     List<Scene> sceneList = new ArrayList();//场景列表
     List<State> stateList = new ArrayList();//动作列表
-    List<Ui> uiList = new ArrayList();      //ui列表
-
+    List<Ui> uiList = new ArrayList();//ui列表
     NiceSpinner spinner_role;
     NiceSpinner spinner_scene;
     NiceSpinner spinner_state;
@@ -52,24 +54,24 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
     Button show;
     Button hide;
     LinearLayout ll_3d;
-
-    Role roleItem;              //当前选中角色
-    Scene sceneItem;            //当前选中场景
-    State stateItem;            //当前选中动作
-    Ui uiItem;                  //当前选中ui
-
-    boolean isShowU3D = true;                               //是否显示3Dui
-    boolean isUnityIinitSuccess = false;                    //是否Unity初始化成功
-    WeatherSceneManager weatherSceneManager = null;         //天气模拟类初始化
+    Role roleItem;//当前选中角色
+    Scene sceneItem;//当前选中场景
+    State stateItem;//当前选中动作
+    Ui uiItem;//当前选中ui
+    boolean isShowU3D = true; //是否显示3Dui
+    boolean isUnityIinitSuccess = false;//是否Unity初始化成功
+    WeatherSceneManager weatherSceneManager = null;//天气模拟类
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //主活动必须要有的
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        super.onCreate(savedInstanceState);                 //主活动必须要有的
-        setContentView(R.layout.activity_main);             //定义布局引用文件
+        //初始化控件
         ll_3d = findViewById(R.id.ll_3d);
-        ll_3d.addView(mUnityPlayer);                        //将UnityPlayer 添加到对应的View ；必须添加，否则不能初始化Unity
-
+        //将UnityPlayer 添加到对应的View ；必须添加，否则不能初始化Unity
+        ll_3d.addView(mUnityPlayer);
         add1 = findViewById(R.id.add1);
         weather = findViewById(R.id.weather);
         change_role = findViewById(R.id.change_sex);
@@ -81,25 +83,24 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
         spinner_scene = findViewById(R.id.spinner_scene);
         spinner_state = findViewById(R.id.spinner_state);
         spinner_ui = findViewById(R.id.spinner_ui);
+        addOrRemoveViewClick(); //点击或者添加View事件
+        UnityManager.getInstance().setLogLevel(4);//设置Log等级
+        UnityManager.getInstance().addCallBackListener(this);
+        initData();
 
-        initData();                                                            //初始化列表数据
-        addOrRemoveViewClick();                                                //SHOW/HIDE View事件
-        UnityManager.getInstance().setLogLevel(4);                             //设置unityLog等级error
-        UnityManager.getInstance().addCallBackListener(this);//添加unity回调事件
     }
 
     /**
      * 初始化列表数据
      */
     public void initData() {
-        //创建Gson实例。为后续解析json文件做好准备
+        //创建Gson实例
         Gson gson = new Gson();
 
         //初始化角色数据
         //读取文件获取角色数据
         String roleResult = getJson("RoleDatabase.json");
         //将json字符串自动解析成一个json对象；json数组的话需要借助TypeToken将期望解析成的数据类型传入到fromJson方法中
-        //解析为list,new TypeToken<List<x>>{}.getType
         roleList = gson.fromJson(roleResult, new TypeToken<List<Role>>() {
         }.getType());
 
@@ -118,23 +119,23 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
         uiList = gson.fromJson(uiResult, new TypeToken<List<Ui>>() {
         }.getType());
 
-        //初始化按钮点击选项，如果未初始化，点击按钮，应用崩溃
-        roleItem = roleList.get(0);
+        roleItem = roleList.get(0);//初始化按钮点击选项，如果未初始化，点击按钮，应用崩溃
         sceneItem = sceneList.get(0);
         stateItem = stateList.get(0);
         uiItem = uiList.get(0);
-
         initRoleSpinner();
         initSceneSpinner();
         initStateSpinner();
         initUiSpinner();
-
-        //设置动作列表，为AnimalManager.java文件初始化
         if (stateList != null && stateList.size() != 0) {
             AnimalManager.getInstance().setAnimalList(stateList);
         }
+
     }
 
+    /**
+     *初始化列表
+     */
     /**
      * 初始化角色列表
      */
@@ -144,19 +145,20 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
         SpinnerTextFormatter text_role = new SpinnerTextFormatter<Role>() {
             @Override
             public Spannable format(Role item) {
-                return new SpannableString(item.getStrName());   //获取json文件读取出来数据中的strname
+                return new SpannableString(item.getStrName());
             }
         };
-        spinner_role.setSpinnerTextFormatter(text_role);         //设置spinner已选择显示内容文本格式
-        spinner_role.setSelectedTextFormatter(text_role);        //设置选择时待选择内容文本格式
+        spinner_role.setSpinnerTextFormatter(text_role);
+        spinner_role.setSelectedTextFormatter(text_role);
         //spinner_role监听点击事件
         spinner_role.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-                //instanceof:判断对象是否是类或子类所创建，返回true/false
+                //判断对象是否是类或子类所创建，返回true/false
                 //如果被选中项属于Role创建，返回true
                 if (spinner_role.getSelectedItem() instanceof Role) {
-                    roleItem = (Role) spinner_role.getSelectedItem(); //roleItem(当前选中的角色)存储被选中项数据
+                    //创建roleItem存储被选中项数据
+                    roleItem = (Role) spinner_role.getSelectedItem();
                     //更新场景数据
                     List<Scene> scenes;
                     //如果被选中项数据中的strname=="女"，设置scenes=2，
@@ -172,7 +174,7 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
                 }
             }
         });
-        spinner_role.attachDataSource(roleList);                 //添加列表内容
+        spinner_role.attachDataSource(roleList);
     }
 
     /**
@@ -181,8 +183,8 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
     //获取角色对应场景列表数据，用于刷新场景列表
     //根据男（1）/女（2）获取scene.gender,并将scene对应数据添加到现有scene列表数据
     private List<Scene> getScene(List<Scene> sceneList, int type) {
-        List<Scene> list = new ArrayList<>();                   //创建list集合
-        //遍历场景列表，寻找scene.gender=type(1/2)的数据，并将寻找出来的数据添加到列表中，以备调用
+        //创建list集合
+        List<Scene> list = new ArrayList<>();
         for (Scene scene : sceneList) {
             if (scene.getGender() == type) {
                 list.add(scene);
@@ -195,13 +197,16 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
      * 初始化场景列表
      */
     public void initSceneSpinner() {
+        //场景列表数据显示规则
         SpinnerTextFormatter text_scene = new SpinnerTextFormatter<Scene>() {
             @Override
             public Spannable format(Scene item) {
                 return new SpannableString(item.getStrScene());
             }
         };
-
+        spinner_scene.setSpinnerTextFormatter(text_scene);
+        spinner_scene.setSelectedTextFormatter(text_scene);
+        //spinner_scene监听点击事件
         spinner_scene.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
@@ -223,6 +228,7 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
      * 初始化动作列表
      */
     public void initStateSpinner() {
+        //动作列表数据显示规则
         SpinnerTextFormatter text_state = new SpinnerTextFormatter<State>() {
             @Override
             public Spannable format(State item) {
@@ -263,6 +269,7 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
      * 初始化ui列表
      */
     public void initUiSpinner() {
+        //UI列表数据显示规则
         SpinnerTextFormatter text_ui = new SpinnerTextFormatter<Ui>() {
             @Override
             public Spannable format(Ui item) {
@@ -274,7 +281,6 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
         spinner_ui.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
             @Override
             public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-                //点击UI列表切换，现有UI隐藏。未有此项，切换UI时，原有Ui不隐藏，显示被选择的UI
                 if (uiItem != null && uiItem.getWID() != 0) {
                     UnityManager.getInstance().hideUI("hideUi", uiItem.getWID());
                 }
@@ -294,13 +300,13 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
         StringBuilder stringBuilder = new StringBuilder();
         String data = null;
         try {
-            //调用方法访问asset文件夹，.//访问assets文件夹下的a目录
+            //调用方法访问asset文件夹，getAssets.list("a")//访问assets文件夹下的a目录
             //InputStreamReader:通过相应的字符编码方式读取字节输入流解码为字符输入流，处理字节
-            //BufferedReader:字符输入流中的子类,读取字符流，处理字符文本，并缓冲字符
+            //BufferedReader:字符输入流中的子类,读取字符流，处理字符文本
             AssetManager assetManager = MainActivity.this.getAssets();
             BufferedReader bfr = new BufferedReader(new InputStreamReader(assetManager.open(filename)));
             String line;
-            //readLine:读取字符流，并将其返回为字符串。若无数据可读，则返回null
+            //readLine:读取文本行，并将其返回为字符串。若无数据可读，则返回null
             //循环的从缓冲区读取数据（一行一行读取），拼接到stringBuilder中
             while ((line = bfr.readLine()) != null) {
                 stringBuilder.append(line);
@@ -323,24 +329,10 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
     }
 
     /**
-     * Unity初始化成功，只有这个地方回调Unity初始化成功，才能调用操作接口，如切换成功、播放动作等
-     */
-    @Override
-    public void initComplete() {
-        isUnityIinitSuccess = true;
-        Log.d(TAG, "Unity初始化成功");
-        Toast.makeText(MainActivity.this, "Unity初始化完成", Toast.LENGTH_SHORT).show();
-        UnityManager.getInstance().changeScene("changeDefault", 1);//切换默认场景
-    }
-
-    /**
      * UnityPlayer其实也是一个自定义View，我们需要将view加到想要显示的控件上，
      * 由用户自己控制
      */
     public void addOrRemoveViewClick() {
-        /**
-         * SHOW/HIDE按钮监听事件
-         */
         add1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -359,7 +351,7 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
                 if (!isUnityInit()) {
                     return;
                 }
-                if (roleItem != null && roleItem.getWdID() != 0) {
+                if (roleItem.getWdID() != 0) {
                     UnityManager.getInstance().changeRole("PlayAnimal", roleItem.getWdID());
                 }
             }
@@ -386,16 +378,15 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
         play_anim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "动作播放成功", Toast.LENGTH_SHORT).show();
                 if (!isUnityInit()) {
                     return;
                 }
                 if (stateItem != null && stateItem.getWdID() != 0) {
                     UnityManager.getInstance().playAnimation("ChangeAnim", stateItem.getWdID());
-                    Toast.makeText(MainActivity.this, "动作播放成功", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
         /**
          * 显示UI按钮点击事件
          */
@@ -405,7 +396,6 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
                 if (!isUnityInit()) {
                     return;
                 }
-                //根据UIlist中的wid切换天气/音乐UI；不能更换2/3，已与uI数据绑定，更换会出现场景错乱
                 if (uiItem != null && uiItem.getWID() != 0) {
                     switch (uiItem.getWID()) {
                         case 2:
@@ -413,9 +403,9 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
                             break;
                         case 3: {
                             UnityMusicModel unityMusicModel = new UnityMusicModel();
-                            unityMusicModel.setIndex(2);//设置当前播放歌曲的索引
+                            unityMusicModel.setIndex(2);
                             ArrayList list = new ArrayList<>();
-                            list.add(new NLPSongInfo("刘德华", "忘情水"));  //音乐歌单列表
+                            list.add(new NLPSongInfo("刘德华", "忘情水"));
                             list.add(new NLPSongInfo("周杰伦", "七里香"));
                             list.add(new NLPSongInfo("张学友", "吻别"));
                             unityMusicModel.setNlpSongInfos(list.toArray());
@@ -427,9 +417,6 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
             }
         });
 
-        /**
-         * 隐藏按钮点击按钮事件
-         */
         hide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -451,12 +438,10 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
                 if (!isUnityInit()) {
                     return;
                 }
-                //初始化天气场景（进入应用后直接点击播放天气按钮）
                 if (weatherSceneManager == null) {
                     for (int i = 0; i < sceneList.size(); i++) {
                         if (sceneList.get(i).getWdID() == 2) {
                             sceneItem = sceneList.get(i);
-                            //设置天气场景，用于调用更换天气场景
                             weatherSceneManager = new WeatherSceneManager(sceneItem);
                             break;
                         }
@@ -465,6 +450,7 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
                 weatherSceneManager.changeScene();
             }
         });
+
     }
 
     /**
@@ -473,32 +459,27 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
      */
     public void ShowOrHide(final Boolean flag) {
         if (flag) {
-            //设置背景颜色为空，即不设置
             ll_3d.setBackground(null);
         }
-        //定义动画
-        ObjectAnimator scaleX = ObjectAnimator.ofFloat(ll_3d, "scaleX", flag ? 0.15f : 1.0f, flag ? 1.0f : 0.15f);//x轴比例
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(ll_3d, "scaleY", flag ? 0.15f : 1.0f, flag ? 1.0f : 0.15f);//y轴比例
-        ObjectAnimator tranX = ObjectAnimator.ofFloat(ll_3d, View.TRANSLATION_X, flag ? 0f : px2Dp(ll_3d.getWidth() - 100));//改变后x
-        ObjectAnimator tranY = ObjectAnimator.ofFloat(ll_3d, View.TRANSLATION_Y, flag ? 0f : px2Dp(ll_3d.getHeight() - 100));//改变后Y
-        //AnimatorSet是对属性动画的一个集合，可以让很多动画按一定顺序或者 同时进行。
-        //使用AnimatorSet整合动画
+
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(ll_3d, "scaleX", flag ? 0.15f : 1.0f, flag ? 1.0f : 0.15f);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(ll_3d, "scaleY", flag ? 0.15f : 1.0f, flag ? 1.0f : 0.15f);
+        ObjectAnimator tranX = ObjectAnimator.ofFloat(ll_3d, View.TRANSLATION_X, flag ? 0f : px2Dp(ll_3d.getWidth() - 100));
+        ObjectAnimator tranY = ObjectAnimator.ofFloat(ll_3d, View.TRANSLATION_Y, flag ? 0f : px2Dp(ll_3d.getHeight() - 100));
         AnimatorSet set = new AnimatorSet();
-        //动画一起进行
         set.play(tranX).with(tranY).with(scaleX).with(scaleY);
-        //表示该动画要在1秒内播放完成
         set.setDuration(1000);
         set.start();
-        //对AnimatorSet监听
+
         set.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
-                Log.d("StartAnimal","动画开始");
+
             }
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                Log.d("EndAnimal", "动画结束");
+                Log.e("EndAnimal", "动画结束");
                 if (flag) {
                     ll_3d.setBackground(null);
                 } else {
@@ -518,25 +499,16 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
         });
     }
 
+
     /**
-     * 切换角色成功。
-     * sceneId 场景回调ID
+     * Unity初始化成功，只有这个地方回调Unity初始化成功，才能调用操作接口，如切换成功、播放动作等
      */
     @Override
-    public void changeRoleSuccess() {
-        Log.d(TAG, "切换角色成功");
-        Toast.makeText(MainActivity.this, "切换角色成功", Toast.LENGTH_SHORT).show();
-        //男女角色的天气场景及UI不一样
-        if (weatherSceneManager == null) {
-            weatherSceneManager = new WeatherSceneManager(sceneItem);
-        }
-        //设置角色对应的天气场景，如未设置，男女模调用同一个天气场景，男模天气tts未播报，动作不播放，女模角色播放第一个动作后，后续动作不播
-        if (roleItem.getStrName().contains("女") ) {
-            weatherSceneManager.setScene(sceneList.get(1));
-        }
-        else if (roleItem.getStrName().contains("男")) {
-            weatherSceneManager.setScene(sceneList.get(9));
-        }
+    public void initComplete() {
+        isUnityIinitSuccess = true;
+        Log.d(TAG, "Unity初始化成功");
+        Toast.makeText(MainActivity.this, "Unity初始化完成", Toast.LENGTH_SHORT).show();
+        UnityManager.getInstance().changeScene("changeDefault", 1);//切换默认场景
     }
 
     /**
@@ -545,6 +517,7 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
      */
     @Override
     public void changeSceneSuccess(int sceneId) {
+        //        Log.e(TAG, "切换场景成功了====" + sceneId + "currentThread==" + Thread.currentThread().getName());
         Toast.makeText(MainActivity.this, "切换" + sceneId + "场景成功了", Toast.LENGTH_SHORT).show();
     }
 
@@ -555,6 +528,26 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
     public void playAnimComplete(int animId) {
         Log.d(TAG, "动作播放结束===" + animId);
         Toast.makeText(MainActivity.this, animId + "动作播放结束", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 切换角色成功。
+     * sceneId 场景回调ID
+     */
+    @Override
+    public void changeRoleSuccess() {
+        Log.d(TAG, "切换角色成功");
+        Toast.makeText(MainActivity.this, "切换角色成功", Toast.LENGTH_SHORT).show();
+        //男女角色的天气场景及UI不一样//存在疑问
+        if (weatherSceneManager == null) {
+            weatherSceneManager = new WeatherSceneManager(sceneItem);
+        }
+         if (roleItem.getStrName().contains("女") ) {
+            weatherSceneManager.setScene(sceneList.get(1));
+        }
+         else if (roleItem.getStrName().contains("男")) {
+            weatherSceneManager.setScene(sceneList.get(9));
+        }
     }
 
     public void onWindowFocusChanged(Boolean hasFocus) {
@@ -579,7 +572,6 @@ public class MainActivity extends UnityPlayerActivity implements UnityCallbackLi
      * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
      */
     public float px2Dp(int pxValue) {
-        //得到屏幕的相对密度
         float scale = getResources().getDisplayMetrics().density;
         return (pxValue / scale + 0.5f);
     }

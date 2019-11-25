@@ -23,15 +23,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class WebViewActivity extends AppCompatActivity {
     AgentWeb mAgentWeb;
+    LinearLayout webview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
-
+        webview = findViewById(R.id.ll_wv);
         Intent intent = getIntent();
         String urls = intent.getStringExtra("url");
         skipurl(urls);
-
     }
 
     /**
@@ -39,10 +39,9 @@ public class WebViewActivity extends AppCompatActivity {
      * @param url
      */
     public void skipurl(String url){
-        LinearLayout webview = findViewById(R.id.ll_wv);
         mAgentWeb = AgentWeb.with(this)
                 .setAgentWebParent((LinearLayout) webview, new LinearLayout.LayoutParams(-1, -1))
-                .useDefaultIndicator(-1, 3)
+                .useDefaultIndicator()
                 .setSecurityType(AgentWeb.SecurityType.STRICT_CHECK)
                 .setMainFrameErrorView(R.layout.agentweb_error_page, -1)
                 .setOpenOtherPageWays(DefaultWebClient.OpenOtherPageWays.DISALLOW)

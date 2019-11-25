@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"/>
     </androidx.appcompat.widget.Toolbar>
-
+    <include layout="@layout/activity_home_banner"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rc_home"
             android:layout_width="match_parent"

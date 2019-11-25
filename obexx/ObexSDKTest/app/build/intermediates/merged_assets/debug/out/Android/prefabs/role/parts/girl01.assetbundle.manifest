@@ -1,0 +1,108 @@
+ManifestFileVersion: 0
+CRC: 280450664
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5262f8272fa38138eae61e99f227aab4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: bbb228c21ed8621ca8909e0211d5ea51
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 073420043013e684bbfcba01d066aca1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6e176e25ca9dafe4b85f5332d247fd3d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0303c5c5019a846c182f74ff2706e040, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dee06a76ffd4763488ea85a4ace0f44b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ed912dabfc2a2714687b8ccfb5e502a8, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_shoe_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_rig.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_hair_002.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_006_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_004_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_003.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_sock_001_03.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_005_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_hair_003.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_004_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_006_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_shoe_002.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_003_03.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_hair_009.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_002_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_008.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_hair_004.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_009.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_sock_001_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_000.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_002_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_008.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_shoe_009.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_007_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_004_04.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_sock_001_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_004_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_fingernail_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_005_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_003_04.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_007_03.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_006_03.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_002_04.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_arm_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_hair_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_003_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_007_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_shoe_003.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_sock_000.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_hair_005.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_002_03.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_arm_002.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_009.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_004_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_003_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_head_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_lower_005.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_004_03.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/girl01/girl01_upper_002.prefab
+Dependencies:
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/role.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/public.assetbundle

@@ -26,7 +26,7 @@ public class MainAdapter extends BaseQuickAdapter<AsyncTask.Status> {
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, Status item) {
+    protected void convert(BaseViewHolder helper, AsyncTask.Status item) {
         helper.setText(R.id.tweetName, item.getUserName())
                 .setText(R.id.tweetText, item.getText())
                 .setText(R.id.tweetDate, item.getCreatedAt())

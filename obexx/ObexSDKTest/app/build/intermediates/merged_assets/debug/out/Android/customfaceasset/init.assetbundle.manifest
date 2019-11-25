@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 1465884370
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5d07f7300f37704bf041357caaf543c7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fb30740da4a3ef46f31f06ac31e3cfb9
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: cdbcce86eedfdf544bd4ed99f633de09, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1e441b6719915cf49b5c0d1e98517bcb, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/CustomFaceAsset/Init/boy01_rig.asset
+- Assets/ResDataBase/CustomFaceAsset/Init/girl01_rig.asset
+- Assets/ResDataBase/CustomFaceAsset/Init/girl01_rig01.asset
+Dependencies: []

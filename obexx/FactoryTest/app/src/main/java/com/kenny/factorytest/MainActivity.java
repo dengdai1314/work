@@ -21,7 +21,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static String TAG = MainActivity.class.getSimpleName();
     Button ButtonMute, ButtonUp,ButtonDown,ButtonWifi;
     TextView MuteText, UpText,DownText,WifiText,MainHint;
-    Boolean isMute, isUp,isDown,isWifi,isalldown= false;
+    Boolean isMute = false;
+    Boolean isUp = false;
+    Boolean isDown = false;
+    Boolean isWifi = false;
+    Boolean isalldown = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +108,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * @return
      */
     private boolean isalldown(){
+        Log.d("isMute==",isDown.toString());
         if(isMute == true&&isDown == true&&isUp == true&&isWifi == true){
             MainHint.setVisibility(View.VISIBLE);            //显示测试完成提示
             isDown=false;

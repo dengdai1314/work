@@ -1,0 +1,60 @@
+ManifestFileVersion: 0
+CRC: 3777328702
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b79b8903b7ddda154b2ec1b485fc57f2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/textures/scenes/stream_desk_Normal.png
+- Assets/ResDataBase/textures/scenes/music03/tex_shuzi.tga
+- Assets/ResDataBase/textures/scenes/electric.png
+- Assets/ResDataBase/textures/scenes/stream/media_news_mask.jpg
+- Assets/ResDataBase/textures/scenes/music03/tex_xiaocao_2.tga
+- Assets/ResDataBase/textures/scenes/music03/tex_hua.tga
+- Assets/ResDataBase/textures/scenes/cloud_xulie.tga
+- Assets/ResDataBase/textures/scenes/coffee_02_diff.tga
+- Assets/ResDataBase/textures/scenes/stream/media_radio.tga
+- Assets/ResDataBase/textures/scenes/stream/media_radio_mask.jpg
+- Assets/ResDataBase/textures/scenes/moon.tga
+- Assets/ResDataBase/textures/scenes/music03/music03_chair.psd
+- Assets/ResDataBase/textures/scenes/story/dot.tga
+- Assets/ResDataBase/textures/scenes/stage_coffee_bump.tga
+- Assets/ResDataBase/textures/scenes/coffee_Normal.png
+- Assets/ResDataBase/textures/scenes/music03/tex_xiaocao_1.tga
+- Assets/ResDataBase/textures/scenes/stream/media_news.tga
+- Assets/ResDataBase/textures/scenes/stage_coffee_normal.tga
+- Assets/ResDataBase/textures/scenes/coffee_003_dif.tga
+- Assets/ResDataBase/textures/scenes/beach/changjing002_dif.tga
+- Assets/ResDataBase/textures/scenes/coffee_02_smgs.tga
+- Assets/ResDataBase/textures/scenes/beach/shui.tga
+- Assets/ResDataBase/textures/scenes/stage_coffee_sgms.tga
+- Assets/ResDataBase/textures/scenes/beach/wave.tga
+- Assets/ResDataBase/textures/scenes/stream_desk_smgs.tga
+- Assets/ResDataBase/textures/scenes/stage.psd
+- Assets/ResDataBase/textures/scenes/cloud.tga
+- Assets/ResDataBase/textures/scenes/story/Streamer.tga
+- Assets/ResDataBase/textures/scenes/stage_cylinder.psd
+- Assets/ResDataBase/textures/scenes/story/stage_story.tga
+- Assets/ResDataBase/textures/scenes/stream_desk.psd
+- Assets/ResDataBase/textures/scenes/music03/music03_book.psd
+- Assets/ResDataBase/textures/scenes/coffee_003_smgs.tga
+- Assets/ResDataBase/textures/scenes/story/story_smgs.tga
+- Assets/ResDataBase/textures/scenes/stream/media_story.tga
+- Assets/ResDataBase/textures/scenes/stream/media_story_bord.png
+- Assets/ResDataBase/textures/scenes/beach/changjing002_smgs.tga
+- Assets/ResDataBase/textures/scenes/stage_music.psd
+- Assets/ResDataBase/textures/scenes/music03/tex_shuben.psd
+- Assets/ResDataBase/textures/scenes/gradient.tga
+- Assets/ResDataBase/textures/scenes/stage_coffee_diff.tga
+- Assets/ResDataBase/textures/scenes/music03/ground.psd
+- Assets/ResDataBase/textures/scenes/stream/media_story_mask.jpg
+- Assets/ResDataBase/textures/scenes/stage_weather.tga
+- Assets/ResDataBase/textures/scenes/stream/bord_news.psd
+Dependencies: []

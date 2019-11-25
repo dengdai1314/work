@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: :unitylib_1.0.0:@aar">
+    <CLASSES>
+      <root url="jar://G:/AndroidCache/.gradle/caches/transforms-2/files-2.1/77d26d96d2c6a60aa3a48c8ea08c4056/unitylib_1.0.0/jars/classes.jar!/" />
+      <root url="file://G:/AndroidCache/.gradle/caches/transforms-2/files-2.1/77d26d96d2c6a60aa3a48c8ea08c4056/unitylib_1.0.0/res" />
+      <root url="jar://G:/AndroidCache/.gradle/caches/transforms-2/files-2.1/77d26d96d2c6a60aa3a48c8ea08c4056/unitylib_1.0.0/jars/libs/p2a_client.jar!/" />
+      <root url="jar://G:/AndroidCache/.gradle/caches/transforms-2/files-2.1/77d26d96d2c6a60aa3a48c8ea08c4056/unitylib_1.0.0/jars/libs/unity-classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

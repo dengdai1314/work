@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 416056537
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1a3e41cb27ebc9bf5366f0e6b3dcbed7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21308da560626b3f14166c4c0988d550
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 073420043013e684bbfcba01d066aca1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0303c5c5019a846c182f74ff2706e040, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/Prefabs/Role/parts/custom/girl01_head_yangmi.prefab
+Dependencies:
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/role.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/public.assetbundle

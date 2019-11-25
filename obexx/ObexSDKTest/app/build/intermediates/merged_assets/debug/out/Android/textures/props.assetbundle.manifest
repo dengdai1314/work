@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 2876120104
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 27a804387247e47055082bb9bdf5f82a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/textures/props/hotpot/hotpot_beijing.tga
+- Assets/ResDataBase/textures/props/juice01.tga
+- Assets/ResDataBase/textures/props/skills/chat.png
+- Assets/ResDataBase/textures/props/mobile phone_sgms.tga
+- Assets/ResDataBase/textures/props/stream_radio_Normal.png
+- Assets/ResDataBase/textures/props/hotpot/hotpot_hongkong.tga
+- Assets/ResDataBase/textures/props/stream_radio.png
+- Assets/ResDataBase/textures/props/hotpot/hotpot_sichuan.tga
+- Assets/ResDataBase/textures/props/stream_radio_smgs.tga
+- Assets/ResDataBase/textures/props/skills/remind.png
+- Assets/ResDataBase/textures/props/headphone_boy_diffuse.tga
+- Assets/ResDataBase/textures/props/headphone_diffuse.tga
+- Assets/ResDataBase/textures/props/headphone_smgs.tga
+- Assets/ResDataBase/textures/props/skills/study.png
+- Assets/ResDataBase/textures/props/mobile phone.tga
+- Assets/ResDataBase/textures/props/skills/weather.png
+- Assets/ResDataBase/textures/props/skills/music.png
+Dependencies: []

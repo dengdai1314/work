@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 125419446
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 644d7b07f9aa23edab968fabc4f643e8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6460a223e755861ac3169e25d4f5a684
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: dee06a76ffd4763488ea85a4ace0f44b, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/Prefabs/Role/earing/girl01_rightearring_001.prefab
+- Assets/ResDataBase/Prefabs/Role/earing/girl01_leftearring_001.prefab
+Dependencies:
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/role.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/public.assetbundle

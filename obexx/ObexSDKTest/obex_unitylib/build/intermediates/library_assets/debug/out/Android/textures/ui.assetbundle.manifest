@@ -1,0 +1,118 @@
+ManifestFileVersion: 0
+CRC: 1257842004
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f1c33def4f396ae9d725fba1009b786b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 011d1bb1b97750065fc8e33fbaec9bad
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/textures/ui/weatherforecast/city.png
+- Assets/ResDataBase/textures/ui/music/pause_click.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedFan.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Fan.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Airconditioner.png
+- Assets/ResDataBase/textures/ui/gasoline/gasoline_cut.png
+- Assets/ResDataBase/textures/ui/lottery/lottery_purpleball.png
+- Assets/ResDataBase/textures/ui/weatherforecast/temprature.png
+- Assets/ResDataBase/textures/ui/main/newmessage.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedRemotecontrol.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickDishwasher.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickWasher.png
+- Assets/ResDataBase/textures/ui/gasoline/gasoline_rise.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/OnClicklight.png
+- Assets/ResDataBase/textures/ui/smarthome/inner.png
+- Assets/ResDataBase/textures/ui/stream/story.png
+- Assets/ResDataBase/textures/ui/music/bar_dot.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickCalorifier.png
+- "Assets/ResDataBase/textures/ui/weatherforecast/23\u2103.png"
+- Assets/ResDataBase/textures/ui/poem/poem_bg.png
+- Assets/ResDataBase/textures/ui/translation/this is a line.png
+- Assets/ResDataBase/textures/ui/weatherforecast/background.png
+- Assets/ResDataBase/textures/ui/shares/shares_rise.png
+- Assets/ResDataBase/textures/ui/lottery/lottery_orangeball.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Unclickedwaterheater.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickFan.png
+- Assets/ResDataBase/textures/ui/shares/shares_bg_Cur.png
+- Assets/ResDataBase/textures/ui/music/label_03.png
+- Assets/ResDataBase/textures/ui/CarLimit/restrictions_background.png
+- Assets/ResDataBase/textures/ui/calendar/calendar_bg.png
+- Assets/ResDataBase/textures/ui/stream/fm.png
+- Assets/ResDataBase/textures/ui/stream/news_bg.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Sweeper.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedCurtain.png
+- Assets/ResDataBase/textures/ui/lottery/lottery_blueball.png
+- Assets/ResDataBase/textures/ui/main/SF Generic.psd
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickRefrigerator.png
+- Assets/ResDataBase/textures/ui/music/play_click.png
+- Assets/ResDataBase/textures/ui/weatherforecast/weather_001.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickTV.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickAirconditioner.png
+- Assets/ResDataBase/textures/ui/music/label_01.png
+- Assets/ResDataBase/textures/ui/main/SF Button.psd
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedDishwasher.png
+- Assets/ResDataBase/textures/ui/main/wifi.png
+- Assets/ResDataBase/textures/ui/gasoline/gasoline_bg_3.png
+- Assets/ResDataBase/textures/ui/main/nomaic.png
+- Assets/ResDataBase/textures/ui/gasoline/gasoline_bg_1.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedWasher.png
+- Assets/ResDataBase/textures/ui/main/SF Title.psd
+- Assets/ResDataBase/textures/ui/gasoline/gasoline_bg_4.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Socket.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Curtain.png
+- Assets/ResDataBase/textures/ui/lottery/lottery_redball.png
+- Assets/ResDataBase/textures/ui/music/button_bg.png
+- Assets/ResDataBase/textures/ui/gasoline/gasoline_bg.png
+- Assets/ResDataBase/textures/ui/music/play.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickSocket.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickSweeper.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Lampblackmachine.png
+- Assets/ResDataBase/textures/ui/smarthome/entirety.png
+- Assets/ResDataBase/textures/ui/smarthome/outering.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedTV.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickRemotecontrol.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickLampblackmachine.png
+- Assets/ResDataBase/textures/ui/weatherforecast/humidity.png
+- Assets/ResDataBase/textures/ui/main/SF Window.psd
+- Assets/ResDataBase/textures/ui/music/bar_bg.png
+- Assets/ResDataBase/textures/ui/lottery/lottery_background.png
+- Assets/ResDataBase/textures/ui/music/label_02.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Dishwasher.png
+- Assets/ResDataBase/textures/ui/weatherforecast/bg_transparent.png
+- Assets/ResDataBase/textures/ui/calendar/avoid_bg.png
+- Assets/ResDataBase/textures/ui/calendar/calender_glow.png
+- Assets/ResDataBase/textures/ui/music/bar_1.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Unclickedlight.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedSocket.png
+- Assets/ResDataBase/textures/ui/shares/shares_bg_Las.png
+- Assets/ResDataBase/textures/ui/translation/rec_smooth_bg.png
+- Assets/ResDataBase/textures/ui/music/pause.png
+- Assets/ResDataBase/textures/ui/gasoline/gasoline_bg_2.png
+- Assets/ResDataBase/textures/ui/smarthome/innerlight.png
+- Assets/ResDataBase/textures/ui/shares/shares_fall.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedSweeper.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Refrigerator.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/clickCurtain.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedRefrigerator.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/OnClickwaterheater.png
+- Assets/ResDataBase/textures/ui/weatherforecast/bg_gradient.png
+- Assets/ResDataBase/textures/ui/music/label_04.png
+- Assets/ResDataBase/textures/ui/smarthome/Clickonthestate/OnClickTV.png
+- Assets/ResDataBase/textures/ui/smarthome/bottom.png
+- Assets/ResDataBase/textures/ui/smarthome/Textprompt.png
+- Assets/ResDataBase/textures/ui/calendar/fit_bg.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/UnclickedLampblackmachine.png
+- Assets/ResDataBase/textures/ui/smarthome/Unclickedstate/Remotecontrol.png
+- Assets/ResDataBase/textures/ui/smarthome/Materials/outerMoster.mat
+Dependencies: []

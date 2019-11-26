@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3993935115
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 70fc6191532df56121535c4c6e659bfa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/table/ResourceDatabase.bytes
+Dependencies: []

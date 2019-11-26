@@ -1,0 +1,142 @@
+ManifestFileVersion: 0
+CRC: 14120425
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: textures/role.assetbundle
+      Dependencies: {}
+    Info_1:
+      Name: textures/effects.assetbundle
+      Dependencies: {}
+    Info_2:
+      Name: textures/ui.assetbundle
+      Dependencies: {}
+    Info_3:
+      Name: textures/public.assetbundle
+      Dependencies: {}
+    Info_4:
+      Name: textures/scenes.assetbundle
+      Dependencies: {}
+    Info_5:
+      Name: textures/props.assetbundle
+      Dependencies: {}
+    Info_6:
+      Name: prefabs/effects.assetbundle
+      Dependencies:
+        Dependency_0: textures/effects.assetbundle
+        Dependency_1: textures/ui.assetbundle
+        Dependency_2: textures/public.assetbundle
+        Dependency_3: textures/scenes.assetbundle
+    Info_7:
+      Name: animationasset/data/lights.assetbundle
+      Dependencies: {}
+    Info_8:
+      Name: animationasset/data/digitalapart.assetbundle
+      Dependencies:
+        Dependency_0: textures/effects.assetbundle
+        Dependency_1: textures/public.assetbundle
+    Info_9:
+      Name: customfaceasset/init.assetbundle
+      Dependencies: {}
+    Info_10:
+      Name: animationasset/data/digital.assetbundle
+      Dependencies: {}
+    Info_11:
+      Name: customfacedata.assetbundle
+      Dependencies: {}
+    Info_12:
+      Name: abinfo/abpath.assetbundle
+      Dependencies: {}
+    Info_13:
+      Name: table/slotdatabase.assetbundle
+      Dependencies: {}
+    Info_14:
+      Name: table/tipsdatabase.assetbundle
+      Dependencies: {}
+    Info_15:
+      Name: table/makeupdatabase.assetbundle
+      Dependencies: {}
+    Info_16:
+      Name: table/resourcedatabase.assetbundle
+      Dependencies: {}
+    Info_17:
+      Name: table/statedatabase.assetbundle
+      Dependencies: {}
+    Info_18:
+      Name: table/controllerdatabase.assetbundle
+      Dependencies: {}
+    Info_19:
+      Name: table/eventdatabase.assetbundle
+      Dependencies: {}
+    Info_20:
+      Name: table/roledatabase.assetbundle
+      Dependencies: {}
+    Info_21:
+      Name: table/custombodydatabase.assetbundle
+      Dependencies: {}
+    Info_22:
+      Name: table/animationdatabase.assetbundle
+      Dependencies: {}
+    Info_23:
+      Name: table/global.assetbundle
+      Dependencies: {}
+    Info_24:
+      Name: table/scenedatabase.assetbundle
+      Dependencies: {}
+    Info_25:
+      Name: table/bonepathdatabase.assetbundle
+      Dependencies: {}
+    Info_26:
+      Name: table/effectdatabase.assetbundle
+      Dependencies: {}
+    Info_27:
+      Name: prefabs/ui/main.assetbundle
+      Dependencies:
+        Dependency_0: textures/ui.assetbundle
+    Info_28:
+      Name: prefabs/props.assetbundle
+      Dependencies:
+        Dependency_0: textures/effects.assetbundle
+        Dependency_1: textures/public.assetbundle
+        Dependency_2: textures/scenes.assetbundle
+        Dependency_3: textures/props.assetbundle
+    Info_29:
+      Name: prefabs/role/parts/girl01.assetbundle
+      Dependencies:
+        Dependency_0: textures/role.assetbundle
+        Dependency_1: textures/public.assetbundle
+    Info_30:
+      Name: prefabs/role/hands.assetbundle
+      Dependencies:
+        Dependency_0: textures/role.assetbundle
+        Dependency_1: textures/public.assetbundle
+    Info_31:
+      Name: prefabs/scenes.assetbundle
+      Dependencies:
+        Dependency_0: textures/effects.assetbundle
+        Dependency_1: textures/public.assetbundle
+        Dependency_2: textures/scenes.assetbundle
+        Dependency_3: animationasset/data/lights.assetbundle
+    Info_32:
+      Name: prefabs/role/parts/boy01.assetbundle
+      Dependencies:
+        Dependency_0: textures/role.assetbundle
+        Dependency_1: textures/public.assetbundle
+    Info_33:
+      Name: prefabs/role/glasses.assetbundle
+      Dependencies:
+        Dependency_0: textures/role.assetbundle
+        Dependency_1: textures/public.assetbundle
+    Info_34:
+      Name: prefabs/role/earing.assetbundle
+      Dependencies:
+        Dependency_0: textures/role.assetbundle
+        Dependency_1: textures/public.assetbundle
+    Info_35:
+      Name: p2a.assetbundle
+      Dependencies: {}
+    Info_36:
+      Name: prefabs/role/parts/custom.assetbundle
+      Dependencies:
+        Dependency_0: textures/role.assetbundle
+        Dependency_1: textures/public.assetbundle

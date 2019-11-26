@@ -1,0 +1,70 @@
+ManifestFileVersion: 0
+CRC: 1600126508
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: babf7af7a81b75e941f245a24858dd88
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cd72c9e4c40c50bff245b37ac3a3ea61
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: ed912dabfc2a2714687b8ccfb5e502a8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/Prefabs/props/coffeecup.prefab
+- Assets/ResDataBase/Prefabs/props/headphone.prefab
+- Assets/ResDataBase/Prefabs/props/clock01.prefab
+- Assets/ResDataBase/Prefabs/props/mobilephone01.prefab
+- Assets/ResDataBase/Prefabs/props/headphone_boy.prefab
+- Assets/ResDataBase/Prefabs/props/heart01.prefab
+- Assets/ResDataBase/Prefabs/props/hotpot.prefab
+- Assets/ResDataBase/Prefabs/props/skills.prefab
+- Assets/ResDataBase/Prefabs/props/coffeestick01.prefab
+- Assets/ResDataBase/Prefabs/props/book01.prefab
+- Assets/ResDataBase/Prefabs/props/stream_radio.prefab
+- Assets/ResDataBase/Prefabs/props/doll01.prefab
+- Assets/ResDataBase/Prefabs/props/effectsplane01.prefab
+- Assets/ResDataBase/Prefabs/props/hotpot2.prefab
+- Assets/ResDataBase/Prefabs/props/stream_chair.prefab
+- Assets/ResDataBase/Prefabs/props/juice01.prefab
+- Assets/ResDataBase/Prefabs/props/chair01.prefab
+- Assets/ResDataBase/Prefabs/props/musicnote01.prefab
+- Assets/ResDataBase/Prefabs/props/flower01.prefab
+Dependencies:
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/effects.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/public.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/scenes.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/props.assetbundle

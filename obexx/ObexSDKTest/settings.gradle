@@ -1,0 +1,2 @@
+include ':app',':obex_unitylib'
+rootProject.name='ObexSDKTest'

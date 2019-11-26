@@ -1,0 +1,74 @@
+ManifestFileVersion: 0
+CRC: 2154786904
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 965d62fb644dbc9cf47842e3be10e3db
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 96ee9af3fb68a11be69ee505afa6489d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 67e59967782a91f4394ecc9c08bc0496, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/Prefabs/Scenes/stage_background.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_music01.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_weather.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_story.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_music02.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_empty.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_alarm.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_coffee_01.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_default.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_flower.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_coffee.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_music03.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_stream.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_coffee_02.prefab
+- Assets/ResDataBase/Prefabs/Scenes/SceneGroup.prefab
+- Assets/ResDataBase/Prefabs/Scenes/stage_beach.prefab
+Dependencies:
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/effects.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/public.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/scenes.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/animationasset/data/lights.assetbundle

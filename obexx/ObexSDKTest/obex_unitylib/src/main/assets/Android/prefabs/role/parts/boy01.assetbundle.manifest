@@ -1,0 +1,75 @@
+ManifestFileVersion: 0
+CRC: 1276877707
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6640ee6d09ee9ff375252c768e37b2a4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 87890a2eb005213f56e9394753cfdf7a
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 073420043013e684bbfcba01d066aca1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0303c5c5019a846c182f74ff2706e040, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ed912dabfc2a2714687b8ccfb5e502a8, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_upper_005_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_upper_002_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_lower_002_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_hair_002.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_upper_000.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_upper_005_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_upper_004.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_hair_003.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_lower_000.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_rig.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_arm_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_shoe_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_shoe_002.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_lower_002_01.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_hair_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_head_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_upper_005_03.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_lower_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_shoe_003.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_upper_002_02.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_upper_003.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_lower_003.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_upper_001.prefab
+- Assets/ResDataBase/Prefabs/Role/parts/boy01/boy01_lower_004.prefab
+Dependencies:
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/role.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/public.assetbundle

@@ -1,0 +1,38 @@
+ManifestFileVersion: 0
+CRC: 75124789
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d7e38c5b1dd17d277e7fd2f210089415
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: cb5cff3a1350143ce413b676b0fb473f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/ResDataBase/Prefabs/Role/glasses/boy01_glasses_002.prefab
+- Assets/ResDataBase/Prefabs/Role/glasses/girl01_glasses_003.prefab
+- Assets/ResDataBase/Prefabs/Role/glasses/girl01_glasses_001.prefab
+- Assets/ResDataBase/Prefabs/Role/glasses/boy01_glasses_001.prefab
+- Assets/ResDataBase/Prefabs/Role/glasses/girl01_glasses_002.prefab
+- Assets/ResDataBase/Prefabs/Role/glasses/girl01_glasses_004.prefab
+- Assets/ResDataBase/Prefabs/Role/glasses/boy01_glasses_003.prefab
+Dependencies:
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/role.assetbundle
+- E:/SDK/UnitySDK/../U3D_HotResDir/Android/textures/public.assetbundle

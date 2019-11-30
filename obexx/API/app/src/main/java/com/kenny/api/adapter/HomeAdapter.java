@@ -1,14 +1,18 @@
 package com.kenny.api.adapter;
 /*
+ * -----------------------------------------------------------------
+ * Copyright (C) 2014-2016, by obex, All rights reserved.
+ * -----------------------------------------------------------------
  *
  * File: HomeAdapter.java
- * Author: luohuojin
- * Create: 2019/9/12 10:37
- * Changes (from 2019/9/12)
+ * Author: 29003
+ * Version: V100R001C01
+ * Create: 2019/11/27 10:29
+ * Changes (from 2019/11/27 )
  * -----------------------------------------------------------------
- * 2019/9/12 : Create HomeAdapter.java (29003);
+ * 2019/11/27 : Create HomeAdapter.java (29003);
  * -----------------------------------------------------------------
- * description:首页article列表adapter
+ * description:
  */
 
 import android.view.LayoutInflater;
@@ -28,54 +32,13 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 /**
  * @author 29003
  * @description
- * @date 2019/9/11
+ * @date 2019/11/27
  */
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
-    private final int type_header = 0;
-    private final int type_body = 1;
     private List<ArticleBean.DataBean.DatasBean> mArticleBeanList;
 
-    public HomeAdapter (List<ArticleBean.DataBean.DatasBean> articleBeanList){
+    public HomeAdapter(List<ArticleBean.DataBean.DatasBean> articleBeanList){
         this.mArticleBeanList = articleBeanList;
-    }
-
-    @NonNull
-    @Override
-    public HomeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if(viewType == 0){
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_home_banner,parent,false);
-            return new ZeroViewHolder(view);
-        }
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.homes_item,parent,false);
-        final ViewHolder holder = new ViewHolder(view);
-        return holder;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull HomeAdapter.ViewHolder holder, int position) {
-        switch (holder.getItemViewType()){
-            case type_header:
-                break;
-            default:
-                holder.tv_author.setText(mArticleBeanList.get(position).getAuthor());
-                holder.tv_title.setText(mArticleBeanList.get(position).getTitle());
-                holder.tv_chapterName.setText(mArticleBeanList.get(position).getSuperChapterName()+"."+ mArticleBeanList.get(position).getChapterName());
-                final int finalPosition = position;
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(onItemClickListener != null){
-                            onItemClickListener.onItemClick(finalPosition);
-                        }
-                    }
-                });
-                break;
-        }
-    }
-
-    @Override
-    public int getItemCount() {
-        return mArticleBeanList.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
@@ -90,13 +53,38 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         }
     }
 
+    @NonNull
+    @Override
+    public HomeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.homes_item,parent,false);
+        final ViewHolder holder = new ViewHolder(view);
+        return holder;
+    }
+
+    private OnItemClickListener onItemClickListener;
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
+    }
+
     public interface OnItemClickListener{
         //参数（父组件，当前单击的View,单击的View的位置，数据）
         void onItemClick(int position);
     }
-    private OnItemClickListener onItemClickListener;
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
-        this.onItemClickListener = onItemClickListener;
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.tv_author.setText(mArticleBeanList.get(position).getAuthor());
+        holder.tv_title.setText(mArticleBeanList.get(position).getTitle());
+        holder.tv_chapterName.setText(mArticleBeanList.get(position).getSuperChapterName()+"."+ mArticleBeanList.get(position).getChapterName());
+        final int finalPosition = position;
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(onItemClickListener != null){
+                    onItemClickListener.onItemClick(finalPosition);
+                }
+            }
+        });
     }
 
     @Override
@@ -109,17 +97,10 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         }
     }
 
-    class ZeroViewHolder extends ViewHolder {
-        public ZeroViewHolder(View itemView) {
-            super(itemView);
-        }
+    @Override
+    public int getItemCount() {
+        return mArticleBeanList.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if(position ==0){
-            return type_header;
-        }
-        else return type_body;
-    }
+
 }

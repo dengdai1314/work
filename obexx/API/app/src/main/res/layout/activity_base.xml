@@ -3,92 +3,135 @@
     android:background="#DBDBDB"
     android:layout_width="match_parent"
     android:layout_height="50dp"
+    android:layout_gravity="bottom"
+    android:baselineAligned="false"
     android:orientation="horizontal"
     android:gravity="center">
     <LinearLayout
         android:id="@+id/ll_home"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:clickable="true">
+        android:orientation="vertical"
+        android:focusable="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp">
         <ImageView
-            android:src="@drawable/home"
+            android:id="@+id/iv_home"
+            android:src="@drawable/ic_home_normal"
             android:layout_width="25dp"
             android:layout_height="25dp" />
         <TextView
+            android:id="@+id/tv_home"
             android:text="首页"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_gray_light"
+            android:textSize="10dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/system"
+        android:id="@+id/ll_system"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        android:focusable="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp">
         <ImageView
-            android:src="@drawable/system"
+            android:id="@+id/iv_system"
+            android:src="@drawable/ic_book_normal"
             android:layout_width="25dp"
             android:layout_height="25dp"/>
         <TextView
+            android:id="@+id/tv_system"
             android:text="体系"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_gray_light"
+            android:textSize="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/wechat"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:focusable="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp">
+        <ImageView
+            android:id="@+id/iv_wechat"
+            android:src="@drawable/ic_wechat_normal"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+        <TextView
+            android:id="@+id/tv_wechat"
+            android:text="公众号"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_gray_light"
+            android:textSize="10dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/project"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:focusable="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp">
         <ImageView
-            android:src="@drawable/project"
+            android:id="@+id/iv_project"
+            android:src="@drawable/ic_project_normal"
             android:layout_width="25dp"
             android:layout_height="25dp"/>
         <TextView
+            android:id="@+id/tv_project"
             android:text="项目"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_gray_light"
+            android:textSize="10dp"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/collect"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-        <ImageView
-            android:src="@drawable/star"
-            android:layout_width="25dp"
-            android:layout_height="25dp"/>
-        <TextView
-            android:text="收藏"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/person"
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:focusable="true"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp">
         <ImageView
-            android:src="@drawable/user"
+            android:id="@+id/iv_person"
+            android:src="@drawable/ic_mine_normal"
             android:layout_width="25dp"
             android:layout_height="25dp"/>
         <TextView
+            android:id="@+id/tv_person"
             android:text="个人"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textColor="@color/text_gray_light"
+            android:textSize="10dp"/>
     </LinearLayout>
 
 </LinearLayout>

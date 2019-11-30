@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -16,6 +15,9 @@ import com.kenny.api.model.ArticleBean;
 import com.kenny.api.model.ImageBannerBean;
 import com.kenny.base.BaseActivity;
 import com.kenny.base.WebViewActivity;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
@@ -60,27 +62,27 @@ public class HomeActivity extends BaseActivity implements OnBannerListener {
     RecyclerView homesRecyclerView;
     List<ArticleBean.DataBean.DatasBean> articleBeans = new ArrayList<>();
     ImageButton search;
-    View headerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         image_banner = findViewById(R.id.image_banner);
-        homesRecyclerView = findViewById(R.id.rc_home);
+        homesRecyclerView = findViewById(R.id.homeItem);
 
-        search = findViewById(R.id.ib_search);
-
+        search = findViewById(R.id.home_search);
         initlist();
         getImage_banner();
         getArticleJson(articlePage);
+
         homeAdapter.setOnItemClickListener(new HomeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                String url;
-                url = articleBeans.get(position).getLink();
-                actionStart(HomeActivity.this,url);
+                String articleUrl;
+                articleUrl = articleBeans.get(position).getLink();
+                actionStart(HomeActivity.this,articleUrl);
             }
         });
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,14 +90,30 @@ public class HomeActivity extends BaseActivity implements OnBannerListener {
                 startActivity(intent);
             }
         });
+
+        RefreshLayout refreshLayout = (RefreshLayout)findViewById(R.id.refreshLayout);
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                Log.e("测试","下拉");
+                refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
+            }
+        });
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(RefreshLayout refreshlayout) {
+                Log.e("测试","上拉");
+                refreshlayout.finishLoadMore(2000/*,false*/);//传入false表示加载失败
+            }
+        });
     }
 
     public void initlist(){
         LinearLayoutManager homeslayoutManager = new LinearLayoutManager(HomeActivity.this);
-        headerView = LayoutInflater.from(this).inflate(R.layout.activity_home_banner,null,false);
-
+//        headerView = LayoutInflater.from(this).inflate(R.layout.activity_home_banner,null,false);
+//
 //        image_banner = headerView.findViewById(R.id.image_banner);
-//        homesRecyclerView.setLayoutManager(homeslayoutManager);
+        homesRecyclerView.setLayoutManager(homeslayoutManager);
 
         homesRecyclerView.addItemDecoration(new DividerItemDecoration(HomeActivity.this,DividerItemDecoration.VERTICAL));//分割线
         homeAdapter = new HomeAdapter(articleBeans);
@@ -195,9 +213,9 @@ public class HomeActivity extends BaseActivity implements OnBannerListener {
     @Override
     public void OnBannerClick(int position) {
         Log.e(TAG,"你点击了第"+position+"张banner");
-        String urls;
-        urls= imageBannerBean.getData().get(position).getUrl();
-        actionStart(HomeActivity.this,urls);
+        String bannerUrl;
+        bannerUrl= imageBannerBean.getData().get(position).getUrl();
+        actionStart(HomeActivity.this,bannerUrl);
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.kenny.api.activity;
+package com.kenny.home.activity;
 
 import android.os.Bundle;
 

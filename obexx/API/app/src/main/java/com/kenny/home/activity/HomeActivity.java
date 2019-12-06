@@ -1,4 +1,4 @@
-package com.kenny.api.activity;
+package com.kenny.home.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,9 +10,9 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.kenny.api.R;
-import com.kenny.api.adapter.HomeAdapter;
-import com.kenny.api.model.ArticleBean;
-import com.kenny.api.model.ImageBannerBean;
+import com.kenny.home.adapter.HomeAdapter;
+import com.kenny.home.model.ArticleBean;
+import com.kenny.home.model.ImageBannerBean;
 import com.kenny.base.BaseActivity;
 import com.kenny.base.WebViewActivity;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -95,14 +95,15 @@ public class HomeActivity extends BaseActivity implements OnBannerListener {
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-                Log.e("测试","下拉");
+                getArticleJson(0);
                 refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
             }
         });
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
-                Log.e("测试","上拉");
+                articlePage = ++articlePage;
+                getArticleJson(articlePage);
                 refreshlayout.finishLoadMore(2000/*,false*/);//传入false表示加载失败
             }
         });

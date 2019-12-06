@@ -1,4 +1,4 @@
-package com.kenny.api.adapter;
+package com.kenny.home.adapter;
 /*
  * -----------------------------------------------------------------
  * Copyright (C) 2014-2016, by obex, All rights reserved.
@@ -18,10 +18,11 @@ package com.kenny.api.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kenny.api.R;
-import com.kenny.api.model.ArticleBean;
+import com.kenny.home.model.ArticleBean;
 
 import java.util.List;
 
@@ -42,14 +43,26 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
+        TextView tv_top;
+        TextView tv_new;
         TextView tv_author;
+        TextView tv_tag;
+        TextView tv_time;
+        ImageView iv_img;
         TextView tv_title;
+        TextView tv_desc;
         TextView tv_chapterName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            tv_top = itemView.findViewById(R.id.tv_top);
+            tv_new = itemView.findViewById(R.id.tv_new);
             tv_author = itemView.findViewById(R.id.tv_author);
+            tv_tag = itemView.findViewById(R.id.tv_tag);
+            tv_time = itemView.findViewById(R.id.tv_time);
+            iv_img = itemView.findViewById(R.id.iv_img);
             tv_title = itemView.findViewById(R.id.tv_title);
-            tv_chapterName = itemView.findViewById(R.id.tv_chapterName);
+            tv_desc = itemView.findViewById(R.id.tv_desc);
+            tv_chapterName = itemView.findViewById(R.id.tv_chapter_name);
         }
     }
 
@@ -73,18 +86,52 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tv_author.setText(mArticleBeanList.get(position).getAuthor());
-        holder.tv_title.setText(mArticleBeanList.get(position).getTitle());
-        holder.tv_chapterName.setText(mArticleBeanList.get(position).getSuperChapterName()+"."+ mArticleBeanList.get(position).getChapterName());
-        final int finalPosition = position;
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(onItemClickListener != null){
-                    onItemClickListener.onItemClick(finalPosition);
-                }
-            }
-        });
+        //        holder.tv_author.setText(mArticleBeanList.get(position).getAuthor());
+        //        holder.tv_title.setText(mArticleBeanList.get(position).getTitle());
+        //        holder.tv_chapterName.setText(mArticleBeanList.get(position).getSuperChapterName()+"."+ mArticleBeanList.get(position).getChapterName());
+        ArticleBean.DataBean.DatasBean item = new ArticleBean.DataBean.DatasBean();
+        if (item.isTop()) {
+            holder.tv_top.setVisibility(View.VISIBLE);
+        } else {
+            holder.tv_top.setVisibility(View.GONE);
+        }
+        if (item.isFresh()) {
+            holder.tv_new.setVisibility(View.VISIBLE);
+        } else {
+            holder.tv_new.setVisibility(View.GONE);
+        }
+//        holder.tv_author.setText(item.getAuthor());
+//        if (item.getTags() != null && item.getTags().size() > 0) {
+//            holder.tv_tag.setVisibility(View.VISIBLE);
+//        } else {
+//            holder.tv_tag.setVisibility(View.GONE);
+//        }
+//        holder.tv_time.setText(item.getNiceDate());
+//        if (!TextUtils.isEmpty(item.getEnvelopePic())) {
+//            holder.iv_img.setVisibility(View.VISIBLE);
+//        } else {
+//            holder.iv_img.setVisibility(View.GONE);
+//        }
+////        holder.tv_title.setText(Html.fromHtml(item.getTitle()));
+//        if (TextUtils.isEmpty(item.getDesc())) {
+//            holder.tv_desc.setVisibility(View.GONE);
+//            holder.tv_title.setSingleLine(false);
+//        } else {
+//            holder.tv_desc.setVisibility(View.VISIBLE);
+//            holder.tv_title.setSingleLine(true);
+//            String desc = Html.fromHtml(item.getDesc()).toString();
+//            desc = StringUtils.removeAllBank(desc, 2);
+//            holder.tv_desc.setText(desc);
+//        }
+//        final int finalPosition = position;
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(onItemClickListener != null){
+//                    onItemClickListener.onItemClick(finalPosition);
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -101,6 +148,5 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public int getItemCount() {
         return mArticleBeanList.size();
     }
-
 
 }

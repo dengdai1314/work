@@ -1,4 +1,4 @@
-package com.kenny.api.model;
+package com.kenny.home.model;
 
 import java.util.List;
 

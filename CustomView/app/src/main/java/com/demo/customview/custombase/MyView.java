@@ -1,4 +1,4 @@
-package com.demo.customview;
+package com.demo.customview.custombase;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 
 /**
  * @author 29003
- * @description
+ * @description customView 绘制基础练习
  * @date 2019/12/14
  */
 public class MyView extends View {

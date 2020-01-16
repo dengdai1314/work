@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.demo.customview.Customgraphics
+    <com.demo.customview.custombase.Customgraphics
         android:id="@+id/circle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         >
-    </com.demo.customview.Customgraphics>
+    </com.demo.customview.custombase.Customgraphics>
 
     <ImageView
         android:id="@+id/iv_src"

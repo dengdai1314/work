@@ -1,4 +1,4 @@
-package com.demo.tablayout.Fragment;
+package com.demo.customview.custombase;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,20 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 
-import com.demo.tablayout.R;
+import com.demo.customview.R;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-/**
- * @author 29003
- * @description
- * @date 2019/12/17
- */
 public class PageFragment extends Fragment {
-    @LayoutRes
-    int sampleLayoutRes;
+    @LayoutRes int sampleLayoutRes;
     @LayoutRes int practiceLayoutRes;
 
     public static PageFragment newInstance(@LayoutRes int sampleLayoutRes, @LayoutRes int practiceLayoutRes) {

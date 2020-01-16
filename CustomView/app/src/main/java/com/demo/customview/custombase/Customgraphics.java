@@ -1,4 +1,4 @@
-package com.demo.customview;
+package com.demo.customview.custombase;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -11,6 +11,9 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * drawBitmap 练习
+ */
 public class MainActivity extends AppCompatActivity {
     ImageView iv_src;
     ImageView iv_copy;

@@ -1,17 +1,20 @@
 package com.demo.tablayout;
 
 import android.os.Bundle;
-import com.demo.tablayout.Fragment.PageFragment;
+
+import com.demo.tablayout.Fragment.TabFragment;
 import com.google.android.material.tabs.TabLayout;
+
 import java.util.ArrayList;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
-    TabLayout mTabLayout;
+    TabLayout tabLayout;
     ViewPager viewPager;
-    PagerAdapter pagerAdapter;
+    FmPagerAdapter pagerAdapter;
     ArrayList<Fragment> fragments = new ArrayList<>();
     String[] titles = new  String[]{"最新","热门","我的"};
 
@@ -25,20 +28,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView(){
 
-        mTabLayout = findViewById(R.id.tablayout);
+        tabLayout = findViewById(R.id.tablayout);
         viewPager = findViewById(R.id.viewpager);
 
         for(int i=0;i<titles.length;i++){
-            fragments.add(new PageFragment());
-            mTabLayout.addTab(mTabLayout.newTab());
+            fragments.add(new TabFragment());
+            tabLayout.addTab(tabLayout.newTab());
         }
 
-        mTabLayout.setupWithViewPager(viewPager,false);
-        pagerAdapter = new PagerAdapter(getSupportFragmentManager(),fragments);
+        tabLayout.setupWithViewPager(viewPager,false);
+        pagerAdapter = new FmPagerAdapter(fragments,getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
         for(int i=0;i<titles.length;i++){
-            mTabLayout.getTabAt(i).setText(titles[i]);
+            tabLayout.getTabAt(i).setText(titles[i]);
         }
     }
 

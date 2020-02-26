@@ -1,5 +1,6 @@
 package com.demo.customview.paintexplain;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -27,6 +28,7 @@ public class PaintView extends View {
         paint.setColor(Color.parseColor("#009688"));
     }
 
+    @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -206,14 +208,237 @@ public class PaintView extends View {
         /**
          * 线条形状
          */
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(1);
-        canvas.drawCircle(150, 125, 100, paint);
-        paint.setStrokeWidth(5);
-        canvas.drawCircle(400, 125, 100, paint);
-        paint.setStrokeWidth(40);
-        canvas.drawCircle(650, 125, 100, paint);
+//        paint.setStyle(Paint.Style.STROKE);
+//        paint.setStrokeWidth(1);
+//        canvas.drawCircle(150, 125, 100, paint);
+//        paint.setStrokeWidth(5);
+//        canvas.drawCircle(400, 125, 100, paint);
+//        paint.setStrokeWidth(40);
+//        canvas.drawCircle(650, 125, 100, paint);
 
+        /**
+         * 设置线条线头形状
+         */
+//        paint.setStyle(Paint.Style.STROKE);
+//        paint.setStrokeWidth(20);
+//        paint.setStrokeCap(Paint.Cap.BUTT);
+//        canvas.drawLine(30,30,500,30,paint);
+//        paint.setStrokeCap(Paint.Cap.ROUND);
+//        canvas.drawLine(30,80,500,80,paint);
+//        paint.setStrokeCap(Paint.Cap.SQUARE);
+//        canvas.drawLine(30,130,500,130,paint);
+
+        /**
+         * 设置线条拐角形状
+         */
+//        paint.setStyle(Paint.Style.STROKE);
+//        paint.setStrokeWidth(20);
+//        paint.setStrokeJoin(Paint.Join.MITER);//默认为该值，还有bevel,round可选
+//        canvas.drawLine(30,30,500,30,paint);
+//        canvas.drawLine(500,30,250,300,paint);
+
+        /**
+         * 色彩优化
+         */
+        /**
+         * 设置图像的抖动
+         * setDither(boolean dither)
+         */
+//        paint.setDither(true);//开启抖动
+
+        /**
+         * 设置是否使用双线性过滤来绘制 Bitmap 。
+         */
+//        paint.setFilterBitmap(true);//使用双线性过滤绘制bitmap
+
+
+        /**
+         * 使用PathEffect给图形的轮廓设置效果
+         * 50为单线长度,1为线与线之间宽度或者叫距离，10未知
+         */
+//        PathEffect pathEffect = new DashPathEffect(new float[]{15,5},10);
+//        paint.setPathEffect(pathEffect);
+//        paint.setStrokeWidth(10);
+//        canvas.drawLine(30,80,800,80,paint);
+//        paint.setStyle(Paint.Style.STROKE);
+//        canvas.drawCircle(500,500,250,paint);
+
+        /**
+         * 把所有拐角变成圆角
+         */
+//        PathEffect pathEffect = new CornerPathEffect(80);
+//        paint.setPathEffect(pathEffect);
+//        paint.setStrokeWidth(20);
+//        paint.setStyle(Paint.Style.STROKE);
+//        Path path = new Path();
+//        path.lineTo(300,300);
+//        path.lineTo(500,100);
+//        canvas.drawPath(path,paint);
+
+        /**
+         * 将线条进行随机偏离
+         */
+//        PathEffect pathEffect = new DiscretePathEffect(20,5);
+//        paint.setPathEffect(pathEffect);
+//        paint.setStrokeWidth(20);
+//        paint.setStyle(Paint.Style.STROKE);
+//        Path path = new Path();
+//        path.lineTo(300,300);
+//        path.lineTo(500,100);
+//        canvas.drawPath(path,paint);
+
+        /**
+         * 使用虚线绘制线条
+         * 代码中的 20, 5, 10, 5 就表示虚线是按照「画 20 像素、空 5 像素、画 10 像素、空 5 像素」的模式来绘制；第二个参数 phase 是虚线的偏移量。
+         */
+//        PathEffect pathEffect = new DashPathEffect(new float[]{20,10,5,10},0);
+//        paint.setPathEffect(pathEffect);
+//        paint.setStyle(Paint.Style.STROKE);
+//        Path path = new Path();
+//        path.lineTo(300,300);
+//        path.lineTo(500,100);
+//        canvas.drawPath(path,paint);
+
+        /**
+         * PathDashPathEffect
+         * 使用Path绘制虚线
+         * 构造方法 PathDashPathEffect(Path shape, float advance,
+         * float phase, PathDashPathEffect.Style style) 中，
+         * shape 参数是用来绘制的 Path ； advance 是两个相邻的 shape 段之间的间隔，
+         * 不过注意，这个间隔是两个 shape 段的起点的间隔，而不是前一个的终点和后一个的起点的距离；
+         * phase 和 DashPathEffect 中一样，是虚线的偏移；
+         * 最后一个参数 style，是用来指定拐弯改变的时候 shape 的转换方式。有三个值：TRANSLATE 位移
+         * ROTATE 旋转， MORPH 变体
+         */
+//        Path path = new Path();
+//        path.lineTo(300,300);
+//        path.lineTo(500,100);
+//        Path dashPath = new Path();
+//        dashPath.moveTo(90, 340);
+//        dashPath.lineTo(150, 340);
+//        dashPath.lineTo(120, 290);
+//        dashPath.close();
+//        PathEffect pathEffect = new PathDashPathEffect(
+//                dashPath,40,0, PathDashPathEffect.Style.TRANSLATE);
+//        paint.setPathEffect(pathEffect);
+//        canvas.drawPath(path,paint);
+
+        /**
+         * 按照两种PathEffect分别对目标进行绘制
+         * SumPathEffect
+         */
+//        paint.setStyle(Paint.Style.STROKE);
+//        Path path = new Path();
+//        path.lineTo(300,300);
+//        path.lineTo(500,100);
+//        PathEffect dashEffect = new DashPathEffect(new float[]{20, 10}, 0);
+//        PathEffect discreteEffect = new DiscretePathEffect(20, 5);
+//        SumPathEffect pathEffect = new SumPathEffect(dashEffect, discreteEffect);
+//        paint.setPathEffect(pathEffect);
+//        canvas.drawPath(path,paint);
+
+        /**
+         * 按照两种PathEffect分别对目标进行绘制
+         * ComposePathEffect
+         * 构造方法 ComposePathEffect(PathEffect outerpe, PathEffect innerpe)
+         * 中的两个 PathEffect 参数， innerpe 是先应用的， outerpe 是后应用的。
+         * 所以上面的代码就是「先偏离，再变虚线」。而如果把两个参数调换，
+         * 就成了「先变虚线，再偏离」。
+         */
+//        paint.setStyle(Paint.Style.STROKE);
+//        Path path = new Path();
+//        path.lineTo(300,300);
+//        path.lineTo(500,100);
+//        PathEffect dashEffect = new DashPathEffect(new float[]{20, 10}, 0);
+//        PathEffect discreteEffect = new DiscretePathEffect(20, 5);
+//        ComposePathEffect pathEffect = new ComposePathEffect(dashEffect, discreteEffect);
+//        paint.setPathEffect(pathEffect);
+//        canvas.drawPath(path,paint);
+
+        /**
+         * setShadowLayer(float radius, float dx, float dy, int shadowColor)
+         * 在之后的绘制内容下面加一层阴影
+         * 方法的参数里， radius 是阴影的模糊范围； dx dy 是阴影的偏移量； shadowColor 是阴影的颜色。
+         * 清除阴影层，使用 clearShadowLayer()
+         */
+//        String text = "text";
+//        paint.setTextSize(80);
+//        paint.setShadowLayer(10,0,0,Color.RED);
+//        canvas.drawText(text,80,300,paint);
+//        paint.clearShadowLayer();
+//        canvas.drawText(text,100,500,paint);
+
+        /**
+         * setMaskFilter(MaskFilter maskfilter)
+         * 在绘制层上方添加附加效果
+         */
+        /**
+         * BlurMaskFilter
+         * 模糊效果
+         * 它的构造方法 BlurMaskFilter(float radius, BlurMaskFilter.Blur style) 中， radius 参数是模糊的范围， style 是模糊的类型。一共有四种：
+         * NORMAL: 内外都模糊绘制
+         * SOLID: 内部正常绘制，外部模糊
+         * INNER: 内部模糊，外部不绘制
+         * OUTER: 内部不绘制，外部模糊（什么鬼？）
+         */
+//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
+//        bitmap = imageScale(bitmap,400,400);
+//        paint.setMaskFilter(new BlurMaskFilter(50, BlurMaskFilter.Blur.NORMAL));
+//        canvas.drawBitmap(bitmap,100,100,paint);
+
+        /**
+         * EmbossMaskFilter
+         * 浮雕效果的 MaskFilter。
+         * 它的构造方法 EmbossMaskFilter(float[] direction, float ambient, float specular,
+         * float blurRadius) 的参数里， direction 是一个 3 个元素的数组，指定了光源的方向；
+         * ambient 是环境光的强度，数值范围是 0 到 1； specular 是炫光的系数；
+         * blurRadius 是应用光线的范围。
+         */
+//        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
+//        bitmap = imageScale(bitmap,400,400);
+//        paint.setMaskFilter(new EmbossMaskFilter(new float[]{0, 1, 1}, 0.2f, 8, 10));
+//        canvas.drawBitmap(bitmap,100,100,paint);
+
+        /**
+         * 获取绘制的Path
+         * 根据 paint 的设置，计算出绘制 Path 或文字时的实际 Path。
+         */
+        /**
+         * getFillPath(Path src,Path dst)
+         * 实际 Path ，指的就是 drawPath() 的绘制内容的轮廓，要算上线条宽度和设置的 PathEffect。
+         * 默认情况下（线条宽度为 0、没有 PathEffect），原 Path 和实际 Path 是一样的；而在线条宽度不为 0 （并且模式为 STROKE 模式或 FLL_AND_STROKE ），
+         * 或者设置了 PathEffect 的时候，实际 Path 就和原 Path 不一样了：
+         * 通过 getFillPath(src, dst) 方法就能获取这个实际 Path。方法的参数里，src 是原 Path ，而 dst 就是实际 Path 的保存位置。
+         * getFillPath(src, dst) 会计算出实际 Path，然后把结果保存在 dst 里。
+         */
+        /**
+         * getTextPath(String text, int start, int end, float x, float y, Path path)
+         * / getTextPath(char[] text, int index, int count, float x, float y, Path path)
+         */
+
+
+        /**
+         * 初始化类
+         */
+        /**
+         * reset
+         * 重置Paint的所有属性为默认值
+         */
+        /**
+         * set(Paint src)
+         * 把src 的所有属性全部复制过来。
+         * 相当于调用 src 所有的 get 方法，然后调用这个 Paint 的对应的 set 方法来设置它们。
+         */
+        /**
+         * setFlags(int flags)
+         * 批量设置 flags。相当于依次调用它们的 set 方法
+         * paint.setFlags(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
+         * 这行代码，和下面这两行是等价的：
+         *
+         * paint.setAntiAlias(true);
+         * paint.setDither(true);
+         * setFlags(flags) 对应的 get 方法是 int getFlags()。
+         */
     }
 
     /**

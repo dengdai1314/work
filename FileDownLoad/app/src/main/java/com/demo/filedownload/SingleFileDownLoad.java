@@ -23,9 +23,22 @@ public class SingleFileDownLoad {
             +File.separator+singleFileSaveName;
     public String mSaveFolder = FileDownloadUtils.getDefaultSaveRootPath()+File.separator+"feifei_save";
 
+    private static SingleFileDownLoad sInstance = null;
+
+    public static SingleFileDownLoad getInstance(){
+        if(sInstance == null){
+            synchronized (SingleFileDownLoad.class){
+                if(sInstance == null){
+                    sInstance = new SingleFileDownLoad();
+                }
+            }
+        }
+        return sInstance;
+    }
     public void start_single(){
 
         String url = apkUrl;
+        LogUtils.d(mSinglePath);
         singleTask = FileDownloader.getImpl().create(url)
                 //                .setPath(mSinglePath,false)
                 .setPath(mSinglePath,true)//设置下载路径

@@ -53,12 +53,12 @@ public class MyView extends View {
 //        canvas.drawRect(500,100,1100,500,mPaint);
 
         //画点
-//        mPaint.setStrokeCap(Paint.Cap.ROUND);//设置点的形状 默认为方形
-//        canvas.drawPoint(900,900,mPaint);//只一个点
-//        float[] points = {0, 0, 50, 50, 50, 100, 100, 50, 100, 100, 150, 50, 150, 100};
-//        // 绘制四个点：(50, 50) (50, 100) (100, 50) (100, 100)
-//        canvas.drawPoints(points, 2 /* 跳过两个数，即前两个 0 */,
-//                8 /* 一共绘制 8 个数（4 个点）*/, mPaint);
+        mPaint.setStrokeCap(Paint.Cap.BUTT);//设置点的形状 默认为方形
+        canvas.drawPoint(900,900,mPaint);//只一个点
+        float[] points = {0, 0, 50, 50, 50, 100, 100, 50, 100, 100, 150, 50, 150, 100};
+        // 绘制四个点：(50, 50) (50, 100) (100, 50) (100, 100)
+        canvas.drawPoints(points, 2 /* 跳过两个数，即前两个 0 */,
+                8 /* 一共绘制 8 个数（4 个点）*/, mPaint);
 
         //画椭圆
 //        canvas.drawOval(50,50,350,200,mPaint);

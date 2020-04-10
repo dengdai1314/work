@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -231,11 +232,14 @@ public class PaintView extends View {
         /**
          * 设置线条拐角形状
          */
-//        paint.setStyle(Paint.Style.STROKE);
-//        paint.setStrokeWidth(20);
-//        paint.setStrokeJoin(Paint.Join.MITER);//默认为该值，还有bevel,round可选
-//        canvas.drawLine(30,30,500,30,paint);
-//        canvas.drawLine(500,30,250,300,paint);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(20);
+        paint.setStrokeJoin(Paint.Join.MITER);//默认为该值，还有bevel,round可选
+        Path path = new Path();
+        path.rLineTo(200,100);
+        path.rLineTo(-160,120);
+        canvas.translate(100,100);//画布起始点编译
+        canvas.drawPath(path,paint);
 
         /**
          * 色彩优化

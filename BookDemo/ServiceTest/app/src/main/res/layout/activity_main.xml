@@ -30,5 +30,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/bind_service"/>
+    <Button
+        android:id="@+id/start_intent_service"
+        android:text="start IntentService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/unbind_service"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

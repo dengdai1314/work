@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * 第一行代码10.2多线程练习
+ */
 public class MainActivity extends AppCompatActivity {
     TextView text;
     Button changeText;//子线程

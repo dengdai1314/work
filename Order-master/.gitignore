@@ -1,0 +1,19 @@
+#.gitignore只适用于尚未添加到git库的文件。如果已经添加了，则需用git rm移除后再重新commit
+
+#过滤文件
+local.properties
+*.class 
+*.dex
+*.log
+*.apk
+*.ap_
+  
+  
+#过滤文件夹bin gen
+bin/
+gen/
+.idea/
+.gradle/
+build/
+proguard/
+

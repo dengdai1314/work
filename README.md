@@ -3,7 +3,7 @@
 
 - ActivityStardMode
 - BookDemo
-  - AndroidThreadTest
+  - AndroidThreadTest:第一行代码10.2多线程练习
   - ConstraintLayout
   - ContactsTest
   - ControlTest
@@ -25,7 +25,7 @@
   - ProviderTest
   - RecyclerView
   - RuntimePermissionTest
-  - ServiceTest
+  - ServiceTest：第一行代码10.3服务练习
   - XmlResolver
 - CustomView
 - DataBase_Demo-master

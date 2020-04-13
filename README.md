@@ -1,11 +1,11 @@
 # work
 日常工作文件
 
-- ActivityStardMode
+- ActivityStardMode：Android活动启动模式
 - BookDemo
-  - AndroidThreadTest:第一行代码10.2多线程练习
-  - ConstraintLayout
-  - ContactsTest
+  - AndroidThreadTest：第一行代码10.2多线程练习
+  - ConstraintLayout：ConstraintLayout 约束布局
+  - ContactsTest：第一行代码7.3访问其他程序中的数据练习
   - ControlTest
   - DatabaseTest
   - FileStore

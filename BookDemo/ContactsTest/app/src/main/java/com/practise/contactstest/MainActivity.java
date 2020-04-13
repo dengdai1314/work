@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 /**
+ * 第一行代码7.3访问其他程序中的数据
  * 内容提供器练习，部分例子请移步DatabaseTest项目
  */
 public class MainActivity extends AppCompatActivity {

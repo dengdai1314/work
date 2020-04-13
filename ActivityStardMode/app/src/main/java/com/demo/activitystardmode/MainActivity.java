@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Android活动启动模式
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Intent intent;
     @Override

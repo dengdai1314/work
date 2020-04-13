@@ -1,0 +1,48 @@
+# work
+日常工作文件
+
+- ActivityStardMode
+- BookDemo
+  - AndroidThreadTest:第一行代码10.2多线程练习
+  - ConstraintLayout
+  - ContactsTest
+  - ControlTest
+  - DatabaseTest
+  - FileStore
+  - Fragment
+  - Fragment_NewDemo
+  - FragmentLifeCycle
+  - FragmentQualifier
+  - GetJson
+  - Http
+  - InitiatingMode
+  - Intent
+  - JSON_Read_Write
+  - LayoutTest
+  - LifeCycle
+  - ListViewTest
+  - LitePalTest
+  - ProviderTest
+  - RecyclerView
+  - RuntimePermissionTest
+  - ServiceTest：第一行代码10.3服务练习
+  - XmlResolver
+- CustomView
+- DataBase_Demo-master
+- Demo_service-master
+- EventBus
+- FileDownLoad
+- HttpURLConnection-master
+- obexx
+  - API
+  - APIDemo
+  - DemoTest
+  - FactoryTest
+  - ObexSDKTest
+  - SelectList
+- okhttp-master
+- Order-master
+- ServicePractice
+- SlideShow
+- TableLayout
+- WifiScan

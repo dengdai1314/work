@@ -66,23 +66,48 @@ public class MainActivity extends AppCompatActivity {
 }
 class DownloadTask extends AsyncTask<Void,Integer,Boolean>{
 
+    /**
+     * 方法中所有代码都会在子线程中运行，应该在这里去处理所有耗时任务。
+     * 通过return返回任务结果。可通过修改AsyncTask中第三个参数为void就可以不返回任务执行结果
+     * 注：不可以进行UI操作
+     * 如果需要更新UI元素，比如说反馈当前任务的执行进度，可以调用publishProgress (Progress...) 方法来完成
+     * @param voids
+     * @return
+     */
     @Override
     protected Boolean doInBackground(Void... voids) {
         return null;
     }
 
+    /**
+     * 在后台任务开始执行之前调用，用于进行一下界面上的初始化操作，比如显示一个进度条对话框等
+     */
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
     }
 
+    /**
+     * 当在后台任务中调用了publishProgress(Progress...) 方法后，onProgressUpdate (Progress...) 方法就会很快被调用，
+     * 该方法中携带的参数就是在后台任务中传递过来的
+     * @param values
+     */
     @Override
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
     }
 
+    /**
+     * 当后台任务执行完毕并通过return 语句进行返回时，这个方法就
+     * 很快会被调用。返回的数据会作为参数传递到此方法中，可以利用
+     * 返回的数据来进行一些UI操作，比如说提醒任务执行的结果，以及
+     * 关闭掉进度条对话框等。
+     * @param aBoolean
+     */
     @Override
     protected void onPostExecute(Boolean aBoolean) {
         super.onPostExecute(aBoolean);
     }
+
+
 }

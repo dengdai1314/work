@@ -9,6 +9,12 @@ import android.widget.*;
 import java.util.List;
 import jne.com.utils.PressUtil;
 
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:34
+ * @description 详细介绍Android中SQLite的使用 https://github.com/jianjianH/Order
+ */
 public class OrderActivity extends Activity {
 
     private static final String TAG = "OrderActivity";

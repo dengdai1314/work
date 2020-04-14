@@ -5,9 +5,11 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 /**
- * FileDownLoad测试
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:24
+ * @description 文件下载
  */
 public class MainActivity extends AppCompatActivity {
 

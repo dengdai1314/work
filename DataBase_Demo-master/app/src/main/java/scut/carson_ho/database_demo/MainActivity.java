@@ -7,7 +7,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:23
+ * @description 简书carson_ho   DataBaseDemo https://www.jianshu.com/p/8e3f294e2828
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button instablish;

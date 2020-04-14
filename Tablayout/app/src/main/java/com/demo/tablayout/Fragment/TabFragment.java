@@ -18,9 +18,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * @author 29003
- * @description
- * @date 2019/12/23
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:40
+ * @description 表格布局
  */
 public class TabFragment extends Fragment {
     private RecyclerView recyclerView;

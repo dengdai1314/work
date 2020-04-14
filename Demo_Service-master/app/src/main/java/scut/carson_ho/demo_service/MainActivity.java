@@ -8,7 +8,12 @@ import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:24
+ * @description 简书carson_ho ServiceDemo https://www.jianshu.com/p/e04c4239b07e
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button startService;

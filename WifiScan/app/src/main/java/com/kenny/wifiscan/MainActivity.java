@@ -18,7 +18,10 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * wifi列表扫描
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:41
+ * @description wifi列表扫描
  */
 public class MainActivity extends AppCompatActivity {
 

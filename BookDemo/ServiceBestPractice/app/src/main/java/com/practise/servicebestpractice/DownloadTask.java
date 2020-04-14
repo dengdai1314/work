@@ -49,7 +49,13 @@ public class DownloadTask extends AsyncTask<String,Integer,Integer> {
             long downloadedLength = 0;
             String downloadUrl = params[0];//获取下载的URL地址
             String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));//根据URL地址解析出下载的文件名
-            String directory = Environment.getDownloadCacheDirectory().getPath();//获取sd卡下载目录
+            //获取sd卡下载目录
+            String directory = Environment.getExternalStoragePublicDirectory("DownLoad").getPath();///storage/emulated/0/DownLoad
+//            String directory = Environment.getDownloadCacheDirectory().getPath();//cache
+//            String directory = Environment.getExternalStorageDirectory().getPath();///storage/emulated/0
+//            String directory = Environment.getExternalStorageState();//mounted
+//            String directory = Environment.getRootDirectory().getPath();///system
+//            String directory = Environment.getDataDirectory().getPath();//data
             Log.d("directory下载目录",directory);
             file = new File(directory+fileName);
             //判断要下载文件是否存在，存在的话就读取已下载的字节数，以便后续用断点续传
@@ -57,6 +63,7 @@ public class DownloadTask extends AsyncTask<String,Integer,Integer> {
                 downloadedLength = file.length();
             }
             long contentLength = getContentLength(downloadUrl); //获取待下载文件总长度
+            Log.d("下载文件长度",contentLength+"");
             //如果待下载文件长度为0，说明该文件有问题
             if(contentLength == 0){
                 return TYPE_FAILED;

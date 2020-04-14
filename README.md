@@ -4,10 +4,12 @@
 - ActivityStardMode：Android活动启动模式
 - BookDemo
   - AndroidThreadTest：第一行代码10.2多线程练习
+  - BroadcastBestPractise：第一行代码5.5广播的最佳实践
+  - CameraAlbumTest：第一行代码8.3调用摄像头和相册
   - ConstraintLayout：ConstraintLayout 约束布局
   - ContactsTest：第一行代码7.3访问其他程序中的数据练习
-  - ControlTest
-  - DatabaseTest
+  - ControlTest：
+  - DatabaseTest：第一行代码6.4SQLite数据库存储
   - FileStore
   - Fragment
   - Fragment_NewDemo
@@ -21,8 +23,8 @@
   - LayoutTest
   - LifeCycle
   - ListViewTest
-  - LitePalTest
-  - ProviderTest
+  - LitePalTest：第一行代码6.5使用LitePal操作数据库
+  - ProviderTest：
   - RecyclerView
   - RuntimePermissionTest
   - ServiceTest：第一行代码10.3服务练习
@@ -42,7 +44,7 @@
   - SelectList
 - okhttp-master
 - Order-master
-- ServicePractice
+- ServicePractice：服务练习
 - SlideShow
 - TableLayout
-- WifiScan
+- WifiScan：WiFi扫描

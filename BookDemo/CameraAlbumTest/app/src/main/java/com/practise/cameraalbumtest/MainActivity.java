@@ -27,7 +27,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
-
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:00
+ * @description 8.3调用摄像头和相册
+ */
 public class MainActivity extends AppCompatActivity implements ImageView.OnClickListener {
 
     public static final int TAKE_PHOTO = 1;

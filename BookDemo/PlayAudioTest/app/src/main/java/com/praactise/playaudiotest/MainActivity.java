@@ -16,7 +16,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:10
+ * @description 8.4.1 播放音频
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public Button play;
     public Button pause;

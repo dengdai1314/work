@@ -6,7 +6,12 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:00
+ * @description 5.5广播的最佳实践
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

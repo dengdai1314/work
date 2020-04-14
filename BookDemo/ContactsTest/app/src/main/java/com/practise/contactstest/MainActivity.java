@@ -17,7 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 /**
- * 第一行代码7.3访问其他程序中的数据
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:01
+ * @description 7.3访问其他程序中的数据
  * 内容提供器练习，部分例子请移步DatabaseTest项目
  */
 public class MainActivity extends AppCompatActivity {
@@ -42,9 +45,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * 读取系统联系人信息
      */
-
-
-private void readContacts(){
+    private void readContacts(){
         Cursor cursor = null;
         try{
             //ContactsContract.CommonDataKinds.Phone已经封装好的类，提供一个CONTENT_URL常量（使用Uri.parse()解析出来的结果），

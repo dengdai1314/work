@@ -12,7 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * 第一行代码10.2多线程练习
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 13:56
+ * @description 10.2多线程练习
  */
 public class MainActivity extends AppCompatActivity {
     TextView text;

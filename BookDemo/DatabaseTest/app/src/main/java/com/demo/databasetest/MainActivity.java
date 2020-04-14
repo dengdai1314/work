@@ -9,7 +9,12 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:04
+ * @description 6.4SQLite数据库存储
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private MyDatabaseHelper dbHelper;
     SQLiteDatabase db;

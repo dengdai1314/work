@@ -5,7 +5,10 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * 第一行代码10.6服务的最佳实践
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:17
+ * @description 10.6服务的最佳实践
  */
 public class MainActivity extends AppCompatActivity {
 

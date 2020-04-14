@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
  * @date 2020/4/4
  */
 public class BaseActivity extends AppCompatActivity {
+
+    private ForceOfflineReceiver receiver;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +30,17 @@ public class BaseActivity extends AppCompatActivity {
         super.onResume();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.demo.broadcastbestpractise.FOECE_OFFINE");
-
+        receiver = new ForceOfflineReceiver();
+        registerReceiver(receiver,intentFilter);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        if(receiver!=null){
+            unregisterReceiver(receiver);
+            receiver = null;
+        }
     }
 
     @Override
@@ -55,7 +62,7 @@ public class BaseActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialogInterface, int i) {
                     ActivityCollector.finishAll();
                     Intent intent = new Intent(context,LoginActivity.class);
-                    startActivity(intent);
+                    context.startActivity(intent);
                 }
             });
             builder.show();//显示弹窗

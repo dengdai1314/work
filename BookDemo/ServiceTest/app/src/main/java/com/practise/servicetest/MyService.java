@@ -8,7 +8,12 @@ import android.graphics.BitmapFactory;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
-
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:18
+ * @description 10.3 服务的基本用法
+ */
 public class MyService extends Service {
     public MyService() {
     }

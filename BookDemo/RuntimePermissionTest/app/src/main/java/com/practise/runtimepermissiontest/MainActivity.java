@@ -13,7 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/4/14 14:16
+ * @description 7.2运行时权限
+ */
 public class MainActivity extends AppCompatActivity {
     Button makeCall;
     @Override

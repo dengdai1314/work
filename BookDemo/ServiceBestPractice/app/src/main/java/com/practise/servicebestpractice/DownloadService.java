@@ -24,12 +24,13 @@ public class DownloadService extends Service {
     private DownloadListener listener = new DownloadListener() {
         @Override
         public void onProgress(int progress) {
-            getNotificationManager().notify(1,getNotification("Downloading...",progress));
+            getNotificationManager().notify(1,getNotification("Downloading...",progress));//触发通知
         }
 
         @Override
         public void onSuccess() {
             downloadTask = null;
+            //下载成功时将前台服务通知关闭，并创建一个下载成功的通知
             stopForeground(true);
             getNotificationManager().notify(1,getNotification("Download Success",-1));
             Toast.makeText(DownloadService.this,"Download Success",Toast.LENGTH_SHORT).show();
@@ -65,12 +66,15 @@ public class DownloadService extends Service {
         return mBinder;
     }
 
+    /**
+     * 为了让DownloadService可以和活动进行通信，创建DownloadBinder
+     */
     class DownloadBinder extends Binder{
         public void startDownload(String url){
             if(downloadTask == null){
                 downloadUrl = url;
-                downloadTask = new DownloadTask(listener);
-                downloadTask.execute(downloadUrl);
+                downloadTask = new DownloadTask(listener);//创建DownloadTask实例，把刚才的DownoadlListener作为参数传入
+                downloadTask.execute(downloadUrl);//开始下载
                 startForeground(1,getNotification("Downloading...",0));
                 Toast.makeText(DownloadService.this,"Downloading...",Toast.LENGTH_SHORT).show();
             }
@@ -87,10 +91,9 @@ public class DownloadService extends Service {
                 downloadTask.cancelDownload();
             }else {
                 if(downloadUrl!=null){
-                    String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));
-
-                    String directory = Environment.getExternalStorageState(Environment.getDownloadCacheDirectory());
-
+                    String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));//根据URL地址解析出下载的文件名（获取最后一个/后面的字符串）
+                    //获取sd卡下载目录
+                    String directory = Environment.getExternalStoragePublicDirectory("DownLoad").getPath();///storage/emulated/0/DownLoad
                     File file = new File(directory + fileName);
                     if(file.exists()){
                         file.delete();
@@ -108,6 +111,12 @@ public class DownloadService extends Service {
         return  (NotificationManager)getSystemService(ns);
     }
 
+    /**
+     * 构建用于显示下载进度的通知
+     * @param title
+     * @param progress
+     * @return
+     */
     private Notification getNotification(String title,int progress){
         Intent intent = new Intent(this,MainActivity.class);
         PendingIntent pi = PendingIntent.getActivity(this,0,intent,0);

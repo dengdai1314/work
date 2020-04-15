@@ -2,20 +2,24 @@ package com.practise.servicebestpractice;
 
 import android.Manifest;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -29,12 +33,17 @@ import androidx.core.content.ContextCompat;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private DownloadService.DownloadBinder downloadBinder;
-    String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.INTERNET,
+
+    String[] permissions = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.FOREGROUND_SERVICE};
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.INTERNET
+    };
     List<String> mPermissionList = new ArrayList<>();
+
+    //创建ServiceConnection的匿名类
     private ServiceConnection connection = new ServiceConnection() {
+        //获取DownloadBinder的实例，现在可以在活动中调用服务提供的各种方法
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             downloadBinder = (DownloadService.DownloadBinder) service;
@@ -57,19 +66,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pauseDownload.setOnClickListener(this);
         cancelDownload.setOnClickListener(this);
         Intent intent = new Intent(this,DownloadService.class);
+        //启动和绑定服务
         startService(intent);
         bindService(intent,connection,BIND_AUTO_CREATE);
+        //请求权限
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            initPermission();
+        }
 
-        mPermissionList.clear();
-        for(int i=0;i<permissions.length;i++) {
-            if (ContextCompat.checkSelfPermission(MainActivity.this, permissions[i]) != PackageManager.PERMISSION_GRANTED) {
-                mPermissionList.add(permissions[i]);
-            }
-        }
-        if(!mPermissionList.isEmpty()){
-            String[] permissions = mPermissionList.toArray(new String[mPermissionList.size()]);
-            ActivityCompat.requestPermissions(MainActivity.this,permissions,1);
-        }
     }
 
     @Override
@@ -81,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.start_download:
                 String url = "https://qd.myapp.com/myapp/qqteam/pcqq/PCQQ2020.exe";
                 downloadBinder.startDownload(url);
-                Log.d("test",downloadBinder.toString());
                 break;
             case R.id.pause_download:
                 downloadBinder.pauseDownload();
@@ -93,18 +96,64 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //初始化权限
+    private void initPermission(){
+        mPermissionList.clear();
+        for(int i=0;i<permissions.length;i++) {
+            if (ContextCompat.checkSelfPermission(MainActivity.this, permissions[i]) != PackageManager.PERMISSION_GRANTED) {
+                mPermissionList.add(permissions[i]);
+            }
+        }
+        if(!mPermissionList.isEmpty()){
+            ActivityCompat.requestPermissions(MainActivity.this,permissions,1);
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
-            case 1:
-                if(grantResults.length>0&&grantResults[0]!=PackageManager.PERMISSION_GRANTED){
-                    Toast.makeText(this,"拒绝权限将无法使用程序",Toast.LENGTH_SHORT).show();
-                    finish();
+        boolean hasPermissiomDismiss = false;
+        if(requestCode == 1){
+            for(int i=0;i<grantResults.length;i++){
+                if(grantResults[i]==PackageManager.PERMISSION_DENIED){
+                    hasPermissiomDismiss = true;
+                    Log.d("permission",permissions[i]);
                 }
-                break;
-                default:break;
+            }
         }
+        if(hasPermissiomDismiss) {
+            showPermissionDismiss();
+        }
+    }
+
+    AlertDialog mPremissionDialog;
+    private void showPermissionDismiss() {
+        if(mPremissionDialog == null){
+            mPremissionDialog = new AlertDialog.Builder(this)
+                    .setMessage("已禁用权限")
+                    .setPositiveButton("设置", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            cancelPermissionDialog();
+                            Uri packageUri = Uri.parse("package:com.practise.servicebestpractice");
+                            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,packageUri);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            cancelPermissionDialog();
+                            finish();
+                        }
+                    })
+                    .create();
+            mPremissionDialog.show();
+        }
+    }
+
+    private void cancelPermissionDialog() {
+        mPremissionDialog.cancel();
     }
 
     @Override

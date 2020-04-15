@@ -2,7 +2,7 @@ package com.practise.servicebestpractice;
 
 /**
  * @author 29003
- * @description
+ * @description 定义回调接口，用于对下载过程中的各种状态进行监听和回调
  * @date 2020/4/13
  */
 public interface DownloadListener {

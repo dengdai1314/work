@@ -5,12 +5,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.StringReader;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParserFactory;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +28,7 @@ import okhttp3.Response;
  * @author dengdai
  * @email 2900351160@qq.com
  * @date 2020/4/1517:17
- * @description
+ * @description 9.3解析XML格式数据
  */
 public class AnalysisXML extends AppCompatActivity implements View.OnClickListener {
 
@@ -40,15 +46,17 @@ public class AnalysisXML extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.xmlByPull:
-                sendRequestWithOkHttp();
+                ParseXML();
                 break;
             case R.id.xmlBySax:
+                //解除parseXMLWithSAX(responseData);注释即可
+                ParseXML();
                 break;
                 default:break;
         }
     }
 
-    private void sendRequestWithOkHttp() {
+    private void ParseXML() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -62,12 +70,14 @@ public class AnalysisXML extends AppCompatActivity implements View.OnClickListen
                     Response response = client.newCall(request).execute();
                     String responseData = response.body().string();
                     parseXMLWithPull(responseData);
+//                    parseXMLWithSAX(responseData);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }).start();
     }
+
 
     private void parseXMLWithPull(String xmlData) {
         try{
@@ -111,6 +121,26 @@ public class AnalysisXML extends AppCompatActivity implements View.OnClickListen
                 eventType = xmlPullParser.next();
             }
         } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void parseXMLWithSAX(String xmlData){
+        try {
+            //创建SAXParserFactory对象
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            //获取XMLReader对象
+            XMLReader xmlReader = factory.newSAXParser().getXMLReader();
+            //获取ContentHandler，并将其设置到XMLReader中
+            ContentHandler handler = new ContentHandler();
+            xmlReader.setContentHandler(handler);
+            //开始执行解析
+            xmlReader.parse(new InputSource(new StringReader(xmlData)));
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

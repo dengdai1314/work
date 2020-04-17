@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 book.save();
                 break;
             case R.id.update_data1:
+                //只能对已存储的对象进行操作
+                //已存储的对象为调用save()/通过LitePal提供的查询API查出来的对象
                 Book book1 = new Book();
                 book1.setName("The Lost Symbol");
                 book1.setAuthor("Dan Brown");
@@ -68,9 +70,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Book book2 = new Book();
                 book2.setPrice(13);
                 book2.setAuthor("the da");
+//                book2.setToDefault("Price");//设置默认值，此时值为0
                 book2.updateAll("name = ? and author = ?","The Da Vinci Code","Dan Brown");
             case R.id.delete_data:
-                LitePal.deleteAll(Book.class,"price = ?","10");
+                //book1.delete();//如果之前book1保存过，则可以调用
+                LitePal.deleteAll(Book.class,"price = ?","10");//删除表格中价格少于10元的数据
                 break;
             case R.id.query_alldata:
                 List<Book> books = LitePal.findAll(Book.class);
@@ -82,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                List<Book> books = LitePal.limit(3).find(Book.class);//指定查询结果的数量，这里只查表中前3条数据
 //                List<Book> books = LitePal.limit(3).offset(3).find(Book.class);//指定查询结果的偏移量，比如查询表中的第2,3,4条数据
                 Cursor cursor = LitePal.findBySQL("select * from Book where pages > ? and price > ?","400","20");//原生查询
-
 
                 for (Book book4 : books){
                     Log.d("MainActivity","book name is"+book4.getName());

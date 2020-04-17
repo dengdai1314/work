@@ -61,6 +61,9 @@ public class BaseActivity extends AppCompatActivity {
             case R.id.analysisXML:
                 skip(this,AnalysisXML.class);
                 break;
+            case R.id.analysisJson:
+                skip(this, AnalysisByJson.class);
+                break;
                 default:
                     break;
         }
@@ -78,8 +81,9 @@ public class BaseActivity extends AppCompatActivity {
 
         if (runningTaskInfos != null) {
             return (runningTaskInfos.get(0).topActivity);
-        } else
+        } else{
             return null;
+        }
     }
 
     public void skip(Context oldactivity,Class newactivity){

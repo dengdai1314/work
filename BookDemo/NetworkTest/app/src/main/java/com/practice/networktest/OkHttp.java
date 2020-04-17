@@ -186,6 +186,7 @@ public class OkHttp extends BaseActivity implements View.OnClickListener {
     /**
      * 初始化权限
      */
+    @Override
     public void initPermission(){
         mHasPermission = checkPermission();
         if(mHasPermission){
@@ -199,6 +200,7 @@ public class OkHttp extends BaseActivity implements View.OnClickListener {
      * 检查权限
      * @return
      */
+    @Override
     public boolean checkPermission(){
         for(String permission : NEEDED_PERMISSIONS){                             //遍历权限组，查看当前权限是否已赋予
             if(ContextCompat.checkSelfPermission(this,permission) != PackageManager.PERMISSION_GRANTED) {
@@ -211,6 +213,7 @@ public class OkHttp extends BaseActivity implements View.OnClickListener {
     /**
      * 请求权限
      */
+    @Override
     public void requestPermission(){
         ActivityCompat.requestPermissions(this,NEEDED_PERMISSIONS,PERMISSION_REQUEST_CODE);
     }

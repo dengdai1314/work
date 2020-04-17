@@ -16,6 +16,7 @@ public class ActivityCollector  {
     public static void addActivity(Activity activity){
         activities.add(activity);
     }
+
     public static void removeActivity(Activity activity){
         activities.remove(activity);
     }
@@ -26,6 +27,5 @@ public class ActivityCollector  {
                 activity.finish();
             }
         }
-        activities.clear();
     }
 }

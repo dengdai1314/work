@@ -15,4 +15,7 @@
     <item
         android:id="@+id/analysisXML"
         android:title="AnalysisXML"/>
+    <item
+        android:id="@+id/analysisJson"
+        android:title="AnalysisJson"/>
 </menu>

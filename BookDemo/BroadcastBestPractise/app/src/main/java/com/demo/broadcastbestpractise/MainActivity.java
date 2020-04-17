@@ -4,25 +4,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
 /**
  * @author dengdai
  * @email 2900351160@qq.com
  * @date 2020/4/14 14:00
  * @description 5.5广播的最佳实践
  */
-public class MainActivity extends AppCompatActivity {
 
+//记得继承的是BaseActivity,不然用不了
+public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button forceOffline = findViewById(R.id.force_offline);
+        Button forceOffline = (Button) findViewById(R.id.force_offline);
         forceOffline.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent("com.demo.broadcastbestpractise.FOECE_OFFINE");
+            public void onClick(View v) {
+                Intent intent = new Intent("com.example.broadcastbestpractice.FORCE_OFFLINE");
                 sendBroadcast(intent);
             }
         });

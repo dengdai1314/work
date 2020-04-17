@@ -31,6 +31,7 @@
     		<mapping class="com.test.model.Magazine" />
     	</list>
     -->
+    <!--使用<mapping>标签来声明要配置的映射模型类，一定要使用完整的类名-->
     <list>
         <mapping class = "com.practise.litepaltest.Book"></mapping>
         <mapping class="com.practise.litepaltest.Category"></mapping>

@@ -54,7 +54,7 @@ public class MyService extends Service {
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher))
                 .setContentIntent(pi);
-        Notification notification = builder.getNotification();
+        Notification notification = builder.build();
         startForeground(1,notification);
     }
 

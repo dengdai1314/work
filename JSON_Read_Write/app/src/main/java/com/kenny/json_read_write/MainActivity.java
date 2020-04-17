@@ -29,7 +29,7 @@ import androidx.core.content.ContextCompat;
  * @author dengdai
  * @email 2900351160@qq.com
  * @date 2020/4/14 14:31
- * @description json数据读取与写入
+ * @description json文件读取与写入
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button wjson;

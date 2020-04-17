@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         values = new ContentValues();
         //记得实例化
-        dbHelper = new MyDatabaseHelper(this,"BookStore.db",null,5);
-        db = dbHelper.getWritableDatabase();
+        dbHelper = new MyDatabaseHelper(this,"BookStore.db",null,1);
         Button btn_createDatabase = findViewById(R.id.create_database);
         Button btn_addData = findViewById(R.id.add_data);
         Button btn_updataData = findViewById(R.id.update_data);
@@ -43,18 +42,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.create_database:
-                if(db.isOpen()){
-                    this.deleteDatabase("BookStore.db");
-                }else{
-                    dbHelper.getWritableDatabase();
+//                    this.deleteDatabase("BookStore.db");//删除数据库
+                if(db.needUpgrade(1)){
+                    db =
+                            dbHelper.getWritableDatabase();
                 }
-              break;
+                break;
             case R.id.add_data:
                 values.put("name","the da vinci code");
                 values.put("author","Dan brown");
                 values.put("pages",454);
                 values.put("price",16);
-                db.insert("book",null,values);
+                db.insert("book",null,values);//插入数据
                 values.clear();
                 values.put("name","the da ");
                 values.put("author","Dan ");
@@ -62,17 +61,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 values.put("price",160);
                 db.insert("book",null,values);
                 values.clear();
+                //原生
+//                db.execSQL("insert into Book (name, author, pages, price) values(?, ?, ?, ?)",
+//                        new String[] { "The Da Vinci Code", "Dan Brown", "454", "16.96" });
+//                db.execSQL("insert into Book (name, author, pages, price) values(?, ?, ?, ?)",
+//                        new String[] { "The Lost Symbol", "Dan Brown", "510", "19.95" });
                 break;
             case R.id.update_data:
                 values.clear();
                 values.put("price",20);
-                db.update("book",values,"name = ?",new String[]{"the da vinci code"});
+                db.update("book",values,"name = ?",new String[]{"the da vinci code"});//更新数据
+//                db.execSQL("update Book set price = ? where name = ?", new String[] { "10.99", "The book"});
                 break;
             case R.id.delete_data:
                 values.clear();
-                db.delete("book","name = ?",new String[]{"the da vinci code"});
+                db.delete("book","name = ?",new String[]{"the da vinci code"});//删除数据
+//                db.execSQL("delete from Book where pages > ?", new String[] { "500" });
                 break;
             case R.id.query_data:
+//                db.rawQuery("select * from Book", null);
                 Cursor cursor = db.query("book",null,null,null,null,null,null);
                 if(cursor.moveToFirst()){//判断cursor内是否有数据,也可移动游标到第一
                     do{//先把第一个数据拿出来

@@ -5,9 +5,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.practice.networktest.data.App;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import okhttp3.OkHttpClient;
@@ -25,7 +31,7 @@ public class AnalysisByJson extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_analysis_by_json_object);
+        setContentView(R.layout.activity_analysis_by_json);
         Button jsonByJsonObject = findViewById(R.id.jsonByJsonObject);
         Button jsonByGson = findViewById(R.id.jsonByGSON);
         jsonByJsonObject.setOnClickListener(this);
@@ -60,8 +66,8 @@ public class AnalysisByJson extends AppCompatActivity implements View.OnClickLis
                             .build();
                     Response response = client.newCall(request).execute();
                     String responseData = response.body().string();
-                    parseJsonWithJSONObject(responseData);
-//                    parseJsonWithGson(responseData);
+//                    parseJsonWithJSONObject(responseData);
+                    parseJsonWithGson(responseData);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -91,6 +97,12 @@ public class AnalysisByJson extends AppCompatActivity implements View.OnClickLis
     }
 
     private void parseJsonWithGson(String jsonData){
-
+        Gson gson = new Gson();
+        List<App> appList = gson.fromJson(jsonData, new TypeToken<List<App>>() {}.getType());
+        for(App app:appList){
+            Log.d("MainActivity","id="+app.getId());
+            Log.d("MainActivity","name"+app.getName());
+            Log.d("MainActivity","version="+app.getVersion());
+        }
     }
 }

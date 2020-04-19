@@ -24,20 +24,27 @@
   - ServiceTest：10.3 服务的基本用法，10.5服务的更多技巧
   - WebViewTest：9.1WebViewTest的用法
 
-- ConstraintLayout：ConstraintLayout 约束布局
+
 - CustomView：自定义view
 - DataBase_Demo-master：简书carson_ho   DataBaseDemo https://www.jianshu.com/p/8e3f294e2828
 - Demo_service-master: 简书carson_ho ServiceDemo https://www.jianshu.com/p/e04c4239b07e
 - EventBus：
+
 - Fragment：动态添加碎片4.2.2
 - Fragment_NewDemo：碎片的最佳实践-一个简易版的新闻应用4.5
 - FragmentLifeCycle：碎片的生命周期4.3
 - FragmentQualifier：碎片限定符（问题）4.4 
+
+- LayoutTest：基本布局练习
+- ListViewTest：ListView 练习
+- TableLayout：表格布局（问题）
+- RecyclerView：滚动控件3.6
+- ConstraintLayout：ConstraintLayout 约束布局
+
 - GetJson：读取json数据
 - HttpURLConnection-master：httpUrl连接 https://github.com/mymdeep/HttpURLConnection
 - JSON_Read_Write：json数据读取与写入（问题）
-- LayoutTest：基本布局练习
-- ListViewTest：ListView 练习
+
 - obexx
   - API：玩安卓api接入练手
   - APIDemo：玩安卓api接入练手
@@ -45,12 +52,13 @@
   - FactoryTest：工厂测试工具
   - ObexSDKTest：obexSdk仿写
   - SelectList：列表选择长按
+
 - okhttp-master：okhttp官方demo https://github.com/square/okhttp
 - Order-master：详细介绍Android中SQLite的使用 https://github.com/jianjianH/Order
-- RecyclerView：滚动控件3.6
+
 - ServicePractice：服务 （问题）
 - SlideShow：轮播图 （问题）
-- TableLayout：表格布局（问题）
+
 - WifiScan：WiFi列表扫描（问题）
 
 

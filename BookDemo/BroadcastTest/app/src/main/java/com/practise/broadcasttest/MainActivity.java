@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.Network;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -38,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onReceive(Context context, Intent intent) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            connectivityManager.getA
+            if(network!=null&&)
             Toast.makeText(MainActivity.this,"network change",Toast.LENGTH_SHORT).show();
         }
     }

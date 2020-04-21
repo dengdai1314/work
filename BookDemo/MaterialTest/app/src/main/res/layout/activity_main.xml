@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--DrawerLayout 是一个部件，允许放入两个直接子控件，第一个控件为主屏幕显示的内容，第二个控件为滑动菜单显示的内容-->
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,28 +7,74 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/drawer_layout">
-    <FrameLayout
+
+    <!--将FrameLayout替换成CoordinatorLayout:以便后续避免SbackBar遮挡悬浮按钮-->
+    <!--CoordinatorLayout:加强版FrameLayout,可以监听其所有子控件的各种事件-->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <!--AppBarLayout:一种垂直方向的LinearLayout-->
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="wrap_content">
 
-    </FrameLayout>
+            <!--主屏幕显示的toolbar-->
+            <!--android:theme:指定toolbar主题-->
+            <!--app:popupTheme:兼容Android5.0以下系统-->
+            <!-- app:layout_scrollFlags="scroll|enterAlways|snap" 表示RecyclerView滚动时，Toolbar会一起滚动-->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|enterAlways|snap"/>
 
-    <!--Layout_gravity指定DrawerLayout滑动菜单是在屏幕的左边还是右边，start表示根据系统语言进行判断-->
-    <TextView
-        android:layout_width="match_parent"
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!--添加下拉刷新-->
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            app:layout_behavior = "@string/appbar_scrolling_view_behavior">
+
+            <!--app:layout_behavior:指定布局行为-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <!--添加悬浮按钮-->
+        <!--layout_gravity="bottom|end":指定将这个控件放在屏幕的右下角-->
+        <!--app:elevation:设置悬浮高度，高度值越大，投射范围越大，投影效果越淡-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_done"
+            app:elevation="10dp"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!--NavigationView 为拼接滑动菜单内容-->
+    <!--Layout_gravity（必须）指定DrawerLayout滑动菜单是在屏幕的左边还是右边，start表示根据系统语言进行判断-->
+    <!--app:menu 指定menu的布局文件-->
+    <!--app:headerLayout 指定头部xml布局文件-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_gravity = "start"
-        android:text="This is a menu"
-        android:textSize="20sp"
-        android:background="#FFF"/>
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

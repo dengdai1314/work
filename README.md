@@ -15,6 +15,7 @@
   - LBSTest：11章基于位置1的服务
   - LifeCycle：2.4活动的生命周期
   - LitePalTest：6.5 使用LitePal操作数据库
+  - MaterialTest：12章最佳的UI体验
   - NetworkTest：9.2使用HTTP协议访问网络，9.3解析XML格式数据，9.4解析JSON格式数据，9.5网络编程的最佳实践
   - NotificationTest：8.2使用通知
   - PlayMutilMediaTest：8.4播放多媒体文件

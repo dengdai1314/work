@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--checkableBehavior:single表示组中所有菜单项只能单选-->
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_call"
@@ -9,6 +11,10 @@
             android:id="@+id/nav_friends"
             android:icon="@drawable/nav_friends"
             android:title="Friends"/>
+        <item
+            android:id="@+id/nav_location"
+            android:icon="@drawable/nav_location"
+            android:title="Location"/>
         <item
             android:id="@+id/nav_mail"
             android:icon="@drawable/nav_mail"

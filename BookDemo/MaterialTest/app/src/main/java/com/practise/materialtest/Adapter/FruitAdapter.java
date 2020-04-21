@@ -24,7 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * @author dengdai
  * @email 2900351160@qq.com
  * @date 2020/4/2111:30
- * @description
+ * @description Fruit adapter
  */
 public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> {
 
@@ -55,8 +55,9 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
         if(mContext == null){
             mContext = parent.getContext();
         }
-        View view = LayoutInflater.from(mContext).inflate(R.layout.fruit_item,parent,false);
-        final ViewHolder holder = new ViewHolder(view);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.fruit_item,parent,false);//加载布局
+        final ViewHolder holder = new ViewHolder(view);//创建ViewHolder实例
+        //设置布局的点击事件
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +78,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Fruit fruit = mfruitList.get(position);
         holder.fruitName.setText(fruit.getName());
-        Glide.with(mContext).load(fruit.getImageId()).into(holder.fruitImage);
+        Glide.with(mContext).load(fruit.getImageId()).into(holder.fruitImage);//加载图片
     }
 
     @Override

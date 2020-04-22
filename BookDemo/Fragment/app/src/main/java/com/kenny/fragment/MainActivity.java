@@ -8,7 +8,7 @@ package com.kenny.fragment;
  * -----------------------------------------------------------------
  * 2019/9/5 : Create MainActivity.java (29003);
  * -----------------------------------------------------------------
- * description:动态添加碎片
+ * description:4.2碎片的使用方式
  */
 import android.os.Bundle;
 import android.view.View;

@@ -11,9 +11,17 @@
         android:theme="@style/AppTheme">
         <activity android:name=".FruitActivity"
             android:theme="@style/FruitActivityTheme"/>
+        <!--android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"当屏幕发生变化的时候，活动不会重新创建
+        ，而是会将屏幕发生变化的事件通知到Activity的onConfigurationChanged()方法中，可以在里面进行相应的逻辑处理-->
+        <!--android:resizeableActivity:设置是否禁用多窗口模式，默认为支持，即true（项目的targetSdkVersion为24以上才可使用）-->
+        <!--android:screenOrientation：指定应用所使用的屏幕方向：landscape:活动只支持横向，portrait支持竖向-->
         <activity
             android:name=".MainActivity"
-            android:label="Fruits">
+            android:label="Fruits"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+            android:resizeableActivity="true"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

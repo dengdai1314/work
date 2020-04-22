@@ -14,7 +14,7 @@
         android:fitsSystemWindows="true">
 
         <!--android:theme:指定一个主题-->
-        <!--app:contentScrim:指定CollapsingToolbarLayout在趋于折叠状态以及折叠之后的背景色-->
+        <!--app:contentScrim:指定CollapsingToolbarLayout在趋于折叠状态以及折叠之后的背景色,建议与背景色一致-->
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
@@ -44,6 +44,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!--ScrollView或NestedScrollView的内部都只允许存在一个直接子布局-->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

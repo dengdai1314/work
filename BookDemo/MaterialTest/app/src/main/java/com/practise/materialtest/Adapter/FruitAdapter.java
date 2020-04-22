@@ -2,7 +2,6 @@ package com.practise.materialtest.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,10 +59,10 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                Log.d("position",position+"");
+                int position = holder.getAdapterPosition();//获取当前点击位置
                 Fruit fruit = mfruitList.get(position);
                 Intent intent = new Intent(mContext, FruitActivity.class);
+                //传入数据
                 intent.putExtra(FruitActivity.FRUIT_NAME,fruit.getName());
                 intent.putExtra(FruitActivity.FRUIT_IMAGE_ID,fruit.getImageId());
                 mContext.startActivity(intent);

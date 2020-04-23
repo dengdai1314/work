@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -25,6 +26,8 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -50,6 +53,9 @@ public class WeatherActivity extends AppCompatActivity {
     private TextView sportText;
     private ImageView bingPicImg;
     private SwipeRefreshLayout swipeRefresh;
+    public DrawerLayout drawerLayout;
+    private Button navButton;
+
     private String mWeatherId;
 
     @Override
@@ -67,8 +73,8 @@ public class WeatherActivity extends AppCompatActivity {
             //将状态栏设置为透明色
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-
         setContentView(R.layout.activity_weather);
+
         // 初始化各控件
         weatherLayout = (ScrollView) findViewById(R.id.weather_layout);
         titleCity = (TextView) findViewById(R.id.title_city);
@@ -83,6 +89,9 @@ public class WeatherActivity extends AppCompatActivity {
         sportText = (TextView) findViewById(R.id.sport_text);
         bingPicImg = (ImageView) findViewById(R.id.bing_pic_img);
         swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navButton = (Button) findViewById(R.id.nav_button);
+
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         //获取SharedPreferences实例
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -116,9 +125,14 @@ public class WeatherActivity extends AppCompatActivity {
         }else {
             loadBingPic();
         }
+
+        navButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
     }
-
-
 
     /**
      * 根据天气ID请求城市天气信息

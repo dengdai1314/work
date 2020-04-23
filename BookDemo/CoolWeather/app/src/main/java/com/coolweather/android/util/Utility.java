@@ -57,7 +57,7 @@ public class Utility {
                     City city = new City();
                     city.setCityName(cityObject.getString("name"));
                     city.setCityCode(cityObject.getInt("id"));
-                    city.setProviceId(provinceId);
+                    city.setProvinceId(provinceId);
                     city.save();
                 }
                 return true;
@@ -75,7 +75,8 @@ public class Utility {
      * @return
      */
     public static boolean handleCountiesResponse(String response,int cityId){
-        if(TextUtils.isEmpty(response)){
+        //记得是！不然一直显示进度条
+        if(!TextUtils.isEmpty(response)){
             try {
                 JSONArray allCounnties = new JSONArray(response);
                 for (int i=0;i<allCounnties.length();i++){

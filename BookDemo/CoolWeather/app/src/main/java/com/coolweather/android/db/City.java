@@ -6,7 +6,7 @@ import org.litepal.crud.LitePalSupport;
  * @author dengdai
  * @email 2900351160@qq.com
  * @date 2020/4/2215:53
- * @description
+ * @description city 数据库类
  */
 public class City extends LitePalSupport {
     private int id;

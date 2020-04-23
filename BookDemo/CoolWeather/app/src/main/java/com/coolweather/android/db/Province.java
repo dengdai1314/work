@@ -6,7 +6,7 @@ import org.litepal.crud.LitePalSupport;
  * @author dengdai
  * @email 2900351160@qq.com
  * @date 2020/4/2215:50
- * @description
+ * @description province 数据库类
  */
 public class Province extends LitePalSupport {
     private int id;

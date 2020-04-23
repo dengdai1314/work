@@ -7,7 +7,7 @@ import okhttp3.Request;
  * @author dengdai
  * @email 2900351160@qq.com
  * @date 2020/4/2216:08
- * @description
+ * @description 网络请求工具类
  */
 public class HttpUtil {
     public static void sendOkHttpRequest(String address, okhttp3.Callback callback) {

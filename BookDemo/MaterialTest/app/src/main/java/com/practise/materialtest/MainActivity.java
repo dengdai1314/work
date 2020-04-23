@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private SwipeRefreshLayout swipeRefesh;
 
+    //定义一个资源数组
     private Fruit[] fruits = {new Fruit("Apple",R.drawable.apple),
             new Fruit("Banana",R.drawable.banana),
             new Fruit("Orange", R.drawable.orange),
@@ -118,8 +119,10 @@ public class MainActivity extends AppCompatActivity {
 
         //下拉刷新
         swipeRefesh = findViewById(R.id.swipe_refresh);
-        swipeRefesh.setColorSchemeResources(R.color.colorPrimary);
+        swipeRefesh.setColorSchemeResources(R.color.colorPrimary);//设置下拉进度条颜色
+        //设置下拉刷新的监听器
         swipeRefesh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            //回调到这个方法1
             @Override
             public void onRefresh() {
                 refreshFruits();
@@ -128,12 +131,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void initFruits() {
+        fruitList.clear();//清空数据
+        for (int i=0;i<50;i++){
+            //使用随机函数，从Fruit数组中随机挑选一个水果放入到FruitList中，
+            Random random = new Random();
+            int index = random.nextInt(fruits.length);
+            fruitList.add(fruits[index]);
+        }
+    }
+    //刷新RecyclerView
     private void refreshFruits() {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(2000);//线程沉睡两秒，因为本地刷新操作速度非常快，如果线程不沉睡，刷新立刻结束
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -142,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         initFruits();
                         fruitAdapter.notifyDataSetChanged();
-                        swipeRefesh.setRefreshing(false);
+                        swipeRefesh.setRefreshing(false);//用于表示刷新事件结束，并隐藏刷新进度条
                     }
                 });
             }
@@ -150,14 +163,7 @@ public class MainActivity extends AppCompatActivity {
         }).start();
     }
 
-    private void initFruits() {
-        fruitList.clear();
-        for (int i=0;i<50;i++){
-            Random random = new Random();
-            int index = random.nextInt(fruits.length);
-            fruitList.add(fruits[index]);
-        }
-    }
+
 
     /**
      * 加载toolbar.xml菜单文件

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--AppBarLayout:一种垂直方向的LinearLayout-->
+        <!--AppBarLayout:一种垂直方向的LinearLayout,在内部做了很多滚动事件的封装，下面设置了Layout_scrollFlag代表滚动即可体现-->
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

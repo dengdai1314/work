@@ -11,6 +11,9 @@
   - ControlTest：3.2 常用控件的使用方法（移出）
   - DatabaseTest：6.4 SQLite数据库存储
   - FileStore： 6.2文件存储 6.3 SharedPreferences存储
+  - Fragment：4.2碎片的使用方式
+  - Fragment_NewDemo：4.5碎片的最佳实践-一个简易版的新闻应用
+  - FragmentLifeCycle：4.3碎片的生命周期
   - IntentTest： 2.3使用Intent在活动之间穿梭
   - LBSTest：11章基于位置1的服务
   - LifeCycle：2.4活动的生命周期
@@ -29,22 +32,9 @@
 - CustomView：自定义view
 - DataBase_Demo-master：简书carson_ho   DataBaseDemo https://www.jianshu.com/p/8e3f294e2828
 - Demo_service-master: 简书carson_ho ServiceDemo https://www.jianshu.com/p/e04c4239b07e
-- EventBus：
+- okhttp-master：okhttp官方demo https://github.com/square/okhttp
+- Order-master：详细介绍Android中SQLite的使用 https://github.com/jianjianH/Order
 
-- Fragment：动态添加碎片4.2.2
-- Fragment_NewDemo：碎片的最佳实践-一个简易版的新闻应用4.5
-- FragmentLifeCycle：碎片的生命周期4.3
-- FragmentQualifier：碎片限定符（问题）4.4 
-
-- LayoutTest：基本布局练习
-- ListViewTest：ListView 练习
-- TableLayout：表格布局（问题）
-- RecyclerView：滚动控件3.6
-- ConstraintLayout：ConstraintLayout 约束布局
-
-- GetJson：读取json数据
-- HttpURLConnection-master：httpUrl连接 https://github.com/mymdeep/HttpURLConnection
-- JSON_Read_Write：json数据读取与写入（问题）
 
 - obexx
   - API：玩安卓api接入练手
@@ -54,8 +44,22 @@
   - ObexSDKTest：obexSdk仿写
   - SelectList：列表选择长按
 
-- okhttp-master：okhttp官方demo https://github.com/square/okhttp
-- Order-master：详细介绍Android中SQLite的使用 https://github.com/jianjianH/Order
+
+
+
+- EventBus：
+
+- FragmentQualifier：碎片限定符（问题）4.4 
+
+- LayoutTest：3.3基本布局练习
+- ListViewTest：3.5ListView 
+- TableLayout：表格布局（问题）
+- RecyclerView：3.6滚动控件
+- ConstraintLayout：ConstraintLayout 约束布局
+
+- GetJson：读取json数据
+- HttpURLConnection-master：httpUrl连接 https://github.com/mymdeep/HttpURLConnection
+- JSON_Read_Write：json数据读取与写入（问题）
 
 - ServicePractice：服务 （问题）
 - SlideShow：轮播图 （问题）

@@ -9,13 +9,9 @@ import com.google.gson.annotations.SerializedName;
  * @description basic json数据
  */
 public class Basic {
-    @SerializedName("city")
+    @SerializedName("location")
     public String cityName;
-    @SerializedName("id")
+    @SerializedName("cid")
     public String weatherId;
-    public Update update;
-    public class Update {
-        @SerializedName("loc")
-        public String updateTime;
-    }
+
 }

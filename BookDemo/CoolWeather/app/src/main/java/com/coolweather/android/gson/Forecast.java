@@ -9,17 +9,16 @@ import com.google.gson.annotations.SerializedName;
  * @description Forecast json数据类
  */
 public class Forecast {
+    @SerializedName("date")
     public String date;
-    @SerializedName("tmp")
-    public Temperature temperature;
-    @SerializedName("cond")
-    public More more;
-    public class Temperature {
-        public String max;
-        public String min;
-    }
-    public class More {
-        @SerializedName("txt_d")
-        public String info;
-    }
+    @SerializedName("cond_txt_d")
+    public String more;
+    @SerializedName("tmp_max")
+    public String max;
+    @SerializedName("tmp_min")
+    public String min;
+    @SerializedName("hum")
+    public String humidity;
+    @SerializedName("pop")
+    public String rainfall;
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_scrollSlide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ScrollBy 和 ScrollTo 方法实现滑动"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+        android:id="@+id/btn_displacementSlide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="动画给 View 施加位移效果来实现滑动"
+        app:layout_constraintTop_toBottomOf="@id/btn_scrollSlide"/>
+    <Button
+        android:id="@+id/btn_layoutparamsSlide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="改变 View 的 LayoutParams 使 View 重新布局从而实现滑动"
+        app:layout_constraintTop_toBottomOf="@id/btn_displacementSlide"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

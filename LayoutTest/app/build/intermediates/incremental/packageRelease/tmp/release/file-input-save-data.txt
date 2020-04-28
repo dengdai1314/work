@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Thu Jul 11 09:51:35 CST 2019
+0.baseType=DIRECTORY
+0.base=E\:\\gooledownload\\LayoutTest\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
+0.path=classes.dex
+0.set=DEX
+count=1

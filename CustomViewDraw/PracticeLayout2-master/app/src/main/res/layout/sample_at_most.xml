@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hencoder.hencoderpracticelayout2.sample.Sample_AtMostLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:background="@drawable/bg">
+
+    <Button
+        android:id="@+id/sample_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hide Center Button"
+        />
+    <Button
+        android:id="@+id/sample_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Center Button"
+        android:gravity="center"
+        />
+    <com.hencoder.hencoderpracticelayout2.sample.PM25View_Sample_AtMost
+        android:padding="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</com.hencoder.hencoderpracticelayout2.sample.Sample_AtMostLinearLayout>

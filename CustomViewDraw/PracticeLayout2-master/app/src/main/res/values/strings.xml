@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PracticeLayout2</string>
+
+    <string name="title_exactly_200dp">EXACTLY - 200DP</string>
+    <string name="title_exactly_match_parent">EXACTLY - MATCH PARENT</string>
+    <string name="title_at_most">AT MOST - WRAP_CONTENT</string>
+    <string name="title_unspecified">UNSPECIFIED - ScrollView</string>
+    <string name="title_resolve_size">RESOLVE_SIZE</string>
+</resources>

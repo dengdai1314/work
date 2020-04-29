@@ -1,4 +1,0 @@
-#Thu Jul 11 09:51:35 CST 2019
-base.0=E\:\\gooledownload\\LayoutTest\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
-path.0=classes.dex
-renamed.0=classes.dex

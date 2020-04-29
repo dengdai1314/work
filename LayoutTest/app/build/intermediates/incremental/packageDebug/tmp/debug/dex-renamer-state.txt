@@ -1,7 +1,0 @@
-#Wed Oct 30 17:07:27 CST 2019
-base.0=D\:\\AndroidStudioProjects\\BookDemo\\LayoutTest\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
-path.1=classes.dex
-renamed.1=classes2.dex
-path.0=classes.dex
-renamed.0=classes.dex
-base.1=D\:\\AndroidStudioProjects\\BookDemo\\LayoutTest\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out

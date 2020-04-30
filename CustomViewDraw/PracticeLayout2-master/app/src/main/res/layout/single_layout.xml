@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hencoder.hencoderpracticelayout2.SingleLayoutTest
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--重写onMeasure和onLayout https://juejin.im/entry/585df51061ff4b0063f5a0c4-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World2!"/>
+
+</com.hencoder.hencoderpracticelayout2.SingleLayoutTest>

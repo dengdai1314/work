@@ -1,4 +1,4 @@
-package com.hencoder.hencoderpracticelayout1;
+package com.hencoder.hencoderpracticelayout2;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,7 +10,7 @@ import android.view.View;
  * @author dengdai
  * @email 2900351160@qq.com
  * @date 2020/4/2817:00
- * @description
+ * @description https://hencoder.com/ui-2-2/ 评论区
  */
 public class CompliteView1 extends View {
     private static final int DEFAULT_WIDTH = 150;

@@ -31,7 +31,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="90dp"
             android:textColor="#ffff"
-            android:textSize="70sp" />
+            android:textSize="70sp"
+            android:text="0"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +71,8 @@
                     android:layout_alignParentRight="true"
                     android:layout_toRightOf="@id/iv_calories"
                     android:textColor="#ffff"
-                    android:textSize="24sp" />
+                    android:textSize="24sp"
+                    android:text="0.0"/>
 
                 <TextView
                     android:id="@+id/tv_calories"
@@ -126,7 +128,19 @@
         android:layout_height="40dp"
         android:layout_marginTop="-20dp"/>
 
-    <RelativeLayout
+<!--    <Button-->
+<!--        android:id="@+id/start"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="start" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/stop"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="stop" />-->
+
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="30dp"
@@ -150,7 +164,7 @@
             android:layout_height="94dp"
             android:layout_centerInParent="true"
             android:textColor="#ffffff"/>
-
+-
         <com.hencoder.hencoderpracticelayout2.Step.CircleButton
             android:id="@+id/bt_continue"
             android:layout_width="94dp"

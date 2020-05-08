@@ -13,12 +13,20 @@ import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
+import java.io.Serializable;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+
 /**
  * @author dengdai
  * @email 2900351160@qq.com
@@ -194,4 +202,77 @@ public class MainActivity extends JsonStore implements View.OnClickListener {
         Log.d("MainActivity","string="+string);
         return string;
     }
+
+
+    //对象序列化及反序列化
+    //用途：
+    //1. 把对象的字节序列永久地保存到硬盘上，通常存放在一个文件中（持久化对象）,所有需要保存到磁盘的java对象都必须是可序列化的
+    //2. 在网络上传送对象的字节序列（网络传输对象），所有可在网络上传输的对象都是1可序列化的
+
+    class Person implements Serializable{
+        private String name = "unknown";
+        private String gender = "unknown";
+        private double height = Double.NaN;
+
+        public Person (String name,String gender,double height){
+            this.name = name;
+            this.gender = gender;
+            this.height = height;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return "name:"+this.name+",gender="+this.gender+",height="+this.height;
+        }
+    }
+
+    //序列化对象
+    public class sequence{
+        public void main(String[] args) {
+            Person p1 = new Person("john","male",1.7);
+            Person p2 = new Person("john","male",1.7);
+            Person p3 = new Person("john","male",1.7);
+
+            File fileObject = new File("person.ser");
+
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileObject))){
+                oos.writeObject(p1);
+                oos.writeObject(p2);
+                oos.writeObject(p3);
+                System.out.println(p1);
+                System.out.println(p2);
+                System.out.println(p3);
+                oos.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //反序列化对象
+    public class unSequence{
+        public void main(String[] args) {
+            File fileObject = new File("person.ser");
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileObject))){
+                Person p1 = (Person) ois.readObject();
+                Person p2 = (Person) ois.readObject();
+                Person p3 = (Person) ois.readObject();
+
+                System.out.println(p1);
+                System.out.println(p2);
+                System.out.println(p3);
+                ois.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

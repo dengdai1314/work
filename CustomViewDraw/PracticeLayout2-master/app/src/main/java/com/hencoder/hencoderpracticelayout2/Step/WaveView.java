@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -20,7 +19,7 @@ public class WaveView extends View {
 
     //波纹颜色
     private int waveColor = 0xff0099CC;
-    //振幅
+    // 振幅
     private float swing = 0;
     private int height;
     private int width;
@@ -41,17 +40,18 @@ public class WaveView extends View {
         init();
     }
 
-    public WaveView(Context context, @Nullable AttributeSet attrs) {
+    public WaveView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public WaveView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public WaveView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
-    private void init(){
+
+    private void init() {
         // 初始绘制波纹的画笔
         wavePaint = new Paint();
         // 去除画笔锯齿
@@ -67,8 +67,9 @@ public class WaveView extends View {
         path3 = new Path();
     }
 
+
     /**
-     * 计算view高度宽度的大小
+     * 计算view高度宽度大小
      * @param widthMeasureSpec
      * @param heightMeasureSpec
      */
@@ -77,30 +78,32 @@ public class WaveView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         initLayoutParams();
     }
-
     private void initLayoutParams() {
         height = this.getHeight();
         width = this.getWidth();
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
+
+    @Override protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         setPath();
         wavePaint.setStrokeWidth(6);
-        wavePaint.setAlpha(100);
-        canvas.drawPath(path1,wavePaint);
+        wavePaint.setAlpha(100);//设置透明度
+        canvas.drawPath(path1, wavePaint);
 
         wavePaint.setStrokeWidth(3);
         wavePaint.setAlpha(80);
-        canvas.drawPath(path2,wavePaint);
+        canvas.drawPath(path2, wavePaint);
 
-        wavePaint.setStrokeWidth(4);
         wavePaint.setAlpha(60);
-        canvas.drawPath(path3,wavePaint);
+        canvas.drawPath(path3, wavePaint);
     }
 
-    private void setPath(){
+
+    /**
+     * 设置三个线条上下震动的振幅
+     */
+    private void setPath() {
         int x = 0;
         int y = 0;
         path1.reset();//清除掉path里的线条和曲线
@@ -170,5 +173,4 @@ public class WaveView extends View {
             }
         }
     };
-
 }

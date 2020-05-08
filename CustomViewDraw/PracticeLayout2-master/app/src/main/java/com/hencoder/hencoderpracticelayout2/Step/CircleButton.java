@@ -3,6 +3,7 @@ package com.hencoder.hencoderpracticelayout2.Step;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
 /**
@@ -11,8 +12,7 @@ import android.util.AttributeSet;
  * @date 2020/4/3017:27
  * @description
  */
-public class CircleButton extends android.support.v7.widget.AppCompatButton {
-
+public class CircleButton extends AppCompatButton {
     //画圆
     private Paint paint = new Paint();
     //画字
@@ -22,19 +22,22 @@ public class CircleButton extends android.support.v7.widget.AppCompatButton {
 
     public CircleButton(Context context) {
         super(context);
+        init();
     }
-
     public CircleButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
-
     public CircleButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
     }
+
     private void init() {
-        setBackgroundColor(0x000000);
-        color=0x000000;
+        setBackgroundColor(0x303F9F);
+        color=0xbbd4e7;
     }
+
 
     @Override protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -50,15 +53,14 @@ public class CircleButton extends android.support.v7.widget.AppCompatButton {
         textPaint.setTextSize(getTextSize());
         textPaint.setAntiAlias(true);
         textPaint.setStyle(Paint.Style.FILL);
-        textPaint.setColor(getTextColors().getDefaultColor());
+        textPaint.setColor(0xffffffff);
 
         float length = textPaint.measureText(getText().toString());
         //绘制文字
         canvas.drawText(getText().toString(), centre - length / 2, centre + getTextSize() / 3, textPaint);
     }
-
     //改变文字颜色
     public void setPaintColor(int color) {
-        this.color = getResources().getColor(color);
+        this.color = color;
     }
 }

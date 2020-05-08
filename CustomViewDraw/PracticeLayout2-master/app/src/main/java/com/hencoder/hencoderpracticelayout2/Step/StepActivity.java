@@ -4,24 +4,59 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
 
 import com.hencoder.hencoderpracticelayout2.R;
 
+import java.io.File;
+
 /**
  * @author dengdai
  * @email 2900351160@qq.com
  * @date 2020/4/3017:47
- * @description
+ * @description 计步器 https://blog.csdn.net/m366917/article/details/52976877
+ * 总结：坑：button.setColor有可能无效，为什么呢，方法重载了，要填入正确的参数
+ *      波纹只有低于api24后才可以用
+ *
  */
-public class StepActivity extends AppCompatActivity implements View.OnClickListener {
+public class StepActivity extends AppCompatActivity implements View.OnClickListener{
+//    CircleWaveButton start;
+//    CircleButton stop;
+//    CircleButton bt_continue;
+//    WaveView waveView;
+//
+//    @Override
+//    protected void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.step_anim);
+//        start = findViewById(R.id.start);
+//        stop = findViewById(R.id.stop);
+//        bt_continue = findViewById(R.id.bt_continue);
+//        waveView = findViewById(R.id.wave_view);
+//        start.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                stop.setVisibility(View.VISIBLE);
+//                bt_continue.setVisibility(View.VISIBLE);
+//            }
+//        });
+//        stop.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                waveView.stop();
+//            }
+//        });
+//    }
 
     private boolean isPause = false;
 
@@ -32,8 +67,11 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//隐藏标题栏
+        if(getSupportActionBar()!=null){
+            getSupportActionBar().hide();
+        }
         setContentView(R.layout.step_anim);
-
         waveView = findViewById(R.id.wave_view);
         stopButton  = findViewById(R.id.stop);
         btnContinue = findViewById(R.id.bt_continue);
@@ -45,19 +83,18 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-
-        btnContinue.setTextColor(0x1e78be);
-        startButton.setTextColor(0xbbd4e7);
-        stopButton.setTextColor(0xcd3a33);
+        btnContinue.setPaintColor(0xff1e78be);
+        startButton.setPaintColor(0xffbbd4e7);
+        stopButton.setPaintColor(0xffcd3a33);
         startButton.start();
-
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.stop:     //停止并退出
-                System.exit(0);
+                Intent intent = new Intent(StepActivity.this,StepActivity.class);
+                startActivity(intent);
                 break;
             case R.id.start:  //开始
                 startAnimation();
@@ -124,5 +161,18 @@ public class StepActivity extends AppCompatActivity implements View.OnClickListe
         animatorSetContinue.start();
 
         startButton.setVisibility(View.GONE);
+
     }
+
+    public File getDiskCacheDir(Context context,String uniqueName){
+        String cachePath;
+        if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                ||!Environment.isExternalStorageRemovable()){
+            cachePath = context.getExternalCacheDir().getPath();
+        }else {
+            cachePath = context.getCacheDir().getPath();
+        }
+        return new File(cachePath + File.separator + uniqueName);
+    }
+
 }

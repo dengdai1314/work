@@ -13,6 +13,7 @@ import java.util.List;
 /**
  * Created by Jne
  * Date: 2015/1/6.
+ * 处理所有的数据操作方法
  */
 public class OrderDao {
     private static final String TAG = "OrdersDao";
@@ -23,6 +24,7 @@ public class OrderDao {
     private Context context;
     private OrderDBHelper ordersDBHelper;
 
+    //实例化OrderDBHelper
     public OrderDao(Context context) {
         this.context = context;
         ordersDBHelper = new OrderDBHelper(context);
@@ -39,13 +41,13 @@ public class OrderDao {
 
         try {
             db = ordersDBHelper.getReadableDatabase();
-            // select count(Id) from Orders
+            // select count(Id) from Orders 获取数据条数
             cursor = db.query(OrderDBHelper.TABLE_NAME, new String[]{"COUNT(Id)"}, null, null, null, null, null);
 
             if (cursor.moveToFirst()) {
                 count = cursor.getInt(0);
             }
-            if (count > 0) return true;
+            if (count > 0) {return true;}
         }
         catch (Exception e) {
             Log.e(TAG, "", e);
@@ -68,8 +70,8 @@ public class OrderDao {
         SQLiteDatabase db = null;
 
         try {
-            db = ordersDBHelper.getWritableDatabase();
-            db.beginTransaction();
+            db = ordersDBHelper.getWritableDatabase();//读取数据库，如果数据库不存在，则创建
+            db.beginTransaction();//开启一个事务，程序执行到endTransactionn()方法时会检查事务的标志是否为成功
 
             db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (1, 'Arc', 100, 'China')");
             db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (2, 'Bor', 200, 'USA')");
@@ -78,12 +80,12 @@ public class OrderDao {
             db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (5, 'Arc', 600, 'China')");
             db.execSQL("insert into " + OrderDBHelper.TABLE_NAME + " (Id, CustomName, OrderPrice, Country) values (6, 'Doom', 200, 'China')");
 
-            db.setTransactionSuccessful();
+            db.setTransactionSuccessful();//设置事务的标志为成功，当结束事务时则提交事务，如果没有调用该方法则回滚事务
         }catch (Exception e){
             Log.e(TAG, "", e);
         }finally {
             if (db != null) {
-                db.endTransaction();
+                db.endTransaction();//结束事务
                 db.close();
             }
         }
@@ -158,7 +160,7 @@ public class OrderDao {
         SQLiteDatabase db = null;
 
         try {
-            db = ordersDBHelper.getWritableDatabase();
+            db = ordersDBHelper.getWritableDatabase();//读取数据库
             db.beginTransaction();
 
             // insert into Orders(Id, CustomName, OrderPrice, Country) values (7, "Jne", 700, "China");
@@ -167,7 +169,7 @@ public class OrderDao {
             contentValues.put("CustomName", "Jne");
             contentValues.put("OrderPrice", 700);
             contentValues.put("Country", "China");
-            db.insertOrThrow(OrderDBHelper.TABLE_NAME, null, contentValues);
+            db.insertOrThrow(OrderDBHelper.TABLE_NAME, null, contentValues);//插入数据
 
             db.setTransactionSuccessful();
             return true;

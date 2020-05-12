@@ -22,5 +22,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/post"
         android:text="Handler.post()"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/staticinner"
+        android:text="内存泄漏解决：静态内部类+弱引用"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clear"
+        android:text="内存泄漏解决：清空消息队列"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/leak"
+        android:text="内存泄漏"/>
 
 </LinearLayout>

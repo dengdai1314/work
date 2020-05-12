@@ -7,7 +7,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+/**
+ * @author dengdai
+ * @email 2900351160@qq.com
+ * @date 2020/5/11 10:28
+ * @description 新建匿名Handler内部类完成handler调用
+ */
 public class AnonymousInnerActivity extends AppCompatActivity {
 
     private TextView mTextView;
@@ -16,7 +21,7 @@ public class AnonymousInnerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_anonymous_inner);
+        setContentView(R.layout.activity_inner);
 
         mTextView = findViewById(R.id.show);
 

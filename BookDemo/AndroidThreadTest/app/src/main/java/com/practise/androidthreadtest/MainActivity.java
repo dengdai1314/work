@@ -1,5 +1,6 @@
 package com.practise.androidthreadtest;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     TextView text;
     Button changeText;//子线程
     Button changeText2;//异步消息处理
+    Button threadTest1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         text = (TextView) findViewById(R.id.text);
         changeText = findViewById(R.id.change_text);
         changeText2 = findViewById(R.id.change_text2);
+        threadTest1 = findViewById(R.id.thread_test1);
         changeText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
                         handler.sendMessage(message);//调用Handler的sendMessage()将Message发送出去
                     }
                 }).start();
+            }
+        });
+        threadTest1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,ThreadTest.class);
+                startActivity(intent);
             }
         });
     }

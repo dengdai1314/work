@@ -10,7 +10,7 @@
         android:id="@+id/change_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Change Text(子线程)"
+        android:text="Change Text(子线程，本身会崩溃，因为是在子线程更新UI)"
         app:layout_constraintTop_toTopOf="parent"/>
     <Button
         android:id="@+id/change_text2"
@@ -21,12 +21,15 @@
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hello world"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/change_text2"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/thread_test1"
+        android:text="继承Thread类实例1"
+        app:layout_constraintTop_toBottomOf="@id/text"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

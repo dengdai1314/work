@@ -18,7 +18,7 @@
   - FragmentQualifier：4.4 碎片限定符
   - IntentTest： 2.3使用Intent在活动之间穿梭
   - LayoutTest：3.3基本布局练习
-  - LBSTest：11章基于位置1的服务
+  - LBSTest：11基于位置的服务
   - LifeCycle：2.4活动的生命周期
   - ListViewTest：3.5ListView 
   - LitePalTest：6.5 使用LitePal操作数据库
@@ -32,16 +32,23 @@
   - ServiceBestPractice 10.6服务的最佳实践
   - ServiceTest：10.3 服务的基本用法，10.5服务的更多技巧
   - WebViewTest：9.1WebViewTest的用法
+- BottomMenu
 - ConstraintLayout：ConstraintLayout 约束布局
+- CustomAnnotation
 - CustomView：自定义view
 - CustomViewDraw:自定义View(Hencoder练习)
 - DataBase_Demo-master：简书carson_ho   DataBaseDemo https://www.jianshu.com/p/8e3f294e2828
 - Demo_service-master: 简书carson_ho ServiceDemo https://www.jianshu.com/p/e04c4239b07e
 - EventBus
 - GetJson：读取json数据
+- HandlerTest
 - HttpURLConnection-master：httpUrl连接 https://github.com/mymdeep/HttpURLConnection
 - JSON_Read_Write：json数据读取与写入（问题）
+- Kawaii_LoadingView:
 - LayoutManagerDemo：RecyclerView中自定义LayoutManager及相关组件的源码分析
+- MiPush
+- MultiThread_learning-master:
+- ObexSDK
 - obexx
   - API：玩安卓api接入练手
   - APIDemo：玩安卓api接入练手
@@ -52,10 +59,13 @@
 - okhttp-master：okhttp官方demo https://github.com/square/okhttp
 - Order-master：详细介绍Android中SQLite的使用 https://github.com/jianjianH/Order
 - renyugang :任玉刚学习路线练习
+- SearchView
 - ServicePractice：服务 （问题）
 - SlideShow：轮播图 （问题）
 - TableLayout：表格布局（问题）
+- TextAxle_View
 - ViewRootimplTest：https://mp.weixin.qq.com/s/tg96p50alrqAtRih8a3AhA
+- WanAndroid:
 - WifiScan：WiFi列表扫描（问题）
 
 

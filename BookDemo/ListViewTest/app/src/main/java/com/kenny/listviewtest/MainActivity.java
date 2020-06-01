@@ -36,14 +36,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private  void initFruits(){
-        for (int i=0;i<105;i++){
-            Fruit fruit = new Fruit(i+"",R.mipmap.ic_launcher);
+        for (int i=0;i<105;i++) {
+            Fruit fruit = new Fruit(i + "", R.mipmap.ic_launcher);
             fruitList.add(fruit);
-            Fruit fruit2 = new Fruit(i+"",R.mipmap.ic_launcher);
+            Fruit fruit2 = new Fruit(i + "", R.mipmap.ic_launcher);
             fruitList.add(fruit);
         }
-
-
     }
+
 }
 

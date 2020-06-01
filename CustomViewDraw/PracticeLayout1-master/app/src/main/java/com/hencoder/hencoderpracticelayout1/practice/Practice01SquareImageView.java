@@ -8,7 +8,7 @@ import android.widget.ImageView;
 /**
  * 需要把它写成正方形的 ImageView
  */
-public class Practice01SquareImageView extends ImageView {
+public class Practice01SquareImageView extends android.support.v7.widget.AppCompatImageView {
     public Practice01SquareImageView(Context context) {
         super(context);
     }

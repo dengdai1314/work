@@ -38,7 +38,13 @@ public class PM25View_Practice_Exactly_200dp extends PM25View {
         int w = 0;
         int h = 0;
 
+        //获取宽度测量模式（Mode）
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        //获取宽度测量大小
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        //通过Mode 和 Size 生成新的SpecMode
+        int measureSpec = MeasureSpec.makeMeasureSpec(widthSize,widthMode);
+
         switch (widthMode) {
             case MeasureSpec.UNSPECIFIED:
                 break;
@@ -87,8 +93,12 @@ public class PM25View_Practice_Exactly_200dp extends PM25View {
 //        if (w > h) {
 //            w = h;
 //        }
+
+
         // 保存宽高计算结果
         setMeasuredDimension(w, h);
+//        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(),widthMeasureSpec),getDefaultSize(getSuggestedMinimumHeight(),heightMeasureSpec));
+
 
         //
         // 这句代码调用了

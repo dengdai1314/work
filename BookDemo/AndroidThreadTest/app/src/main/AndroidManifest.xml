@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ThreadTest"/>
+        <service android:name=".myIntentService">
+            <intent-filter>
+                <action android:name="com.practise.test"/>
+            </intent-filter>
+        </service>
+        <activity android:name=".IntentServiceTest"></activity>
+        <activity android:name=".HandlerThreadTest" />
+        <activity android:name=".AsyncTaskTest" />
+        <activity android:name=".RunnableTest" />
+        <activity android:name=".ThreadTest" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

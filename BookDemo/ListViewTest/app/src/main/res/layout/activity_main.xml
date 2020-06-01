@@ -2,10 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    tools:context = ".MainActivity">
 
     <ListView
         android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:divider="@color/colorPrimary"
+        android:dividerHeight="30dp"
+        android:background="@color/colorAccent"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"/>
 </LinearLayout>

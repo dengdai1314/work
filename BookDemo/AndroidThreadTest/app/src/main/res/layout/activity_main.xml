@@ -29,7 +29,31 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/thread_test1"
-        android:text="继承Thread类实例1"
+        android:id="@+id/thread_test"
+        android:text="继承Thread类实例"
         app:layout_constraintTop_toBottomOf="@id/text"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/runnable_test"
+        android:text="实现Runnable接口"
+        app:layout_constraintTop_toBottomOf="@id/thread_test"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/asyncTask_test"
+        android:text="使用AsyncTask"
+        app:layout_constraintTop_toBottomOf="@id/runnable_test"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/handlerthread_test"
+        android:text="使用HandlerThread"
+        app:layout_constraintTop_toBottomOf="@id/asyncTask_test"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/intentService_test"
+        android:text="使用IntentService"
+        app:layout_constraintTop_toBottomOf="@id/handlerthread_test"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

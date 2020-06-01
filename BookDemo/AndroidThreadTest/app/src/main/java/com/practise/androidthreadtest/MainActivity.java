@@ -20,9 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 public class MainActivity extends AppCompatActivity {
     TextView text;
-    Button changeText;//子线程
-    Button changeText2;//异步消息处理
-    Button threadTest1;
+    Button changeText,changeText2,threadTest,runnableTest,asyncTaskTest,handlerThreadTest,intentServiceTest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +28,11 @@ public class MainActivity extends AppCompatActivity {
         text = (TextView) findViewById(R.id.text);
         changeText = findViewById(R.id.change_text);
         changeText2 = findViewById(R.id.change_text2);
-        threadTest1 = findViewById(R.id.thread_test1);
+        threadTest = findViewById(R.id.thread_test);
+        runnableTest = findViewById(R.id.runnable_test);
+        asyncTaskTest = findViewById(R.id.asyncTask_test);
+        handlerThreadTest = findViewById(R.id.handlerthread_test);
+        intentServiceTest = findViewById(R.id.intentService_test);
         changeText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,10 +57,38 @@ public class MainActivity extends AppCompatActivity {
                 }).start();
             }
         });
-        threadTest1.setOnClickListener(new View.OnClickListener() {
+        threadTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,ThreadTest.class);
+                startActivity(intent);
+            }
+        });
+        runnableTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,RunnableTest.class);
+                startActivity(intent);
+            }
+        });
+        asyncTaskTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,AsyncTaskTest.class);
+                startActivity(intent);
+            }
+        });
+        handlerThreadTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,HandlerThreadTest.class);
+                startActivity(intent);
+            }
+        });
+        intentServiceTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,IntentServiceTest.class);
                 startActivity(intent);
             }
         });

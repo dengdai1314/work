@@ -121,4 +121,5 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.MyHolder> {
         }
         else return type_one;
     }
+
 }

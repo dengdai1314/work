@@ -31,6 +31,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -42,23 +44,24 @@ import okhttp3.Response;
  */
 public class WeatherActivity extends AppCompatActivity {
 
-    private ScrollView weatherLayout;
-    private TextView titleCity;
-    private TextView titleUpdateTime;
-    private TextView degreeText;
-    private TextView weatherInfoText;
-    private LinearLayout forecastLayout;
-    private TextView somaText;
-    private TextView humText;
-    private TextView comfortText;
-    private TextView clothesText;
-    private TextView sportText;
-    private TextView influText;
-    private TextView uvText;
-    private ImageView bingPicImg;
-    public SwipeRefreshLayout swipeRefresh;
-    public DrawerLayout drawerLayout;
-    private Button navButton;
+    //初始化各控件
+    @BindView(R.id.weather_layout) ScrollView weatherLayout;
+    @BindView(R.id.title_city) TextView titleCity;
+    @BindView(R.id.title_update_time) TextView titleUpdateTime;
+    @BindView(R.id.degree_text) TextView degreeText;
+    @BindView(R.id.weather_info_text) TextView weatherInfoText;
+    @BindView(R.id.forecast_layout) LinearLayout forecastLayout;
+    @BindView(R.id.somatosensory_text) TextView somaText;
+    @BindView(R.id.humidity_text) TextView humText;
+    @BindView(R.id.comfort_text) TextView comfortText;
+    @BindView(R.id.clothes_text) TextView clothesText;
+    @BindView(R.id.sport_text) TextView sportText;
+    @BindView(R.id.influenza_text) TextView influText;
+    @BindView(R.id.UV_text) TextView uvText;
+    @BindView(R.id.bing_pic_img) ImageView bingPicImg;
+    @BindView(R.id.swipe_refresh) SwipeRefreshLayout swipeRefresh;
+    @BindView(R.id.drawer_layout) DrawerLayout drawerLayout;
+    @BindView(R.id.nav_button) Button navButton;
 
     private String mWeatherId;
 
@@ -80,23 +83,7 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
 
         // 初始化各控件
-        weatherLayout = (ScrollView) findViewById(R.id.weather_layout);
-        titleCity = (TextView) findViewById(R.id.title_city);
-        titleUpdateTime = (TextView) findViewById(R.id.title_update_time);
-        degreeText = (TextView) findViewById(R.id.degree_text);
-        weatherInfoText = (TextView) findViewById(R.id.weather_info_text);
-        forecastLayout = (LinearLayout) findViewById(R.id.forecast_layout);
-        somaText = (TextView) findViewById(R.id.somatosensory_text);
-        humText = (TextView) findViewById(R.id.humidity_text);
-        comfortText = (TextView) findViewById(R.id.comfort_text);
-        clothesText = (TextView) findViewById(R.id.clothes_text);
-        sportText = (TextView) findViewById(R.id.sport_text);
-        influText = (TextView) findViewById(R.id.influenza_text);
-        uvText = (TextView) findViewById(R.id.UV_text);
-        bingPicImg = (ImageView) findViewById(R.id.bing_pic_img);
-        swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navButton = (Button) findViewById(R.id.nav_button);
+        ButterKnife.bind(this);
 
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         //获取SharedPreferences实例

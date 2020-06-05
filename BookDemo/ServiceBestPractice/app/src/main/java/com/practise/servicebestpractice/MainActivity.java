@@ -33,6 +33,7 @@ import androidx.core.content.ContextCompat;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private DownloadService.DownloadBinder downloadBinder;
+    Intent intent;
 
     String[] permissions = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startDownload.setOnClickListener(this);
         pauseDownload.setOnClickListener(this);
         cancelDownload.setOnClickListener(this);
-        Intent intent = new Intent(this,DownloadService.class);
+        intent = new Intent(this,DownloadService.class);
         //启动和绑定服务
         startService(intent);
         bindService(intent,connection,BIND_AUTO_CREATE);
@@ -160,5 +161,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         unbindService(connection);
+        stopService(intent);//停止服务
     }
 }

@@ -86,6 +86,7 @@ public class DownloadTask extends AsyncTask<String,Integer,Integer> {
                     .build();
             Response response = client.newCall(request).execute();//发送请求并读取服务器返回的数据
             if(response!=null){
+                //拿到文件字节流
                 is = response.body().byteStream();
                 //RandonAccessFile：基于字节访问，能够任意访问文件的任意位置
                 savedFile = new RandomAccessFile(file,"rw");

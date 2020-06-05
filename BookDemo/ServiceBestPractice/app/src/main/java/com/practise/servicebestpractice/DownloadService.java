@@ -19,6 +19,7 @@ public class DownloadService extends Service {
     private DownloadTask downloadTask;
     private String downloadUrl;
     public DownloadService() {
+        super();
     }
 
     private DownloadListener listener = new DownloadListener() {
@@ -132,5 +133,10 @@ public class DownloadService extends Service {
         }
         Notification notification = builder.build();
         return notification;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 }

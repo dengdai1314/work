@@ -156,4 +156,5 @@ public class MemoryLeakActivity extends AppCompatActivity {
         }.start();
 
     }
+
 }
